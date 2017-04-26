@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "309513630553",
+    "project_id": "basketball-mobility"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309513630553:android:6a672abad65fef36",
+        "android_client_info": {
+          "package_name": "hwp.basketball.mobility"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309513630553-nmpkdrivhfdddo98sv7japavfpctrel7.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "309513630553-aal4npruodkv51bk8i54enln9q38t0tf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hwp.basketball.mobility",
+            "certificate_hash": "330c88d366bdf8d03c598c92656cdd4ac1bf45d2"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7N7gmjzYmGPxrNuFiLnqTWZilEybhw9M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

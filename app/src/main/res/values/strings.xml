@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Basketball Mobility</string>
+    <string name="android_device">Android Device</string>
+    <string name="sensor_tile">Sensor Tile</string>
+    <string name="export_to_bitmap">Export to bitmap</string>
+    <string name="calibrate_sensor">Calibrate sensor</string>
+    <string name="show_statistics">Show statistics</string>
+    <string name="rotate_map">Rotate map</string>
+    <string name="start_movement_tracking">Start Movement Tracking</string>
+    <string name="pause_movement_tracking">Pause Movement Tracking</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to onGooglLoginClicked -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="add_new_player">Add new player</string>
+    <string name="edit_new_player">Edit player</string>
+    <string name="add_player_dialog_message">Input player info</string>
+    <string name="edit_player_dialog_message">Edit player info</string>
+    <string name="last_name">Last name</string>
+
+    <string name="country_prompt">Choose a player position</string>
+    <string name="tab_title">tab title</string>
+    <string name="first_name">First name</string>
+    <string name="height">Height</string>
+    <string name="drill_image">drill image</string>
+    <string name="delete_button">delete button</string>
+    <string name="drill_setup_text">
+        Run drill steps:\n
+        1. Select drill or create new \n
+        2. Select player(s) or add\n
+        3. Connect players\n
+        4. Review
+    </string>
+
+    <string name="disconnected">Disconnected</string>
+    <string name="connected">Connected via %s</string>
+    <string name="no_devices_found">No devices found</string>
+    <string name="scanning_for_ble_devices">Scanning for BLE devices</string>
+    <string name="type_drill_name">Type drill name</string>
+    <string name="number_of_players_to_perform_drill">Number of players to perform drill</string>
+
+    <string-array name="playing_positions">
+        <item>PG (Point Guard)</item>
+        <item>SG (Shooting Guard)</item>
+        <item>SF (Small Forward)</item>
+        <item>PF (Power Forward)</item>
+        <item>C (Center)</item>
+    </string-array>
+
+</resources>

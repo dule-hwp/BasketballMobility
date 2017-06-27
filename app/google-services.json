@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "309513630553",
-    "project_id": "basketball-mobility"
+    "firebase_url": "https://basketball-mobility.firebaseio.com",
+    "project_id": "basketball-mobility",
+    "storage_bucket": "basketball-mobility.appspot.com"
   },
   "client": [
     {
@@ -12,6 +14,10 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "309513630553-56mp8dpu4b4jvrdfih3h84cgdvce7eui.apps.googleusercontent.com",
+          "client_type": 3
+        },
         {
           "client_id": "309513630553-nmpkdrivhfdddo98sv7japavfpctrel7.apps.googleusercontent.com",
           "client_type": 3
@@ -35,11 +41,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309513630553-56mp8dpu4b4jvrdfih3h84cgdvce7eui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

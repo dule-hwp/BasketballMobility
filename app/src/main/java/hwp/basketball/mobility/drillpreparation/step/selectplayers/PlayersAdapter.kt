@@ -8,20 +8,15 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import hwp.basketball.mobility.R
-import hwp.basketball.mobility.dagger.DrillSetupActivityScope
 import hwp.basketball.mobility.entitiy.player.PlayerViewModel
 import kotlinx.android.synthetic.main.list_item_player.view.*
-import javax.inject.Inject
 
 /**
  * Created by dusan_cvetkovic on 3/28/17.
  */
-@DrillSetupActivityScope
-class PlayersAdapter @Inject constructor() :
+class PlayersAdapter :
         RecyclerView.Adapter<PlayersAdapter.PlayerViewHolder>(), PlayersContract.AdapterView {
 
-
-    //    @Inject
     lateinit var listener: PlayersContract.Presenter
     private var currentItem: PlayerViewModel? = null
     private var currentItemPosition: Int = -1
@@ -29,7 +24,6 @@ class PlayersAdapter @Inject constructor() :
     var players: MutableList<PlayerViewModel> = mutableListOf()
 
     class PlayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         private var ivPlayer: ImageView = itemView.findViewById(R.id.ivPlayerImage) as ImageView
         private var tvName: TextView = itemView.findViewById(R.id.tvFullName) as TextView
         private var tvPosition: TextView = itemView.findViewById(R.id.tvPosition) as TextView

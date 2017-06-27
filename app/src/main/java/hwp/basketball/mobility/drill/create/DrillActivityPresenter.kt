@@ -1,58 +1,58 @@
 package hwp.basketball.mobility.drill.create
 
 import android.graphics.Bitmap
-import com.rm.freedrawview.Point
-import hwp.basketball.mobility.entitiy.drills.DrillViewModel
-import hwp.basketball.mobility.entitiy.drills.DrillsRealmRepository
-import java.util.*
-import javax.inject.Inject
+import hwp.basketball.mobility.entitiy.drills.*
+import hwp.basketball.mobility.util.PointF
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
+import kotlin.streams.toList
 
 /**
+ *
  * Created by dusan_cvetkovic on 4/19/17.
  */
 class DrillActivityPresenter(val view: DrillActivityContract.View) :
         DrillActivityContract.Presenter {
-
-    val drillsDataStore: DrillsRealmRepository = DrillsRealmRepository
-
-    override fun onDrillDataFilled(numOfPlayers: Int, drillName: String?) {
-        val drillViewModel = DrillViewModel(drillName!!, null, numOfPlayers, drawImage, mCurrentPathPoints)
-//        val drillsDataStore = DrillsRealmRepository()
-        drillsDataStore.add(drillViewModel)
-        view.finishActivity()
+    override fun attach() {
     }
 
-    private var drawImage: Bitmap? = null
-
-    override fun onDrawCreated(draw: Bitmap?) {
-        drawImage = draw
-        view.promptForDrillNameDialog(draw)
+    override fun detach() {
+        compositeDisposable.clear()
+        drillsDataStore.cleanup()
     }
 
-    override fun onDrawCreationError() {
-        view.promptForDrillNameDialog(null)
+    val drillsDataStore: DrillsDataStore by lazy {
+        DrillsFirebaseRepository()
+    }
+
+    val compositeDisposable = CompositeDisposable()
+
+    override fun onDrillDataFilled(pathPoints: List<PointF>, drillName: String, numOfPlayers: Int, bitmap: Bitmap, viewDimens: ViewDimens) {
+        //convert points to percent point to take care of different views display
+        val lstPoints = pathPoints.stream()
+                .map { PercentPoint.fromViewPoint(it, viewDimens) }
+                .toList()
+        val drill = DrillViewModel(drillName, numberOfPlayers = numOfPlayers, pathPoints = lstPoints)
+        view.showProgressDialog("Adding drill to database")
+
+        val disposable = drillsDataStore.addDrillToDatabase(drill, bitmap)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    Timber.i("Drill added to database!")
+                    view.hideProgressDialog()
+                    view.finishActivity()
+                }, { error ->
+                    Timber.e(error)
+                    view.hideProgressDialog()
+                    view.displayError(error.localizedMessage)
+                })
+        compositeDisposable.add(disposable)
     }
 
     override fun onDoneTap() {
         view.takeADrillScreenshot()
     }
-
-    private var mCurrentPathPoints: ArrayList<Point>? = null
-
-    override fun onNewPathDrawn(currentPathPoints: ArrayList<Point>?) {
-        mCurrentPathPoints = currentPathPoints?.clone() as ArrayList<Point>?
-    }
-
-    override fun onPathStart() {
-
-    }
-
-    override fun onUndoCountChanged(undoCount: Int) {
-
-    }
-
-    override fun onRedoCountChanged(redoCount: Int) {
-
-    }
-
 }

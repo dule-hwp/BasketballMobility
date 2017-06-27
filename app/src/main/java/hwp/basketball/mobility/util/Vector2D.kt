@@ -10,15 +10,29 @@ object Vector2D {
     }
 
     fun angleBetweenTwoVectors(vec1: FloatArray, vec2: FloatArray): Int {
-        val angle = Math.acos((dotProduct(vec1, vec2) / (Length(vec1) * Length(vec2))).toDouble())
-        return Math.toDegrees(angle).toInt()
+        return Math.toDegrees(angleBetweenTwoVectorsInRad(vec1, vec2)).toInt()
+    }
+
+    fun angleBetweenTwoVectorsInRad(vec1: FloatArray, vec2: FloatArray): Double {
+        return Math.acos((dotProduct(vec1, vec2) / (Length(vec1) * Length(vec2))).toDouble())
+    }
+
+    fun angleBetweenTwoVectorsInRad(vec1: PointF, vec2: PointF): Double {
+        return angleBetweenTwoVectorsInRad(vec1.toFloatArray(), vec2.toFloatArray())
+    }
+
+    fun angleBetweenTwoPoints(start: PointF, end: PointF): Int {
+        return angleBetweenTwoVectors(start.toFloatArray(), end.toFloatArray())
+    }
+
+    fun angleBetweenTwoVectors(start: PointF, end: PointF): Int {
+        return start.getAngle(end).toInt()
+//        return Math.toDegrees(Math.atan2((end.y - start.y).toDouble(),
+//                (end.x - start.x).toDouble())).toInt()
     }
 
     fun angleBetweenTwoVectors(vec1: Array<Float>, vec2: Array<Float>): Int {
-        val v1 = floatArrayOf(vec1[0], vec1[1])
-        val v2 = floatArrayOf(vec2[0], vec2[1])
-
-        return angleBetweenTwoVectors(v1, v2)
+        return angleBetweenTwoVectors(vec1.toFloatArray(), vec2.toFloatArray())
     }
 
     fun Length(vec: FloatArray): Float {
@@ -70,7 +84,7 @@ object Vector2D {
             return value
     }
 
-    fun RotateVector(vec: FloatArray, degrees: Int): FloatArray {
+    fun RotateVector(vec: FloatArray, degrees: Float): FloatArray {
         val rotated = FloatArray(2)
         val rad = Math.toRadians(degrees.toDouble())
 
@@ -86,12 +100,21 @@ object Vector2D {
         return Bitmap.createBitmap(source, 0, 0, source.width, source.height, matrix, true)
     }
 
-    fun getDrawPoint(unitVector: FloatArray, degrees: Int, lineLength: Float, lineStartCoords: FloatArray): FloatArray {
-        val rotated = Vector2D.RotateVector(unitVector, degrees)
-        val normalizedVec = Vector2D.Normalize(rotated)
-        val scaledVec = Vector2D.MultiplyScalar(normalizedVec, lineLength)
-        val drawVector = Vector2D.Add(scaledVec, lineStartCoords)
-        return drawVector
+    fun getDrawPoint(unitVector: FloatArray, degrees: Float, lineLength: Float, lineStartCoords: PointF): PointF {
+        val rotated = RotateVector(unitVector, degrees)
+        val normalizedVec = Normalize(rotated)
+        val scaledVec = MultiplyScalar(normalizedVec, lineLength)
+        val drawVector = Add(scaledVec, lineStartCoords.toFloatArray())
+        return PointF(drawVector[0], drawVector[1])
+    }
+
+    fun distance(point1: FloatArray, point2: FloatArray): Float {
+        return Length(Subtract(point1, point2))
+    }
+
+    fun distance(point1: PointF, point2: PointF): Float {
+        return Length(Subtract(point1.toFloatArray(), point2.toFloatArray()))
     }
 
 }
+

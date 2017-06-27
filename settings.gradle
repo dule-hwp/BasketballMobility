@@ -1,1 +1,1 @@
-include ':app', ':BlueSTSDK', ':freedrawview'
+include ':app', ':BlueSTSDK'

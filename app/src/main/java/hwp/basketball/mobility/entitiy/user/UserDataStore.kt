@@ -8,7 +8,7 @@ import io.reactivex.Single
  */
 interface UserDataStore<T> {
     fun add(item: T) : Completable
-    fun findByEmail(email: String): Single<UserViewModel>?
+    fun findByEmail(email: String): Single<CoachViewModel>?
 }
 
 

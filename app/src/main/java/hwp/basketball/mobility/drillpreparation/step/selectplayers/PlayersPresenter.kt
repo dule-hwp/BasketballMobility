@@ -1,20 +1,19 @@
 package hwp.basketball.mobility.drillpreparation.step.selectplayers
 
-import hwp.basketball.mobility.dagger.DrillSetupActivityScope
 import hwp.basketball.mobility.drillpreparation.step.DrillSetupOutput
-import hwp.basketball.mobility.entitiy.player.PlayerRealmRepository
+import hwp.basketball.mobility.entitiy.player.PlayerFirebaseRepository
 import hwp.basketball.mobility.entitiy.player.PlayerViewModel
 import hwp.basketball.mobility.entitiy.player.PlayersDataStore
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
-import javax.inject.Inject
 
 /**
+ *
  * Created by dusan_cvetkovic on 3/28/17.
  */
-@DrillSetupActivityScope
-class PlayersPresenter @Inject constructor(val view: PlayersContract.View) : PlayersContract.Presenter
-{
+class PlayersPresenter constructor(val view: PlayersContract.View) : PlayersContract.Presenter {
     override fun setPlayerAdapterView(playersAdapter: PlayersContract.AdapterView) {
         playersAdapterView = playersAdapter
     }
@@ -42,31 +41,37 @@ class PlayersPresenter @Inject constructor(val view: PlayersContract.View) : Pla
 
     override fun deletePlayer(position: Int) {
         val player = playersAdapterView?.getItem(position)
-
         player?.let {
-            playersDataStore?.remove((it.id))
-            playersAdapterView?.notifyPlayerDeleted(position)
+            playersDataStore.remove(it)
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        playersAdapterView?.notifyPlayerDeleted(position)
+                    },{
+                        Timber.e(it)
+                        view.displayError(it.localizedMessage)
+                    })
+
         }
     }
 
     var playersAdapterView: PlayersContract.AdapterView? = null
 
-    private var playersDataStore: PlayersDataStore? = null
+    private val playersDataStore: PlayersDataStore by lazy {
+        PlayerFirebaseRepository()
+    }
 
     private lateinit var compositeDisposable: CompositeDisposable
 
     override fun attach() {
         playersAdapterView?.listener(this)
         compositeDisposable = CompositeDisposable()
-        playersDataStore = PlayerRealmRepository()
 
-        val players = playersDataStore?.findAll()
-        val disposable = players?.
-                //                subscribeOn(Schedulers.io())?.
-//                observeOn(AndroidSchedulers.mainThread())?.
-                subscribe({
+        val players = playersDataStore.findAll()
+        val disposable = players
+                .subscribe({
                     playersAdapterView?.swapData(it)
-                    Timber.d("data swap:"+it.size)
+                    Timber.d("data swap:" + it.size)
                 }, {
                     view.displayError("something went wrong " + it.message)
                 })
@@ -84,28 +89,36 @@ class PlayersPresenter @Inject constructor(val view: PlayersContract.View) : Pla
             player.firstName = first
             player.lastName = last
             player.position = position
-            playersDataStore?.update(player)
-            Timber.d("updating player $player")
-            playersAdapterView?.notifyPlayerUpdated(player)
+            playersDataStore.update(player)
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        Timber.d("updated player $player")
+                        playersAdapterView?.notifyPlayerUpdated(player)
+                    },{
+                        Timber.e("failed to update player $player")
+                        Timber.e(it)
+                    })
+
         }
     }
 
     override fun onAddPlayerButtonClicked(first: String, last: String, position: String, height: String) {
-        playersDataStore?.let {
-            compositeDisposable.add(it.add(PlayerViewModel(
-                    firstName = first,
-                    lastName = last,
-                    position = position,
-                    height = height)).subscribe({ player ->
-                playersAdapterView?.let { adapter ->
-                    adapter.addPlayer(player)
-                    adapter.notifyInsertedAt(adapter.getCount())
-                    Timber.d("adding player"+player)
-                }
-            }, {
-                view.displayError("error while inserting player")
-            }))
-        }
+        val player = PlayerViewModel(
+                firstName = first,
+                lastName = last,
+                position = position,
+                height = height)
+        compositeDisposable.add(playersDataStore.add(player)
+                .subscribe({
+                    playersAdapterView?.let { adapter ->
+                        adapter.addPlayer(player)
+                        adapter.notifyInsertedAt(adapter.getCount())
+                        Timber.d("adding player" + player)
+                    }
+                }, {
+                    view.displayError("error while inserting player: ${it.localizedMessage}")
+                }))
     }
-
 }
+

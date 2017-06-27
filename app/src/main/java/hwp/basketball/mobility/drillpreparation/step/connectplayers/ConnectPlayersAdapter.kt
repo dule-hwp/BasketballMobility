@@ -8,20 +8,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import hwp.basketball.mobility.R
-import hwp.basketball.mobility.dagger.DrillSetupActivityScope
 import hwp.basketball.mobility.drillpreparation.step.DrillSetupOutput
 import hwp.basketball.mobility.entitiy.player.PlayerViewModel
-import javax.inject.Inject
 
 /**
  * Created by dusan_cvetkovic on 3/28/17.
  */
-@DrillSetupActivityScope
-class ConnectPlayersAdapter @Inject constructor() :
+class ConnectPlayersAdapter :
         RecyclerView.Adapter<ConnectPlayersAdapter.ConnectPlayerViewHolder>(), ConnectPlayersContract.AdapterView {
 
-    //    @Inject
     var listener: ConnectPlayersContract.AdapterViewCallback? = null
+
     private var selectedDrill: PlayerViewModel? = null
 
     var players: MutableList<PlayerViewModel> = mutableListOf()
@@ -86,7 +83,7 @@ class ConnectPlayersAdapter @Inject constructor() :
     }
 
     override fun setConnected(position: Int, checked: Boolean) {
-        if (position>=0 && position<this.itemCount)
+        if (position >= 0 && position < this.itemCount)
             notifyItemChanged(position)
     }
 }

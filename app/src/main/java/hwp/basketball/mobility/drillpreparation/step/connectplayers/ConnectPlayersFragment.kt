@@ -5,18 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.stepstone.stepper.VerificationError
 import hwp.basketball.mobility.R
-import hwp.basketball.mobility.drillpreparation.DrillSetupActivity
 import hwp.basketball.mobility.drillpreparation.step.BaseStepFragment
 import hwp.basketball.mobility.sensortilescan.ScanActivity
 import hwp.basketball.mobility.sensortilescan.SensorsDialog
 import timber.log.Timber
-import javax.inject.Inject
 
 
 /**
@@ -24,16 +21,14 @@ import javax.inject.Inject
  */
 class ConnectPlayersFragment : BaseStepFragment(), ConnectPlayersContract.View {
 
-    @Inject
     lateinit var connectPlayersPresenter: ConnectPlayersContract.Presenter
-
-    @Inject
     lateinit var playersAdapter: ConnectPlayersAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        drillSetupComponent.inject(this)
+        playersAdapter = ConnectPlayersAdapter()
+        connectPlayersPresenter = ConnectPlayersPresenter(this)
         connectPlayersPresenter.setConnectPlayersAdapterView(playersAdapter)
     }
 
@@ -54,7 +49,7 @@ class ConnectPlayersFragment : BaseStepFragment(), ConnectPlayersContract.View {
 
     override fun showConnectDialog() {
 //        drillsDialog.showAddDrillDialog()
-//        val snack = Snackbar.make(btnAdd, "opening add drill view", Snackbar.LENGTH_INDEFINITE)
+//        val snack = Snackbar.make(btnAdd, "opening addDrillToDatabase drill view", Snackbar.LENGTH_INDEFINITE)
 //        snack.setAction("Dismiss") { snack.dismiss() }
 //        snack.show()
     }
@@ -111,7 +106,7 @@ class ConnectPlayersFragment : BaseStepFragment(), ConnectPlayersContract.View {
                     }
                 }
             } else {
-                Timber.d("onActivityResult: result from scan activity not OK")
+                Timber.d("onActivityResult: result from scan context not OK")
                 connectPlayersPresenter.onScanSuccessfulReturnTag(null)
             }
         }

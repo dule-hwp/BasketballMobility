@@ -1,92 +1,113 @@
 package hwp.basketball.mobility.device.sensor
 
-import android.content.Context
-import android.content.SharedPreferences
-import hwp.basketball.mobility.device.sensor.android.AndroidSensor
-import hwp.basketball.mobility.device.sensor.sensortile.SensorTileSensor
+import hwp.basketball.mobility.device.sensor.BaseSensor.SensorStateChangedCallback
 import io.reactivex.Observable
-import javax.inject.Inject
 
 
 /**
  * Created by dusan_cvetkovic on 4/7/17.
  *
  */
-class BMSensorManager(val sensorStateCallback: BaseSensor.SensorStateChangedCallback) {
+class BMSensorManager(val sensor: BaseSensor, val callback: IBMSensorManager.Callback?) : IBMSensorManager, SensorStateChangedCallback {
 
-    @Inject
-    lateinit var context: Context
-
-    @Inject
-    lateinit var prefs: SharedPreferences
-
-    private var sensor: BaseSensor? = null
-
-    fun setupSensor(type: BaseSensor.Type) {
-        when (type) {
-            BaseSensor.Type.SENSOR_TILE -> {
-                sensor = SensorTileSensor(sensorStateCallback, context, prefs)
-            }
-            BaseSensor.Type.ANDROID_DEVICE -> {
-                sensor = AndroidSensor(context, prefs)
-            }
-        }
+    init {
+        sensor.addStateListener(this)
     }
 
-    fun observeAccSensorChanged(): Observable<FloatArray> {
+    override fun onStateConnected(name: String) {
+        callback?.onSensorConnected(this)
+    }
+
+    override fun onStateDisconnected() {
+        callback?.onSensorDisconnected(this)
+    }
+
+    override fun observeAccSensorChanged(): Observable<AccData> {
         return Observable.create { emitter ->
-            sensor?.accelerometerListener = object : BaseSensor.AccelerometerDataChangedCallback {
-                override fun onAccelerometerDataUpdate(data: FloatArray) {
-                    emitter.onNext(data)
+            sensor.accelerometerListener = object : BaseSensor.AccelerometerDataChangedCallback {
+                override fun onAccelerometerDataUpdate(data: FloatArray, timestamp: Long) {
+                    emitter.onNext(AccData(data, timestamp))
                 }
             }
-            if (sensor==null)
-                emitter.onError(IllegalStateException("sensor is null"))
         }
     }
 
     fun observeMagSensorChanged(): Observable<FloatArray> {
         return Observable.create { emitter ->
-            sensor?.magnetometerListener = object : BaseSensor.MagnetometerDataChangedCallback {
+            sensor.magnetometerListener = object : BaseSensor.MagnetometerDataChangedCallback {
                 override fun onMagnetometerDataUpdate(data: FloatArray) {
                     emitter.onNext(data)
                 }
             }
-            if (sensor==null)
-                emitter.onError(IllegalStateException("sensor is null"))
         }
     }
 
     fun observeGyroSensorChanged(): Observable<FloatArray> {
         return Observable.create { emitter ->
-            sensor?.gyroListener = object : BaseSensor.GyroDataChangedCallback {
+            sensor.gyroListener = object : BaseSensor.GyroDataChangedCallback {
                 override fun onGyroDataUpdate(data: FloatArray) {
                     emitter.onNext(data)
                 }
             }
-            if (sensor==null)
-                emitter.onError(IllegalStateException("sensor is null"))
         }
     }
 
-    fun connectTo(nodeTag: String) {
-        sensor?.connectTo(nodeTag)
+    override fun observeStepsChanged(): Observable<BaseSensor.StepData> {
+        return Observable.create { emitter ->
+            sensor.stepListener = object : BaseSensor.StepDataChangedCallback {
+                override fun onStepDataUpdate(data: BaseSensor.StepData) {
+                    emitter.onNext(data)
+                }
+            }
+        }
     }
 
-    fun startSensorUpdates() {
-        sensor?.subscribeToAccChange()
-        sensor?.subscribeToMagnetometerChange()
-        sensor?.subscribeToGyroChange()
+    override fun observeAngleChanged(): Observable<Float> {
+        return Observable.create { emitter ->
+            sensor.angleListener = object : BaseSensor.AngleDataChangedCallback {
+                override fun onAngleDataUpdate(data: Float) {
+                    emitter.onNext(data)
+                }
+            }
+        }
     }
 
-    fun stopSensorUpdates() {
-        sensor?.unSubscribeFromAccChange()
-        sensor?.unSubscribeFromMagnetometerChange()
-        sensor?.unSubscribeFromGyroChange()
+    override fun observeMotionIntensityChanged(): Observable<Int> {
+        return Observable.create { emitter ->
+            sensor.motionListener = object : BaseSensor.MotionDataChangedCallback{
+                override fun onMotionDataUpdate(data: Int) {
+                    emitter.onNext(data)
+                }
+            }
+        }
+    }
+
+    override fun connectTo(nodeTag: String) {
+        sensor.connectTo(nodeTag)
+    }
+
+    override fun startSensorUpdates() {
+        sensor.subscribeToAccChange()
+        sensor.subscribeToMagnetometerChange()
+        sensor.subscribeToGyroChange()
+        sensor.subscribeToMotionChange()
+        sensor.subscribeToAngleChangeChange()
+        sensor.subscribeToSpeedChange()
+    }
+
+    override fun stopSensorUpdates() {
+        sensor.unSubscribe()
+
     }
 
     override fun toString(): String {
-        return sensor?.getName() ?: "Unknown device"
+        return sensor.getName()
     }
 
+    override fun saveTestData(suffix: String): String? {
+        return sensor.saveSensorData(suffix)
+
+    }
+
+    data class AccData(val data: FloatArray, val timestamp: Long)
 }

@@ -10,7 +10,7 @@ import hwp.basketball.mobility.entitiy.player.PlayerViewModel
  *
  * It should be used to pass data between setup and actual drill mode.
  *
- * Make sure you call reset method before starting setup activity.
+ * Make sure you call reset method before starting setup context.
  */
 object DrillSetupOutput {
     val players: MutableList<PlayerViewModel> = mutableListOf()

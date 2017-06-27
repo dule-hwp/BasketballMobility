@@ -1,23 +1,20 @@
 package hwp.basketball.mobility.drillpreparation.step.connectplayers
 
 import com.stepstone.stepper.VerificationError
-import hwp.basketball.mobility.dagger.DrillSetupActivityScope
 import hwp.basketball.mobility.device.sensor.BaseSensor
 import hwp.basketball.mobility.drillpreparation.step.DrillSetupOutput
 import hwp.basketball.mobility.entitiy.player.PlayerViewModel
 import io.reactivex.disposables.CompositeDisposable
-import javax.inject.Inject
 
 /**
  * Created by dusan_cvetkovic on 4/4/17.
  *
  */
-@DrillSetupActivityScope
-class ConnectPlayersPresenter @Inject constructor(val view: ConnectPlayersContract.View)
-    : ConnectPlayersContract.Presenter, ConnectPlayersContract.AdapterViewCallback{
+class ConnectPlayersPresenter constructor(val view: ConnectPlayersContract.View)
+    : ConnectPlayersContract.Presenter, ConnectPlayersContract.AdapterViewCallback {
 
     private var connectPlayersAdapterView: ConnectPlayersContract.AdapterView? = null
-    private var selectedDrill: PlayerViewModel? = null
+    private var selectedPlayer: PlayerViewModel? = null
     private lateinit var compositeDisposable: CompositeDisposable
     private var connectingPlayerViewModel: PlayerViewModel? = null
     private var connectingPlayerViewModelPosition: Int = -1
@@ -58,8 +55,8 @@ class ConnectPlayersPresenter @Inject constructor(val view: ConnectPlayersContra
     }
 
     override fun onAndroidSensorSelected() {
-        if (connectingPlayerViewModel != null) {
-            DrillSetupOutput.connectMap.put(connectingPlayerViewModel!!,
+        connectingPlayerViewModel?.let {
+            DrillSetupOutput.connectMap.put(it,
                     DrillSetupOutput.SensorConnectionData(BaseSensor.Type.ANDROID_DEVICE))
             connectPlayersAdapterView?.setConnected(connectingPlayerViewModelPosition, true)
             removeCurrentConnectorValues()
@@ -88,7 +85,7 @@ class ConnectPlayersPresenter @Inject constructor(val view: ConnectPlayersContra
 
     override fun detach() {
         compositeDisposable.clear()
-        selectedDrill = null
+        selectedPlayer = null
         connectPlayersAdapterView = null
     }
 

@@ -9,39 +9,40 @@ import android.widget.Toast
 import com.stepstone.stepper.StepperLayout
 import com.stepstone.stepper.VerificationError
 import hwp.basketball.mobility.R
-import hwp.basketball.mobility.dagger.DaggerDrillSetupActivityComponent
-import hwp.basketball.mobility.dagger.DrillSetupActivityComponent
-import hwp.basketball.mobility.dagger.DrillSetupActivityModule
-import hwp.basketball.mobility.dagger.StepsModule
 import hwp.basketball.mobility.drillpreparation.step.DrillSetupOutput
 import hwp.basketball.mobility.drillpreparation.step.connectplayers.ConnectPlayersFragment
 import hwp.basketball.mobility.drillpreparation.step.review.ReviewFragment
 import hwp.basketball.mobility.drillpreparation.step.selectdrill.DrillsFragment
 import hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayersFragment
 import hwp.basketball.mobility.pathrecorder.PathRecorderActivity
+import hwp.basketball.mobility.util.toast
 import kotlinx.android.synthetic.main.activity_drill_setup.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
-
+/**
+ * Activity in charge of drill setup.
+ *
+ * Responsible for navigating through underlying step fragments:
+ * 1. select player,
+ * 2. select drill,
+ * 3. connect player,
+ * 4. review.
+* */
 open class DrillSetupActivity : AppCompatActivity(),
         StepperLayout.StepperListener, OnNavigationBarListener {
 
-
-
     companion object {
         fun getStartIntent(context: Context): Intent {
+//          resetting "drill setup output" singleton before new setup is started
             DrillSetupOutput.reset()
             return Intent(context, DrillSetupActivity::class.java)
         }
 
         private val CURRENT_STEP_POSITION_KEY = "position"
-        val TAG: String = "DrillSetupActivity"
     }
 
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
-
-    lateinit var drillSetupActivityComponent: DrillSetupActivityComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +51,6 @@ open class DrillSetupActivity : AppCompatActivity(),
         val connectPlayersFragment = ConnectPlayersFragment.newInstance()
         val drillsFragment = DrillsFragment.newInstance()
         val reviewFragment = ReviewFragment.newInstance()
-
-        drillSetupActivityComponent = DaggerDrillSetupActivityComponent.builder()
-                .drillSetupActivityModule(DrillSetupActivityModule(this))
-                .stepsModule(StepsModule(playersFragment, drillsFragment, connectPlayersFragment))
-                .build()
 
         title = "Prepare Drill"
 
@@ -86,18 +82,18 @@ open class DrillSetupActivity : AppCompatActivity(),
     }
 
     override fun onCompleted(completeButton: View) {
-        Toast.makeText(this, "onCompleted!", Toast.LENGTH_SHORT).show()
+        toast("onCompleted!")
         val startIntent = PathRecorderActivity.getStartIntent(this, "test")
         startActivity(startIntent)
         finish()
     }
 
     override fun onError(verificationError: VerificationError) {
-        Toast.makeText(this, "onError! -> " + verificationError.errorMessage, Toast.LENGTH_SHORT).show()
+        toast("onError! -> ${verificationError.errorMessage}")
     }
 
     override fun onStepSelected(newStepPosition: Int) {
-        Toast.makeText(this, "onStepSelected! -> " + newStepPosition, Toast.LENGTH_SHORT).show()
+        toast("onStepSelected! -> " + newStepPosition)
     }
 
     override fun onReturn() {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="hwp.basketball.mobility.drill.create.DrillActivity">
 
@@ -14,8 +14,8 @@
         android:scaleType="fitCenter"
         android:visibility="gone" />
 
-    <com.rm.freedrawview.FreeDrawView
-        android:id="@+id/free_draw_view"
+    <hwp.basketball.mobility.util.CanvasView
+        android:id="@+id/canvas_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -32,51 +32,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="0dp"-->
-                <!--android:layout_weight="1"-->
-                <!--android:orientation="horizontal">-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:gravity="center"-->
-                    <!--android:orientation="vertical">-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Stroke width"-->
-                        <!--android:textColor="@android:color/white" />-->
-
-                    <!--<SeekBar-->
-                        <!--android:id="@+id/slider_thickness"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content" />-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:gravity="center"-->
-                    <!--android:orientation="vertical">-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Stroke alpha"-->
-                        <!--android:textColor="@android:color/white" />-->
-
-                    <!--<SeekBar-->
-                        <!--android:id="@+id/slider_alpha"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content" />-->
-                <!--</LinearLayout>-->
-            <!--</LinearLayout>-->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -92,9 +47,10 @@
                         android:id="@+id/btn_undo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:onClick="onUndoClicked"
                         android:text="Undo"
-                        app:backgroundTint="@color/colorPrimary"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        app:backgroundTint="@color/colorPrimary" />
 
                     <TextView
                         android:id="@+id/txt_undo_count"
@@ -114,9 +70,10 @@
                         android:id="@+id/btn_redo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:onClick="onRedoClicked"
                         android:text="redo"
-                        app:backgroundTint="@color/colorPrimary"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        app:backgroundTint="@color/colorPrimary" />
 
                     <TextView
                         android:id="@+id/txt_redo_count"
@@ -132,9 +89,10 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:backgroundTint="@color/colorPrimary"
+                    android:onClick="onClearClicked"
                     android:text="clear all"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    app:backgroundTint="@color/colorPrimary" />
             </LinearLayout>
 
             <LinearLayout
@@ -147,10 +105,10 @@
                     android:id="@+id/btn_done"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    app:backgroundTint="@color/colorPrimary"
                     android:layout_weight="1"
                     android:text="Done"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    app:backgroundTint="@color/colorPrimary" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

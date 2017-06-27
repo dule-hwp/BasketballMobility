@@ -8,16 +8,7 @@ data class PlayerViewModel(var firstName: String = "def",
                            var height: String = "def",
                            var position: String = "def",
                            var imageUrl: String = "def",
-                           var id: Int = 0
-) {
-
-    constructor(realmModel: PlayerRealmModel) : this(
-            firstName = realmModel.firstName,
-            lastName = realmModel.lastName,
-            imageUrl = realmModel.photoUrl,
-            position = realmModel.position,
-            height = realmModel.heightInCm,
-            id = realmModel._id
-
-    )
+                           var id: String = "def") {
+    val name: String
+        get() = "$lastName $firstName"
 }

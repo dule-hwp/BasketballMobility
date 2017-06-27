@@ -1,6 +1,6 @@
 package hwp.basketball.mobility.login
 
-import hwp.basketball.mobility.entitiy.user.UserViewModel
+import hwp.basketball.mobility.entitiy.user.CoachViewModel
 import hwp.basketball.mobility.login.google.signin.SignInAccountWrapper
 import hwp.basketball.mobility.login.google.signin.SignInResultWrapper
 import org.junit.Before
@@ -47,9 +47,9 @@ class GoogleLoginInteractorTest {
     fun handleSignInResultListenerNotSet() {
         googleLoginInteractor.handleSignInResult(null, mockListener)
 
-        val mock = UserViewModel()
+        val mock = CoachViewModel()
         verify(mockListener, never()).logInFail(anyString())
-        verify(mockListener, never()).logInSuccess(mock)
+        verify(mockListener, never()).logInSuccess(mock.email)
     }
 
     @Test

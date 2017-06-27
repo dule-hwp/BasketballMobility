@@ -1,7 +1,7 @@
 package hwp.basketball.mobility.drillpreparation.step.selectdrill
 
-//import android.graphics.Point
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -14,27 +14,25 @@ import com.stepstone.stepper.VerificationError
 import hwp.basketball.mobility.R
 import hwp.basketball.mobility.drill.create.DrillActivity
 import hwp.basketball.mobility.drillpreparation.step.BaseStepFragment
-import hwp.basketball.mobility.drillpreparation.step.selectplayers.DrillsAdapter
+import hwp.basketball.mobility.util.toast
 import kotlinx.android.synthetic.main.fragment_drills.*
 import timber.log.Timber
-import javax.inject.Inject
-
 
 /**
+ *
  * Created by dusan_cvetkovic on 3/23/17.
  */
 class DrillsFragment : BaseStepFragment(), DrillsContract.View {
 
-    @Inject
     lateinit var drillsPresenter: DrillsContract.Presenter
 
-    @Inject
     lateinit var drillsAdapter: DrillsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        drillSetupComponent.inject(this)
+        drillsPresenter = DrillsPresenter(this)
+        drillsAdapter = DrillsAdapter()
         drillsPresenter.setDrillAdapterView(drillsAdapter)
     }
 
@@ -72,11 +70,23 @@ class DrillsFragment : BaseStepFragment(), DrillsContract.View {
     }
 
     override fun displayError(s: String) {
-        Timber.d("error " + s)
+        Timber.e("error " + s)
+        toast(s)
     }
 
     override fun onStepVisible() {
 
+    }
+
+    private var progress: ProgressDialog? = null
+
+    override fun hideProgressDialog() {
+        progress?.dismiss()
+    }
+
+    override fun showProgressDialog(message: String) {
+        progress?.dismiss()
+        progress = ProgressDialog.show(context, "Loading...", message, true)
     }
 
     fun setupDrillsRecyclerView() {
@@ -93,16 +103,11 @@ class DrillsFragment : BaseStepFragment(), DrillsContract.View {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_CREATE_DRILL) {
             if (resultCode == Activity.RESULT_OK) {
-//                val pathPoints = data?.getParcelableArrayExtra(DrillActivity.EXTRA_PATH)
-//                val drillImage = data?.getParcelableExtra<Bitmap>(DrillActivity.EXTRA_IMAGE)
-//                val drillname = data?.getStringExtra(DrillActivity.EXTRA_NAME) ?: ""
                 drillsPresenter.refreshData()
-
-
             }
-        } else
+        } else {
             super.onActivityResult(requestCode, resultCode, data)
-
+        }
     }
 
     companion object {
@@ -110,10 +115,8 @@ class DrillsFragment : BaseStepFragment(), DrillsContract.View {
             return DrillsFragment()
         }
 
-        val REQUEST_CREATE_DRILL: Int = 100;
+        val REQUEST_CREATE_DRILL: Int = 100
     }
-
-
 }
 
 

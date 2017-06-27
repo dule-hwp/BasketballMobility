@@ -28,58 +28,39 @@ package hwp.basketball.mobility.sensortilescan
 
 import android.app.Activity
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.drawable.Drawable
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-
 import com.st.BlueSTSDK.Manager
 import com.st.BlueSTSDK.Node
-
 import hwp.basketball.mobility.R
 
 /**
  * class that map a node into a view with the layout defined in node_view_item.
- * this class can be set as a [com.st.BlueSTSDK.Manager.ManagerListener] for automatically add
+ * this class can be set as a [com.st.BlueSTSDK.Manager.ManagerListener] for automatically addDrillToDatabase
  * a node when it is discovered
  */
-class NodeArrayAdapter
-/**
- * build the adapter
 
- * @param activity activity where the adapter will be used
- */
-(
-        /**
-         * activity where this adapter is attached
-         */
-        private val mActivity: Activity) : ArrayAdapter<Node>(mActivity, R.layout.node_view_item),
+
+class NodeArrayAdapter(private val mActivity: Activity) : ArrayAdapter<Node>(mActivity, R.layout.node_view_item),
         Manager.ManagerListener {
     /**
      * image to show for the different boards
      */
-    private val mNucleoImage: Drawable
-    private val mSTEVAL_WESU1_Image: Drawable
-    private val mGenericImage: Drawable
-
-    init {
-        val res = mActivity.resources
-        mNucleoImage = res.getDrawable(R.drawable.board_nucleo)
-        mSTEVAL_WESU1_Image = res.getDrawable(R.drawable.board_steval_wesu1)
-        mGenericImage = res.getDrawable(R.drawable.board_generic)
-    }//NodeArrayAdapter
+    private val mNucleoImage: Drawable = ContextCompat.getDrawable(context, R.drawable.board_nucleo)
+    private val mSTEVAL_WESU1_Image: Drawable = ContextCompat.getDrawable(context, R.drawable.board_steval_wesu1)
+    private val mGenericImage: Drawable = ContextCompat.getDrawable(context, R.drawable.board_generic)
 
     /** empty function  */
-    override fun onDiscoveryChange(m: Manager, enabled: Boolean) {
-    }
+    override fun onDiscoveryChange(m: Manager, enabled: Boolean) {}
 
     /**
-     * new node discovered -> we add it to the adapter
-
+     * new node discovered -> we addDrillToDatabase it to the adapter
      * @param m    manager that discover the node
      * *
      * @param node new node discovered
@@ -103,7 +84,7 @@ class NodeArrayAdapter
 
     /**
      * create a view that describe a particular node
-
+     *
      * @param position position that have to be build
      * *
      * @param v        where store the information
@@ -121,7 +102,7 @@ class NodeArrayAdapter
             val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             v = inflater.inflate(R.layout.node_view_item, parent, false)
             viewHolder = ViewHolderItem()
-            viewHolder.sensorName = v!!.findViewById(R.id.nodeName) as TextView
+            viewHolder.sensorName = v?.findViewById(R.id.nodeName) as TextView
             viewHolder.sensorTag = v.findViewById(R.id.nodeTag) as TextView
             viewHolder.boardType = v.findViewById(R.id.nodeBoard) as ImageView
             v.tag = viewHolder
@@ -133,14 +114,14 @@ class NodeArrayAdapter
         //get the corresponding sensor
         val sensor = getItem(position)
 
-        viewHolder.sensorName!!.text = sensor!!.name
-        viewHolder.sensorTag!!.text = sensor.tag
+        viewHolder.sensorName?.text = sensor?.name
+        viewHolder.sensorTag?.text = sensor.tag
         when (sensor.type) {
 
-            Node.Type.STEVAL_WESU1 -> viewHolder.boardType!!.setImageDrawable(mSTEVAL_WESU1_Image)
-            Node.Type.NUCLEO -> viewHolder.boardType!!.setImageDrawable(mNucleoImage)
+            Node.Type.STEVAL_WESU1 -> viewHolder.boardType?.setImageDrawable(mSTEVAL_WESU1_Image)
+            Node.Type.NUCLEO -> viewHolder.boardType?.setImageDrawable(mNucleoImage)
 //            Node.Type.GENERIC,
-            else -> viewHolder.boardType!!.setImageDrawable(mGenericImage)
+            else -> viewHolder.boardType?.setImageDrawable(mGenericImage)
         }//switch
 
         return v

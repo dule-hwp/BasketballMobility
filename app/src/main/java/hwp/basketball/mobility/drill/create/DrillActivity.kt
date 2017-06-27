@@ -1,33 +1,56 @@
 package hwp.basketball.mobility.drill.create
 
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.Path
 import android.os.Bundle
 import android.support.design.widget.TextInputEditText
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import com.jakewharton.rxbinding2.widget.RxTextView
-import com.rm.freedrawview.FreeDrawView
 import hwp.basketball.mobility.R
+import hwp.basketball.mobility.entitiy.drills.ViewDimens
+import hwp.basketball.mobility.util.CanvasView
+import hwp.basketball.mobility.util.toast
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Function3
 import kotlinx.android.synthetic.main.activity_drill.*
 import timber.log.Timber
-import java.util.ArrayList
 
 class DrillActivity : AppCompatActivity(), DrillActivityContract.View, DialogInterface.OnClickListener {
+
+    private lateinit var drillActivityPresenter: DrillActivityContract.Presenter
+
+
+    private var progress: ProgressDialog? = null
+
+    override fun hideProgressDialog() {
+        progress?.dismiss()
+    }
+
+    override fun showProgressDialog(message: String) {
+        progress?.dismiss()
+        progress = ProgressDialog.show(this, "Loading..." ,message, true)
+    }
+
+    override fun displayError(message: String) {
+        toast(message)
+    }
+
     override fun onClick(dialog: DialogInterface?, which: Int) {
         if (which == AlertDialog.BUTTON_POSITIVE) {
-            drillActivityPresenter.onDrillDataFilled(numOfPlayers, drillName)
+            drillActivityPresenter.onDrillDataFilled(canvas_view.pathPoints.toList(), drillName,
+                    numOfPlayers, canvas_view.getBitmap(), ViewDimens(canvas_view.width, canvas_view.height))
         }
-
+        dialog?.dismiss()
+        disposeDlgListeners()
     }
 
     private var disposable: Disposable? = null
@@ -37,19 +60,16 @@ class DrillActivity : AppCompatActivity(), DrillActivityContract.View, DialogInt
         val etDrillName: TextInputEditText = view.findViewById(R.id.et_drill_name) as TextInputEditText
         val etDrillNumOfPlayers: TextInputEditText = view.findViewById(R.id.et_num_of_players) as TextInputEditText
         val imageView: ImageView = view.findViewById(R.id.imageView) as ImageView
-        imageView.setImageBitmap(draw)
+        imageView.setImageBitmap(canvas_view.getBitmap())
 
         val alertDialog = AlertDialog.Builder(this)
-                .setPositiveButton("OK") { dialog, _ ->
-                    drillActivityPresenter.onDrillDataFilled(numOfPlayers, drillName)
-                    dialog?.dismiss()
-                    disposeDlgListeners()
-                }
+                .setPositiveButton("OK", this)
                 .setNegativeButton("Cancel", this)
                 .setView(view)
                 .setOnCancelListener { disposeDlgListeners() }
                 .setOnDismissListener {
                     Timber.d("dismissed dlg")
+                    disposeDlgListeners()
 //                    finish()
                 }
                 .create()
@@ -82,20 +102,14 @@ class DrillActivity : AppCompatActivity(), DrillActivityContract.View, DialogInt
     }
 
     override fun takeADrillScreenshot() {
-        free_draw_view.getDrawScreenshot(drillActivityPresenter)
+        promptForDrillNameDialog(null)
     }
 
     companion object {
         fun getStartIntent(context: Context): Intent {
             return Intent(context, DrillActivity::class.java)
         }
-
-        val EXTRA_PATH = "points"
-        val EXTRA_IMAGE = "image"
-        val EXTRA_NAME = "name"
     }
-
-    private lateinit var drillActivityPresenter: DrillActivityContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,22 +117,16 @@ class DrillActivity : AppCompatActivity(), DrillActivityContract.View, DialogInt
 
         drillActivityPresenter = DrillActivityPresenter(this)
 
-        free_draw_view.setOnPathDrawnListener(drillActivityPresenter)
-        free_draw_view.setPathRedoUndoCountChangeListener(drillActivityPresenter)
         btn_done.setOnClickListener { drillActivityPresenter.onDoneTap() }
-        free_draw_view.getPaths()
+        canvas_view.drawer = CanvasView.Drawer.LINE
+        canvas_view.currentPath
     }
 
-    private var drillName: String? = ""
+    private var drillName: String = ""
     private var numOfPlayers: Int = 1
 
     override fun finishActivity() {
         val data = Intent()
-
-//        drawImage?.let { data.putExtra(EXTRA_IMAGE, drawImage) }
-//        mCurrentPathPoints?.let { data.putExtra(EXTRA_PATH, mCurrentPathPoints) }
-//        mCurrentPathPoints?.let { data.putExtra(EXTRA_NAME, drillName) }
-
         setResult(Activity.RESULT_OK, data)
         Timber.d("done setting result!!!")
         finish()
@@ -126,14 +134,22 @@ class DrillActivity : AppCompatActivity(), DrillActivityContract.View, DialogInt
 
     override fun onDestroy() {
         super.onDestroy()
+        drillActivityPresenter.detach()
     }
 
-    private fun FreeDrawView.getPaths() {
-        val declaredField = this::class.java.getDeclaredField("mPaths")
-        declaredField.isAccessible = true
-        val paths = declaredField.get(this) as ArrayList<*>
-
+    fun onUndoClicked(view: View) {
+        canvas_view.undo()
     }
+
+    fun onRedoClicked(view: View) {
+        canvas_view.redo()
+    }
+
+    fun onClearClicked(view: View) {
+        canvas_view.clear()
+    }
+
+
 }
 
 

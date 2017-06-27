@@ -13,27 +13,26 @@ import hwp.basketball.mobility.drillpreparation.step.DrillSetupOutput
 import hwp.basketball.mobility.entitiy.player.PlayerViewModel
 import kotlinx.android.synthetic.main.fragment_players.*
 import timber.log.Timber
-import javax.inject.Inject
 
 
 /**
+ *
  * Created by dusan_cvetkovic on 3/23/17.
  */
 class PlayersFragment : BaseStepFragment(), PlayersContract.View {
 
-    @Inject
     lateinit var playersPresenter: PlayersContract.Presenter
 
-    @Inject
     lateinit var playersDialog: PlayerDialog
 
-    @Inject
     lateinit var playersAdapter: PlayersAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        drillSetupComponent.inject(this)
+        playersPresenter = PlayersPresenter(this)
+        playersDialog = PlayerDialog(context, playersPresenter)
+        playersAdapter = PlayersAdapter()
         playersPresenter.setPlayerAdapterView(playersAdapter)
     }
 
@@ -70,8 +69,10 @@ class PlayersFragment : BaseStepFragment(), PlayersContract.View {
         playersPresenter.let { presenter ->
             if (presenter.selectedCount() > 0) return null
         }
+        val numOfPlayers = DrillSetupOutput.drill?.numberOfPlayers ?:
+                throw IllegalStateException("drill canot be null at this point!")
         return VerificationError("select " +
-                "${DrillSetupOutput.drill!!.numberOfPlayers - DrillSetupOutput.players.size} " +
+                "${numOfPlayers - DrillSetupOutput.players.size} " +
                 "more player(s)")
     }
 

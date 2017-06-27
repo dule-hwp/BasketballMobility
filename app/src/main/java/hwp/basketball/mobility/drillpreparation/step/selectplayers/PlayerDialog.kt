@@ -1,5 +1,6 @@
 package hwp.basketball.mobility.drillpreparation.step.selectplayers
 
+import android.content.Context
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.widget.ArrayAdapter
@@ -8,9 +9,7 @@ import android.widget.Spinner
 import com.jakewharton.rxbinding2.InitialValueObservable
 import com.jakewharton.rxbinding2.widget.RxTextView
 import hwp.basketball.mobility.R
-import hwp.basketball.mobility.drillpreparation.DrillSetupActivity
 import hwp.basketball.mobility.entitiy.player.PlayerViewModel
-import hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayersContract
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Function3
@@ -19,20 +18,16 @@ import timber.log.Timber
 /**
  * Created by dusan_cvetkovic on 4/2/17.
  */
-class PlayerDialog(val activity: DrillSetupActivity, val playersPresenter: PlayersContract.Presenter) {
+class PlayerDialog(val context: Context, val playersPresenter: PlayersContract.Presenter) {
     private lateinit var etFirst: EditText
     private lateinit var etLast: EditText
     private lateinit var spinPosition: Spinner
     private lateinit var etHeight: EditText
-//    private lateinit var builder: AlertDialog.Builder
 
-    init {
-//        createBaseDialogBuilder()
-    }
 
     fun createBaseDialogBuilder(): AlertDialog.Builder {
-        val view = LayoutInflater.from(activity).inflate(R.layout.dlg_add_player, null)
-        var builder = AlertDialog.Builder(activity)
+        val view = LayoutInflater.from(context).inflate(R.layout.dlg_add_player, null)
+        val builder = AlertDialog.Builder(context)
                 .setView(view)
 
         etFirst = view.findViewById(R.id.et_first_name) as EditText
@@ -40,7 +35,7 @@ class PlayerDialog(val activity: DrillSetupActivity, val playersPresenter: Playe
         spinPosition = view.findViewById(R.id.spinner_position) as Spinner
         etHeight = view.findViewById(R.id.et_height) as EditText
 
-        val negativeText = activity.getString(android.R.string.cancel)
+        val negativeText = context.getString(android.R.string.cancel)
         builder.setNegativeButton(negativeText,
                 { _, _ ->
 
@@ -50,8 +45,8 @@ class PlayerDialog(val activity: DrillSetupActivity, val playersPresenter: Playe
 
     fun showEditPlayerDialog(player: PlayerViewModel) {
         val builder = createBaseDialogBuilder()
-        builder.setTitle(activity.getString(R.string.edit_new_player))
-                .setMessage(activity.getString(R.string.edit_player_dialog_message))
+        builder.setTitle(context.getString(R.string.edit_new_player))
+                .setMessage(context.getString(R.string.edit_player_dialog_message))
                 .setPositiveButton(android.R.string.ok,
                         { _, _ ->
                             playersPresenter.onEditPlayerButtonClicked(
@@ -73,8 +68,8 @@ class PlayerDialog(val activity: DrillSetupActivity, val playersPresenter: Playe
 
     fun showAddPlayerDialog() {
         val builder = createBaseDialogBuilder()
-        builder.setTitle(activity.getString(R.string.add_new_player))
-                .setMessage(activity.getString(R.string.add_player_dialog_message))
+        builder.setTitle(context.getString(R.string.add_new_player))
+                .setMessage(context.getString(R.string.add_player_dialog_message))
                 .setPositiveButton(android.R.string.ok,
                         { _, _ ->
                             playersPresenter.onAddPlayerButtonClicked(
@@ -115,13 +110,13 @@ class PlayerDialog(val activity: DrillSetupActivity, val playersPresenter: Playe
 
     private fun setupPositionSpinner() {
         // Create an ArrayAdapter using the string array and a default spinner layout
-        val adapter = ArrayAdapter.createFromResource(activity,
+        val adapter = ArrayAdapter.createFromResource(context,
                 R.array.playing_positions, android.R.layout.simple_spinner_item)
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         // Apply the adapter to the spinner
         spinPosition.adapter = adapter
-        spinPosition.prompt = activity.getString(R.string.country_prompt)
+        spinPosition.prompt = context.getString(R.string.country_prompt)
     }
 
 

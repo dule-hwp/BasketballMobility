@@ -41,7 +41,7 @@ import hwp.basketball.mobility.R
 import kotlinx.android.synthetic.main.activity_scan.*
 
 /**
- * This activity will show a list of device that are supported by the sdk
+ * This context will show a list of device that are supported by the sdk
  */
 class ScanActivity : NodeScanActivity(), AdapterView.OnItemClickListener {
 
@@ -87,7 +87,7 @@ class ScanActivity : NodeScanActivity(), AdapterView.OnItemClickListener {
         // Set OnItemClickListener so we can be notified on item clicks
         nodeListView.onItemClickListener = this
 
-        //add the already discovered nodes
+        //addDrillToDatabase the already discovered nodes
         mAdapter.addAll(mManager.nodes)
 
         refreshListVisibility()
@@ -127,23 +127,23 @@ class ScanActivity : NodeScanActivity(), AdapterView.OnItemClickListener {
     override fun onStart() {
         super.onStart()
 
-        //add the addListener that will hide the progress indicator when the first device is discovered
+        //addDrillToDatabase the addListener that will hide the progress indicator when the first device is discovered
         mManager.addListener(mUpdateDiscoverGui)
         //disconnect all the already discovered device
         mAdapter.disconnectAllNodes()
-        //add as addListener for the new nodes
+        //addDrillToDatabase as addListener for the new nodes
         mManager.addListener(mAdapter)
         resetNodeList()
         startNodeDiscovery()
     }//onStart
 
     /**
-     * stop the discovery and remove all the lister that we attach to the manager
+     * stop the discovery and delete all the lister that we attach to the manager
      */
     override fun onStop() {
         if (mManager.isDiscovering)
             mManager.stopDiscovery()
-        //remove the addListener add by this class
+        //delete the addListener addDrillToDatabase by this class
         mManager.removeListener(mUpdateDiscoverGui)
         mManager.removeListener(mAdapter)
         super.onStop()
@@ -153,7 +153,7 @@ class ScanActivity : NodeScanActivity(), AdapterView.OnItemClickListener {
      * build the menu, it show the start/stop button in function of the manager state (if it is
      * scanning or not )
 
-     * @param menu menu where add the items
+     * @param menu menu where addDrillToDatabase the items
      */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -169,14 +169,13 @@ class ScanActivity : NodeScanActivity(), AdapterView.OnItemClickListener {
     /**
      * called when the user select a menu item
 
-     * @param item item selected, it will remove the discovered nodes and start a new scan or
+     * @param item item selected, it will delete the discovered nodes and start a new scan or
      * *             stop the scanning
      * *
      * @return true if the item is handle by this method
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-
 
         if (id == R.id.menu_start_scan) {
             resetNodeList()

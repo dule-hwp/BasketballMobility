@@ -1,29 +1,27 @@
-package hwp.basketball.mobility.drillpreparation.step.selectplayers
+package hwp.basketball.mobility.drillpreparation.step.selectdrill
 
+import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.squareup.picasso.Picasso
 import hwp.basketball.mobility.R
-import hwp.basketball.mobility.dagger.DrillSetupActivityScope
-import hwp.basketball.mobility.drillpreparation.step.selectdrill.DrillsContract
 import hwp.basketball.mobility.entitiy.drills.DrillViewModel
-import javax.inject.Inject
 
 /**
+ *
  * Created by dusan_cvetkovic on 3/28/17.
  */
-@DrillSetupActivityScope
-class DrillsAdapter @Inject constructor() :
-        RecyclerView.Adapter<DrillsAdapter.DrillViewHolder>(), DrillsContract.AdapterView {
+class DrillsAdapter : RecyclerView.Adapter<DrillsAdapter.DrillViewHolder>(),
+        DrillsContract.AdapterView {
     override fun notifyDrillDeleted(drill: DrillViewModel) {
         val indexOfDeletedDrill = drills.indexOf(drill)
         drills.remove(drill)
         this.notifyItemRemoved(indexOfDeletedDrill)
     }
 
-    //    @Inject
     var listener: DrillsContract.Presenter? = null
     private var selectedDrill: DrillViewModel? = null
 
@@ -40,7 +38,11 @@ class DrillsAdapter @Inject constructor() :
         fun bind(drillModel: DrillViewModel?) {
             tvName.text = "${drillModel?.name}"
             tvNumberOfPlayers.text = "Number of players: ${drillModel?.numberOfPlayers}"
-            drillModel?.drillImage?.let { ivDrill.setImageBitmap(it) }
+            drillModel?.drillImage?.let {
+                Picasso.with(itemView.context)
+                        .load(it)
+                        .into(ivDrill)
+            }
         }
 
     }
@@ -49,13 +51,13 @@ class DrillsAdapter @Inject constructor() :
         return drills[index]
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): DrillsAdapter.DrillViewHolder {
-        return DrillsAdapter.DrillViewHolder(LayoutInflater.from(parent?.context)
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): DrillViewHolder {
+        return DrillViewHolder(LayoutInflater.from(parent?.context)
                 .inflate(R.layout.list_item_drill, parent, false))
     }
 
 
-    override fun onBindViewHolder(holder: DrillsAdapter.DrillViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: DrillViewHolder?, position: Int) {
         val drill = getItem(position)
         drill?.let {
             holder?.bind(drill)
@@ -76,11 +78,9 @@ class DrillsAdapter @Inject constructor() :
 
     override fun getItemCount(): Int = drills.size
 
-    override fun swapData(data: List<DrillViewModel>?) {
+    override fun swapData(data: List<DrillViewModel>) {
         drills.clear()
-        data?.let { newDrills ->
-            drills.addAll(newDrills)
-        }
+        drills.addAll(data)
         notifyDataSetChanged()
     }
 

@@ -56,5 +56,20 @@
         <item>PF (Power Forward)</item>
         <item>C (Center)</item>
     </string-array>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="save_recording">Save Recording</string>
+    <string name="acceleration_multiplier_value">Acceleration multiplier value: %s</string>
+    <string name="angle_diff_value">Angle diff value: %s</string>
+    <string name="min_speed_s">Min speed: %s</string>
+    <string name="title_drill_list">Drills</string>
+    <string name="title_drill_detail">Drill Detail</string>
+    <string name="times_performed">%1$s times performed</string>
+    <string name="high_score">Best score: %1$s by %2$s</string>
+    <string name="outcome_score">Score: %1$s</string>
 
 </resources>

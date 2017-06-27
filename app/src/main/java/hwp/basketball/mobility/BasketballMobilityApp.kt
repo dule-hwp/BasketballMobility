@@ -1,14 +1,14 @@
 package hwp.basketball.mobility
 
 import android.app.Application
+import android.content.Context
+import android.support.multidex.MultiDex
 import android.util.Log
-import com.facebook.stetho.Stetho
-import com.uphyca.stetho_realm.RealmInspectorModulesProvider
-import hwp.basketball.mobility.dagger.ContextModule
-//import hwp.basketball.mobility.dagger.DaggerBasketballMobilityAppComponent
-import io.realm.Realm
-import io.realm.Realm.setDefaultConfiguration
-import io.realm.RealmConfiguration
+import com.google.firebase.database.FirebaseDatabase
+import net.danlew.android.joda.JodaTimeAndroid
+//import io.realm.Realm
+//import io.realm.Realm.setDefaultConfiguration
+//import io.realm.RealmConfiguration
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
@@ -18,18 +18,14 @@ import timber.log.Timber.DebugTree
  */
 class BasketballMobilityApp : Application() {
 
-//    companion object {
-//        lateinit var activity: Context
-//    }
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MultiDex.install(this)
+    }
 
     override fun onCreate() {
         super.onCreate()
-//        val appComponent = DaggerBasketballMobilityAppComponent.builder()
-//                .contextModule(ContextModule(applicationContext))
-//                .build()
-
-//        activity = appComponent.getActivity()
-
+        JodaTimeAndroid.init(this);
 
         if (BuildConfig.DEBUG) {
             Timber.plant(object : DebugTree() {
@@ -41,21 +37,8 @@ class BasketballMobilityApp : Application() {
             Timber.plant(CrashReportingTree())
         }
 
-        initRealm()
-
-        Stetho.initialize(
-                Stetho.newInitializerBuilder(this)
-                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
-                        .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
-                        .build())
-    }
-
-    private fun initRealm() {
-        Realm.init(this)
-        val config = RealmConfiguration.Builder()
-//                .name("basketballMobility.realm")
-                .build()
-        setDefaultConfiguration(config)
+//        initRealm()
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
     }
 
     /** A tree which logs important information for crash reporting.  */
@@ -64,7 +47,7 @@ class BasketballMobilityApp : Application() {
             if (priority == Log.VERBOSE || priority == Log.DEBUG) {
                 return
             }
-//when you add Crashlytics
+//when you addDrillToDatabase Crashlytics
 //            FakeCrashLibrary.log(priority, tag, message)
 
             if (t != null) {

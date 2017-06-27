@@ -8,8 +8,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.stepstone.stepper.Step
 import com.stepstone.stepper.VerificationError
-import hwp.basketball.mobility.dagger.DrillSetupActivityComponent
-import hwp.basketball.mobility.drillpreparation.DrillSetupActivity
 import hwp.basketball.mobility.drillpreparation.OnNavigationBarListener
 import timber.log.Timber
 
@@ -17,7 +15,6 @@ import timber.log.Timber
  * Created by dusan_cvetkovic on 4/10/17.
  */
 abstract class BaseStepFragment : Fragment(), Step {
-    lateinit var drillSetupComponent: DrillSetupActivityComponent
     private var onNavigationBarListener: OnNavigationBarListener? = null
 
     private fun updateNavigationBar() {
@@ -26,7 +23,6 @@ abstract class BaseStepFragment : Fragment(), Step {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        drillSetupComponent = (activity as DrillSetupActivity).drillSetupActivityComponent
     }
 
     override fun onAttach(context: Context?) {

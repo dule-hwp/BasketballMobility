@@ -4,7 +4,18 @@
 
 `abstract class BaseSensor`
 
-Created by dusan_cvetkovic on 3/4/17.
+Each of the sensors needs to extend this class and implement required methods.
+
+After sensor is connected during drill preparation phase, connecting to sensor should be done
+via uuid which is argument passed to
+
+**See Also**
+
+[connectTo](connect-to.md)
+
+[angleListener](angle-listener.md)
+
+[accelerometerListener](accelerometer-listener.md)
 
 ### Types
 
@@ -17,20 +28,20 @@ Created by dusan_cvetkovic on 3/4/17.
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.md) | `BaseSensor(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`)`<br>Created by dusan_cvetkovic on 3/4/17. |
+| [&lt;init&gt;](-init-.md) | `BaseSensor(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`)`<br>Each of the sensors needs to extend this class and implement required methods. |
 
 ### Properties
 
-| [accelerometerListener](accelerometer-listener.md) | `var accelerometerListener: `[`AccelerometerDataChangedCallback`](-accelerometer-data-changed-callback/index.md)`?` |
+| [accelerometerListener](accelerometer-listener.md) | `var accelerometerListener: `[`AccelerometerDataChangedCallback`](-accelerometer-data-changed-callback/index.md)`?`<br>Trigger this listener when your sensor detects change in accelerometer |
 | [angleListener](angle-listener.md) | `var angleListener: `[`AngleDataChangedCallback`](-angle-data-changed-callback/index.md)`?`<br>Trigger this listener when your sensor detects change in angle |
 | [context](context.md) | `val context: `[`Context`](https://developer.android.com/reference/android/content/Context.html) |
 | [isConnectable](is-connectable.md) | `abstract val isConnectable: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Ble devices return true, others false |
 | [mAccelerometerReading](m-accelerometer-reading.md) | `val mAccelerometerReading: `[`FloatArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html) |
 | [mGyroReading](m-gyro-reading.md) | `val mGyroReading: `[`FloatArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html) |
 | [mMagnetometerReading](m-magnetometer-reading.md) | `val mMagnetometerReading: `[`FloatArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html) |
-| [magnetometerListener](magnetometer-listener.md) | `var magnetometerListener: `[`MagnetometerDataChangedCallback`](-magnetometer-data-changed-callback/index.md)`?` |
+| [magnetometerListener](magnetometer-listener.md) | `var magnetometerListener: `[`MagnetometerDataChangedCallback`](-magnetometer-data-changed-callback/index.md)`?`<br>Trigger this listener when your sensor detects change in magnetometer |
 | [motionListener](motion-listener.md) | `var motionListener: `[`MovingStateChangedCallback`](-moving-state-changed-callback/index.md)`?`<br>Trigger this listener when your sensor detects change in movement |
-| [stateListener](state-listener.md) | `var stateListener: `[`SensorStateChangedCallback`](-sensor-state-changed-callback/index.md)`?`<br>Trigger this listener when your sensor gets (dis)connected |
+| [stateListener](state-listener.md) | `var stateListener: `[`SensorStateChangedCallback`](-sensor-state-changed-callback/index.md)`?` |
 
 ### Functions
 

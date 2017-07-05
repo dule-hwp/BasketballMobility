@@ -3,3 +3,6 @@
 # magnetometerListener
 
 `var magnetometerListener: `[`MagnetometerDataChangedCallback`](-magnetometer-data-changed-callback/index.md)`?`
+
+Trigger this listener when your sensor detects change in magnetometer
+

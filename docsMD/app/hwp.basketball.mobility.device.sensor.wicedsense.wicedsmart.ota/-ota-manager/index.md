@@ -6,10 +6,14 @@
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `OtaManager()` |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [ERROR_CHARACTERISTIC_WRITE](-e-r-r-o-r_-c-h-a-r-a-c-t-e-r-i-s-t-i-c_-w-r-i-t-e.md) | `static val ERROR_CHARACTERISTIC_WRITE: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [ERROR_CONNECT](-e-r-r-o-r_-c-o-n-n-e-c-t.md) | `static val ERROR_CONNECT: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [ERROR_DESCRIPTOR_NOT_FOUND](-e-r-r-o-r_-d-e-s-c-r-i-p-t-o-r_-n-o-t_-f-o-u-n-d.md) | `static val ERROR_DESCRIPTOR_NOT_FOUND: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
@@ -51,6 +55,8 @@
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [abortUpdate](abort-update.md) | `open fun abortUpdate(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [addCallback](add-callback.md) | `open fun addCallback(cb: `[`OtaCallback`](../-ota-callback/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [finish](finish.md) | `open fun finish(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
@@ -66,4 +72,3 @@
 | [removeCallback](remove-callback.md) | `open fun removeCallback(cb: `[`OtaCallback`](../-ota-callback/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [setDisconnectOnFinished](set-disconnect-on-finished.md) | `open fun setDisconnectOnFinished(disconnect: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [startUpdate](start-update.md) | `open fun startUpdate(ctx: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`, gattManager: `[`GattRequestManager`](../../hwp.basketball.mobility.device.sensor.wicedsense.util/-gatt-request-manager/index.md)`, firmwareLength: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, in: `[`BufferedInputStream`](https://developer.android.com/reference/java/io/BufferedInputStream.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-

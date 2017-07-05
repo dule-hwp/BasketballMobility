@@ -8,19 +8,27 @@ Created by dusan_cvetkovic on 3/28/17.
 
 ### Types
 
+| Name | Summary |
+|---|---|
 | [PlayerViewHolder](-player-view-holder/index.md) | `class PlayerViewHolder : `[`ViewHolder`](https://developer.android.com/reference/android/support/v7/widget/RecyclerView/ViewHolder.html) |
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `PlayersAdapter()`<br>Created by dusan_cvetkovic on 3/28/17. |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [listener](listener.md) | `lateinit var listener: `[`Presenter`](../-players-contract/-presenter/index.md) |
 | [players](players.md) | `var players: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`PlayerViewModel`](../../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md)`>` |
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [addPlayer](add-player.md) | `fun addPlayer(player: `[`PlayerViewModel`](../../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [getCount](get-count.md) | `fun getCount(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [getCurrentEditingItem](get-current-editing-item.md) | `fun getCurrentEditingItem(): `[`PlayerViewModel`](../../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md)`?` |
@@ -33,4 +41,3 @@ Created by dusan_cvetkovic on 3/28/17.
 | [onBindViewHolder](on-bind-view-holder.md) | `fun onBindViewHolder(holder: `[`PlayerViewHolder`](-player-view-holder/index.md)`?, position: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onCreateViewHolder](on-create-view-holder.md) | `fun onCreateViewHolder(parent: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.html)`?, viewType: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`PlayerViewHolder`](-player-view-holder/index.md) |
 | [swapData](swap-data.md) | `fun swapData(data: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`PlayerViewModel`](../../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md)`>?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-

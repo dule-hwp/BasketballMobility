@@ -8,5 +8,6 @@ Created by dusan_cvetkovic on 5/28/17.
 
 ### Companion Object Functions
 
+| Name | Summary |
+|---|---|
 | [getSensor](get-sensor.md) | `fun getSensor(type: `[`Type`](../-base-sensor/-type/index.md)`, context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`): `[`BaseSensor`](../-base-sensor/index.md) |
-

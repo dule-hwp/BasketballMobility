@@ -6,6 +6,8 @@
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [displayOutcome](display-outcome.md) | `abstract fun displayOutcome(outcome: `[`DrillOutcome`](../../../hwp.basketball.mobility.entitiy.drills.outcomes/-drill-outcome/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [displayStats](display-stats.md) | `abstract fun displayStats(statistics: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [hideProgress](hide-progress.md) | `abstract fun hideProgress(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
@@ -19,5 +21,6 @@
 
 ### Inheritors
 
+| Name | Summary |
+|---|---|
 | [PathRecorderActivity](../../-path-recorder-activity/index.md) | `class PathRecorderActivity : `[`AppCompatActivity`](https://developer.android.com/reference/android/support/v7/app/AppCompatActivity.html)`, View` |
-

@@ -6,6 +6,8 @@
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [addPlayer](add-player.md) | `abstract fun addPlayer(player: `[`PlayerViewModel`](../../../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [getCount](get-count.md) | `abstract fun getCount(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [getCurrentEditingItem](get-current-editing-item.md) | `abstract fun getCurrentEditingItem(): `[`PlayerViewModel`](../../../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md)`?` |
@@ -18,5 +20,6 @@
 
 ### Inheritors
 
+| Name | Summary |
+|---|---|
 | [PlayersAdapter](../../-players-adapter/index.md) | `class PlayersAdapter : `[`Adapter`](https://developer.android.com/reference/android/support/v7/widget/RecyclerView/Adapter.html)`<`[`PlayerViewHolder`](../../-players-adapter/-player-view-holder/index.md)`>, AdapterView`<br>Created by dusan_cvetkovic on 3/28/17. |
-

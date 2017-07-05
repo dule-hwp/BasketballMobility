@@ -11,10 +11,14 @@ fredc
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `SenseManager()`<br>Manages WICED Sense devices. Currently, this application only manages one WICED Sense device at a time. But this can be expanded to support more than one device connection |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [EVENT_APP_INFO](-e-v-e-n-t_-a-p-p_-i-n-f-o.md) | `static val EVENT_APP_INFO: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [EVENT_BATTERY_STATUS](-e-v-e-n-t_-b-a-t-t-e-r-y_-s-t-a-t-u-s.md) | `static val EVENT_BATTERY_STATUS: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [EVENT_CONNECTED](-e-v-e-n-t_-c-o-n-n-e-c-t-e-d.md) | `static val EVENT_CONNECTED: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
@@ -24,6 +28,8 @@ fredc
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [connect](connect.md) | `open fun connect(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
 | [destroy](destroy.md) | `open static fun destroy(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [disconnect](disconnect.md) | `open fun disconnect(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
@@ -53,4 +59,3 @@ fredc
 | [setOtaUpdateMode](set-ota-update-mode.md) | `open fun setOtaUpdateMode(isOtaUpdateMode: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Unregister for events and unregister for callbacks |
 | [stop](stop.md) | `open fun stop(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [unregisterEventCallbackHandler](unregister-event-callback-handler.md) | `open fun unregisterEventCallbackHandler(callback: `[`Handler`](https://developer.android.com/reference/android/os/Handler.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-

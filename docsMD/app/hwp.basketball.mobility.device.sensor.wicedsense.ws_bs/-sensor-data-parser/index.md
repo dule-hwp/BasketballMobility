@@ -11,10 +11,14 @@ fredc
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `SensorDataParser()`<br>Helper class to parse the sensor data packets |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [SENSOR_ACCEL_DATA_SIZE](-s-e-n-s-o-r_-a-c-c-e-l_-d-a-t-a_-s-i-z-e.md) | `static val SENSOR_ACCEL_DATA_SIZE: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [SENSOR_ACCEL_MAX](-s-e-n-s-o-r_-a-c-c-e-l_-m-a-x.md) | `static val SENSOR_ACCEL_MAX: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [SENSOR_ACCEL_MIN](-s-e-n-s-o-r_-a-c-c-e-l_-m-i-n.md) | `static val SENSOR_ACCEL_MIN: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
@@ -45,6 +49,8 @@ fredc
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [accelerometerHasChanged](accelerometer-has-changed.md) | `open static fun accelerometerHasChanged(mask: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
 | [getAccelorometerData](get-accelorometer-data.md) | `open static fun getAccelorometerData(sensorData: `[`ByteArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html)`, offset: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, values: `[`IntArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [getCompassAngleDegrees](get-compass-angle-degrees.md) | `open static fun getCompassAngleDegrees(magnometerValues: `[`IntArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)`): `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |
@@ -61,4 +67,3 @@ fredc
 | [tempCtoF](temp-cto-f.md) | `open static fun tempCtoF(c: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)`): `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |
 | [tempFtoC](temp-fto-c.md) | `open static fun tempFtoC(f: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)`): `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |
 | [temperatureHasChanged](temperature-has-changed.md) | `open static fun temperatureHasChanged(mask: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
-

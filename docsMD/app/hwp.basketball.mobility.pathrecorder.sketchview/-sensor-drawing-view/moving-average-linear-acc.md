@@ -8,5 +8,6 @@ Array (for each axis value) of moving average windows
 
 Used for averaging acceleration values after removing gravity.
 
-Note: values kept here are in mG. before applying some math to it make sure to convert to
+Note: values kept here are in mG. before applying some math to it make sure
+to convert to m/s^2
 

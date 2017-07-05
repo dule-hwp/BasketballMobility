@@ -6,10 +6,14 @@
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `DrillViewHolder(itemView: `[`View`](https://developer.android.com/reference/android/view/View.html)`)` |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [btnDelete](btn-delete.md) | `var btnDelete: `[`ImageButton`](https://developer.android.com/reference/android/widget/ImageButton.html) |
 | [ivDrill](iv-drill.md) | `var ivDrill: `[`ImageView`](https://developer.android.com/reference/android/widget/ImageView.html) |
 | [rbtnSelect](rbtn-select.md) | `var rbtnSelect: `[`RadioButton`](https://developer.android.com/reference/android/widget/RadioButton.html) |
@@ -18,5 +22,6 @@
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [bind](bind.md) | `fun bind(drillModel: `[`DrillViewModel`](../../../hwp.basketball.mobility.entitiy.drills/-drill-view-model/index.md)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-

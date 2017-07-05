@@ -8,16 +8,22 @@ Helper class to manage GATT requests to a remote device, ensuring that GATT read
 
 ### Types
 
+| Name | Summary |
+|---|---|
 | [GattRequest](-gatt-request/index.md) | `open class GattRequest` |
 | [GattTimeoutCallback](-gatt-timeout-callback/index.md) | `interface GattTimeoutCallback` |
 | [LePairingCallback](-le-pairing-callback/index.md) | `interface LePairingCallback` |
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `GattRequestManager(ctx: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`, device: `[`BluetoothDevice`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html)`)` |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [REQUEST_READ_CHAR](-r-e-q-u-e-s-t_-r-e-a-d_-c-h-a-r.md) | `static val REQUEST_READ_CHAR: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [REQUEST_READ_DESCRIPTOR](-r-e-q-u-e-s-t_-r-e-a-d_-d-e-s-c-r-i-p-t-o-r.md) | `static val REQUEST_READ_DESCRIPTOR: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [REQUEST_WRITE_CHAR](-r-e-q-u-e-s-t_-w-r-i-t-e_-c-h-a-r.md) | `static val REQUEST_WRITE_CHAR: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
@@ -25,6 +31,8 @@ Helper class to manage GATT requests to a remote device, ensuring that GATT read
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [addCallback](add-callback.md) | `open fun addCallback(cb: `[`BluetoothGattCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCallback.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [addPairingCallback](add-pairing-callback.md) | `open fun addPairingCallback(cb: `[`LePairingCallback`](-le-pairing-callback/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [addTimeoutCallback](add-timeout-callback.md) | `open fun addTimeoutCallback(l: `[`GattTimeoutCallback`](-gatt-timeout-callback/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
@@ -66,4 +74,3 @@ Helper class to manage GATT requests to a remote device, ensuring that GATT read
 | [stopConnectCompleteTimer](stop-connect-complete-timer.md) | `open fun stopConnectCompleteTimer(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [unpair](unpair.md) | `open fun unpair(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
 | [write](write.md) | `open fun write(d: `[`BluetoothGattDescriptor`](https://developer.android.com/reference/android/bluetooth/BluetoothGattDescriptor.html)`, value: `[`ByteArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>`open fun write(c: `[`BluetoothGattCharacteristic`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html)`, value: `[`ByteArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html)`, immediate: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>`open fun write(c: `[`BluetoothGattCharacteristic`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html)`, value: `[`ByteArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>`open fun write(id: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, c: `[`BluetoothGattCharacteristic`](https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html)`, value: `[`ByteArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-

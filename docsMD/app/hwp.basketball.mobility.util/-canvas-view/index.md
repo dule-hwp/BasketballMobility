@@ -8,15 +8,21 @@ This class defines fields and methods for drawing.
 
 ### Types
 
+| Name | Summary |
+|---|---|
 | [Drawer](-drawer/index.md) | `enum class Drawer` |
 | [Mode](-mode/index.md) | `enum class Mode` |
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `CanvasView(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`, attrs: `[`AttributeSet`](https://developer.android.com/reference/android/util/AttributeSet.html)`, defStyle: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`)`<br>`CanvasView(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`, attrs: `[`AttributeSet`](https://developer.android.com/reference/android/util/AttributeSet.html)`)`<br>`CanvasView(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`)`<br>Copy Constructor |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [blur](blur.md) | `var blur: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |
 | [currentPath](current-path.md) | `val currentPath: `[`Path`](https://developer.android.com/reference/android/graphics/Path.html)<br>This method gets the instance of Path that pointer indicates. |
 | [drawPathEffect](draw-path-effect.md) | `var drawPathEffect: `[`PathEffect`](https://developer.android.com/reference/android/graphics/PathEffect.html)`?` |
@@ -33,6 +39,8 @@ This class defines fields and methods for drawing.
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [canRedo](can-redo.md) | `fun canRedo(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>This method checks if Redo is available |
 | [canUndo](can-undo.md) | `fun canUndo(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>This method checks if Undo is available |
 | [clear](clear.md) | `fun clear(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>This method initializes canvas. |
@@ -44,5 +52,6 @@ This class defines fields and methods for drawing.
 
 ### Extension Functions
 
+| Name | Summary |
+|---|---|
 | [bindView](../android.view.-view/bind-view.md) | `fun <T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> `[`View`](https://developer.android.com/reference/android/view/View.html)`.bindView(viewId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`ViewBinder`](../-view-binder/index.md)`<T>` |
-

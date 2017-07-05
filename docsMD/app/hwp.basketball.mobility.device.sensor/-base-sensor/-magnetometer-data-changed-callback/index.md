@@ -6,5 +6,6 @@
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [onMagnetometerDataUpdate](on-magnetometer-data-update.md) | `abstract fun onMagnetometerDataUpdate(data: `[`FloatArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-

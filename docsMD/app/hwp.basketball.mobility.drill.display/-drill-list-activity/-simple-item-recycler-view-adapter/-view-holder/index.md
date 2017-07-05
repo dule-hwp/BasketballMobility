@@ -6,10 +6,14 @@
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `ViewHolder(mView: `[`View`](https://developer.android.com/reference/android/view/View.html)`)` |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [mContentView](m-content-view.md) | `val mContentView: `[`TextView`](https://developer.android.com/reference/android/widget/TextView.html) |
 | [mIdView](m-id-view.md) | `val mIdView: `[`TextView`](https://developer.android.com/reference/android/widget/TextView.html) |
 | [mItem](m-item.md) | `var mItem: `[`DummyItem`](../../../../hwp.basketball.mobility.drill.display.dummy/-dummy-content/-dummy-item/index.md)`?` |
@@ -17,5 +21,6 @@
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [toString](to-string.md) | `fun toString(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-

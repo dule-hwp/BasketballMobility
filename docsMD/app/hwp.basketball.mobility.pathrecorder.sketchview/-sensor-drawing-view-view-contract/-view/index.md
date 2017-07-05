@@ -6,6 +6,8 @@
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [addAccData](add-acc-data.md) | `abstract fun addAccData(accData: `[`AccData`](../../../hwp.basketball.mobility.device.sensor/-b-m-sensor-manager/-acc-data/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [getBitmap](get-bitmap.md) | `abstract fun getBitmap(): `[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.html) |
 | [getBitmapArea](get-bitmap-area.md) | `abstract fun getBitmapArea(): `[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.html) |
@@ -23,5 +25,6 @@
 
 ### Inheritors
 
+| Name | Summary |
+|---|---|
 | [SensorDrawingView](../../-sensor-drawing-view/index.md) | `class SensorDrawingView : `[`View`](https://developer.android.com/reference/android/view/View.html)`, View` |
-

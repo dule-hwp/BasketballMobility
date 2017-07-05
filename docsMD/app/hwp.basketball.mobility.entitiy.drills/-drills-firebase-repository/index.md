@@ -11,10 +11,14 @@ Created by dusan_cvetkovic on 4/4/17.
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `DrillsFirebaseRepository()`<br>Firebase DrillsDataStore implementation. |
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [addDrillToDatabase](add-drill-to-database.md) | `fun addDrillToDatabase(item: `[`DrillViewModel`](../-drill-view-model/index.md)`, bitmap: `[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.html)`): Completable` |
 | [cleanup](cleanup.md) | `fun cleanup(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [delete](delete.md) | `fun delete(drillViewModel: `[`DrillViewModel`](../-drill-view-model/index.md)`): Completable` |
@@ -23,5 +27,6 @@ Created by dusan_cvetkovic on 4/4/17.
 
 ### Companion Object Properties
 
+| Name | Summary |
+|---|---|
 | [DRILLS_CHILD](-d-r-i-l-l-s_-c-h-i-l-d.md) | `val DRILLS_CHILD: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-

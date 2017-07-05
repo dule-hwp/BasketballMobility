@@ -6,9 +6,12 @@
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `PlayerViewHolder(itemView: `[`View`](https://developer.android.com/reference/android/view/View.html)`)` |
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [bind](bind.md) | `fun bind(playerModel: `[`PlayerViewModel`](../../../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-

@@ -2,5 +2,6 @@
 
 ### Extensions for android.view.View
 
+| Name | Summary |
+|---|---|
 | [bindView](bind-view.md) | `fun <T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> `[`View`](https://developer.android.com/reference/android/view/View.html)`.bindView(viewId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`ViewBinder`](../-view-binder/index.md)`<T>` |
-

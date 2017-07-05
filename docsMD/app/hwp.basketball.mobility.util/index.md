@@ -4,6 +4,8 @@
 
 ### Types
 
+| Name | Summary |
+|---|---|
 | [Binder](-binder/index.md) | `class Binder<out T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> : `[`ReadOnlyProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-read-only-property/index.html)`<`[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?, T>` |
 | [CanvasView](-canvas-view/index.md) | `class CanvasView : `[`View`](https://developer.android.com/reference/android/view/View.html)<br>This class defines fields and methods for drawing. |
 | [FirebaseStorageUtils](-firebase-storage-utils/index.md) | `object FirebaseStorageUtils` |
@@ -19,6 +21,8 @@
 
 ### Extensions for External Classes
 
+| Name | Summary |
+|---|---|
 | [android.graphics.Bitmap](android.graphics.-bitmap/index.md) |  |
 | [android.graphics.Canvas](android.graphics.-canvas/index.md) |  |
 | [android.graphics.Path](android.graphics.-path/index.md) |  |
@@ -27,4 +31,3 @@
 | [android.support.v7.app.AppCompatActivity](android.support.v7.app.-app-compat-activity/index.md) |  |
 | [android.view.View](android.view.-view/index.md) |  |
 | [com.google.firebase.auth.FirebaseUser](com.google.firebase.auth.-firebase-user/index.md) |  |
-

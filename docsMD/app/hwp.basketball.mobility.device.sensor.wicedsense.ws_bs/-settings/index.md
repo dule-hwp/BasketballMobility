@@ -8,14 +8,20 @@ Configurable settings for the WICED Sense Application
 
 ### Types
 
+| Name | Summary |
+|---|---|
 | [SettingChangeListener](-setting-change-listener/index.md) | `interface SettingChangeListener` |
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `Settings()`<br>Configurable settings for the WICED Sense Application |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [ANIMATE_TIME_INTERVAL_MS](-a-n-i-m-a-t-e_-t-i-m-e_-i-n-t-e-r-v-a-l_-m-s.md) | `static var ANIMATE_TIME_INTERVAL_MS: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>Period of time gauge values are animated |
 | [ANIMATION_FRAME_DELAY_MS](-a-n-i-m-a-t-i-o-n_-f-r-a-m-e_-d-e-l-a-y_-m-s.md) | `static val ANIMATION_FRAME_DELAY_MS: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [BATTERY_STATUS_INTERVAL_MS](-b-a-t-t-e-r-y_-s-t-a-t-u-s_-i-n-t-e-r-v-a-l_-m-s.md) | `static val BATTERY_STATUS_INTERVAL_MS: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>Frequency the battery status of the WICED Sense tag should be polled (in msec) |
@@ -35,8 +41,9 @@ Configurable settings for the WICED Sense Application
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [addChangeListener](add-change-listener.md) | `open static fun addChangeListener(l: `[`SettingChangeListener`](-setting-change-listener/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [finish](finish.md) | `open static fun finish(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [init](init.md) | `open static fun init(ctx: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [removeChangeListener](remove-change-listener.md) | `open static fun removeChangeListener(l: `[`SettingChangeListener`](-setting-change-listener/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-

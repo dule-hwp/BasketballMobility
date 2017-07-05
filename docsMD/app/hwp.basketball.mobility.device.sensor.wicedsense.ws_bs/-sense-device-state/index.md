@@ -8,14 +8,20 @@ Manages the connection and service/characteristics to a WICED Sense Device
 
 ### Types
 
+| Name | Summary |
+|---|---|
 | [EventCallback](-event-callback/index.md) | `interface EventCallback`<br>Event callback interface invoked to report events to interested listeners |
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `SenseDeviceState(ctx: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`, device: `[`BluetoothDevice`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html)`, l: `[`Looper`](https://developer.android.com/reference/android/os/Looper.html)`, cb: `[`EventCallback`](-event-callback/index.md)`)` |
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [enableNotifications](enable-notifications.md) | `open fun enableNotifications(enable: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [getAppInfoReader](get-app-info-reader.md) | `open fun getAppInfoReader(): `[`OtaAppInfoReader`](../../hwp.basketball.mobility.device.sensor.wicedsense.wicedsmart.ota/-ota-app-info-reader/index.md) |
 | [getBatteryStatus](get-battery-status.md) | `open fun getBatteryStatus(delayed: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
@@ -31,4 +37,3 @@ Manages the connection and service/characteristics to a WICED Sense Device
 | [onPaired](on-paired.md) | `open fun onPaired(paired: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onServicesDiscovered](on-services-discovered.md) | `open fun onServicesDiscovered(gatt: `[`BluetoothGatt`](https://developer.android.com/reference/android/bluetooth/BluetoothGatt.html)`, status: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [pairIfNeeded](pair-if-needed.md) | `open fun pairIfNeeded(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
-

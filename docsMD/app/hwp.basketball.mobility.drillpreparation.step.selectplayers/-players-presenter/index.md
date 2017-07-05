@@ -8,15 +8,21 @@ Created by dusan_cvetkovic on 3/28/17.
 
 ### Constructors
 
+| Name | Summary |
+|---|---|
 | [&lt;init&gt;](-init-.md) | `PlayersPresenter(view: `[`View`](../-players-contract/-view/index.md)`)`<br>Created by dusan_cvetkovic on 3/28/17. |
 
 ### Properties
 
+| Name | Summary |
+|---|---|
 | [playersAdapterView](players-adapter-view.md) | `var playersAdapterView: `[`AdapterView`](../-players-contract/-adapter-view/index.md)`?` |
 | [view](view.md) | `val view: `[`View`](../-players-contract/-view/index.md) |
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [attach](attach.md) | `fun attach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [deletePlayer](delete-player.md) | `fun deletePlayer(position: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [detach](detach.md) | `fun detach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
@@ -27,4 +33,3 @@ Created by dusan_cvetkovic on 3/28/17.
 | [selectedCount](selected-count.md) | `fun selectedCount(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [setPlayerAdapterView](set-player-adapter-view.md) | `fun setPlayerAdapterView(playersAdapter: `[`AdapterView`](../-players-contract/-adapter-view/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [showEditPlayerDialog](show-edit-player-dialog.md) | `fun showEditPlayerDialog(position: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-

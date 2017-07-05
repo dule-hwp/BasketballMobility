@@ -6,6 +6,8 @@
 
 ### Functions
 
+| Name | Summary |
+|---|---|
 | [disableSensorsUpdate](disable-sensors-update.md) | `abstract fun disableSensorsUpdate(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [displayStats](display-stats.md) | `abstract fun displayStats(statistics: `[`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onDrillCompleted](on-drill-completed.md) | `abstract fun onDrillCompleted(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
@@ -18,10 +20,13 @@
 
 ### Inherited Functions
 
+| Name | Summary |
+|---|---|
 | [attach](../../../hwp.basketball.mobility/-base-presenter/attach.md) | `abstract fun attach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [detach](../../../hwp.basketball.mobility/-base-presenter/detach.md) | `abstract fun detach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Inheritors
 
+| Name | Summary |
+|---|---|
 | [SensorDrawingViewPresenter](../../-sensor-drawing-view-presenter/index.md) | `class SensorDrawingViewPresenter : Presenter`<br>Created by dusan_cvetkovic on 3/7/17. |
-

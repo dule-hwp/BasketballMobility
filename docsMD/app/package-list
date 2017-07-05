@@ -1,4 +1,4 @@
-$dokka.format:markdown
+$dokka.format:gfm
 $dokka.linkExtension:md
 $dokka.location:hwp.basketball.mobility.util$bindView(android.support.v7.app.AppCompatActivity, kotlin.Int)hwp.basketball.mobility.util/android.support.v7.app.-app-compat-activity/bind-view.md
 $dokka.location:hwp.basketball.mobility.util$bindView(android.view.View, kotlin.Int)hwp.basketball.mobility.util/android.view.-view/bind-view.md

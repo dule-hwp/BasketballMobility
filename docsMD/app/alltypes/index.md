@@ -2,13 +2,15 @@
 
 ### All Types
 
+| Name | Summary |
+|---|---|
 | [hwp.basketball.mobility.device.sensor.android.AndroidSensor](../hwp.basketball.mobility.device.sensor.android/-android-sensor/index.md) | Created by dusan_cvetkovic on 3/4/17. |
 | [hwp.basketball.mobility.device.sensor.wicedsense.ws_bs.AnimationManager](../hwp.basketball.mobility.device.sensor.wicedsense.ws_bs/-animation-manager/index.md) | Manages and coordinates multiple "Animated" objects |
 | [android.support.v7.app.AppCompatActivity](../hwp.basketball.mobility.util/android.support.v7.app.-app-compat-activity/index.md) (extensions in package hwp.basketball.mobility.util) |  |
 | [hwp.basketball.mobility.login.google.signin.AuthCallback](../hwp.basketball.mobility.login.google.signin/-auth-callback/index.md) |  |
 | [hwp.basketball.mobility.device.sensor.BMSensorManager](../hwp.basketball.mobility.device.sensor/-b-m-sensor-manager/index.md) | Created by dusan_cvetkovic on 4/7/17. |
 | [hwp.basketball.mobility.BasePresenter](../hwp.basketball.mobility/-base-presenter/index.md) | Created by dusan_cvetkovic on 3/28/17. |
-| [hwp.basketball.mobility.device.sensor.BaseSensor](../hwp.basketball.mobility.device.sensor/-base-sensor/index.md) | Created by dusan_cvetkovic on 3/4/17. |
+| [hwp.basketball.mobility.device.sensor.BaseSensor](../hwp.basketball.mobility.device.sensor/-base-sensor/index.md) | Each of the sensors needs to extend this class and implement required methods. |
 | [hwp.basketball.mobility.drillpreparation.step.BaseStepFragment](../hwp.basketball.mobility.drillpreparation.step/-base-step-fragment/index.md) | Created by dusan_cvetkovic on 4/10/17. |
 | [hwp.basketball.mobility.BasketballMobilityApp](../hwp.basketball.mobility/-basketball-mobility-app/index.md) | Created by dusan_cvetkovic on 3/6/17. |
 | [hwp.basketball.mobility.util.Binder](../hwp.basketball.mobility.util/-binder/index.md) |  |
@@ -117,4 +119,3 @@
 | [hwp.basketball.mobility.entitiy.drills.ViewDimens](../hwp.basketball.mobility.entitiy.drills/-view-dimens/index.md) |  |
 | [hwp.basketball.mobility.util.ViewUtils](../hwp.basketball.mobility.util/-view-utils/index.md) | Created by dusan_cvetkovic on 5/8/17. |
 | [hwp.basketball.mobility.device.sensor.wicedsense.WicedSenseSensor](../hwp.basketball.mobility.device.sensor.wicedsense/-wiced-sense-sensor/index.md) | Created by dusan_cvetkovic on 7/4/17. |
-

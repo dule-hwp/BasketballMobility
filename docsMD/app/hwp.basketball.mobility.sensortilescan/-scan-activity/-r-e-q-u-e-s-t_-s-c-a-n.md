@@ -1,0 +1,5 @@
+[app](../../index.md) / [hwp.basketball.mobility.sensortilescan](../index.md) / [ScanActivity](index.md) / [REQUEST_SCAN](.)
+
+# REQUEST_SCAN
+
+`val REQUEST_SCAN: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)

@@ -1,0 +1,8 @@
+[app](../../index.md) / [hwp.basketball.mobility.pathrecorder.sketchview](../index.md) / [SensorDrawingView](index.md) / [resetDrill](.)
+
+# resetDrill
+
+`fun resetDrill(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Overrides [View.resetDrill](../-sensor-drawing-view-view-contract/-view/reset-drill.md)
+

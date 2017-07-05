@@ -1,0 +1,14 @@
+[app](../../index.md) / [hwp.basketball.mobility.drillpreparation.step.selectplayers](../index.md) / [PlayersContract](.)
+
+# PlayersContract
+
+`interface PlayersContract`
+
+Created by dusan_cvetkovic on 3/28/17.
+
+### Types
+
+| [AdapterView](-adapter-view/index.md) | `interface AdapterView` |
+| [Presenter](-presenter/index.md) | `interface Presenter : `[`BasePresenter`](../../hwp.basketball.mobility/-base-presenter/index.md) |
+| [View](-view/index.md) | `interface View` |
+

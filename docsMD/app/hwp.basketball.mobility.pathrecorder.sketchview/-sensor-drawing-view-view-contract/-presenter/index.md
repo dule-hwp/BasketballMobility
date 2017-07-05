@@ -8,12 +8,11 @@
 
 | [disableSensorsUpdate](disable-sensors-update.md) | `abstract fun disableSensorsUpdate(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [displayStats](display-stats.md) | `abstract fun displayStats(statistics: `[`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [isInRecordingMode](is-in-recording-mode.md) | `abstract fun isInRecordingMode(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
 | [onDrillCompleted](on-drill-completed.md) | `abstract fun onDrillCompleted(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onPlayPauseDrillClick](on-play-pause-drill-click.md) | `abstract fun onPlayPauseDrillClick(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onSaveDrillOutcome](on-save-drill-outcome.md) | `abstract fun onSaveDrillOutcome(outcome: `[`DrillOutcome`](../../../hwp.basketball.mobility.entitiy.drills.outcomes/-drill-outcome/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [prepareConnectedSensor](prepare-connected-sensor.md) | `abstract fun prepareConnectedSensor(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [restartDrill](restart-drill.md) | `abstract fun restartDrill(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [saveRecording](save-recording.md) | `abstract fun saveRecording(suffix: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [startResumeMovement](start-resume-movement.md) | `abstract fun startResumeMovement(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [stopMovement](stop-movement.md) | `abstract fun stopMovement(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 

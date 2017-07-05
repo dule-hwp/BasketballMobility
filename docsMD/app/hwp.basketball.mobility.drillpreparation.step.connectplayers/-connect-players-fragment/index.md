@@ -28,6 +28,7 @@ Created by dusan_cvetkovic on 3/23/17.
 | [showConnectDialog](show-connect-dialog.md) | `fun showConnectDialog(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [showSensorTypeChooser](show-sensor-type-chooser.md) | `fun showSensorTypeChooser(firstName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [startScanActivity](start-scan-activity.md) | `fun startScanActivity(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [startWicedActivityScan](start-wiced-activity-scan.md) | `fun startWicedActivityScan(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [stepTitle](step-title.md) | `fun stepTitle(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 | [verifyStep](verify-step.md) | `fun verifyStep(): VerificationError?` |
 

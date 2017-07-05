@@ -2,4 +2,7 @@
 
 # motionListener
 
-`var motionListener: `[`MotionDataChangedCallback`](-motion-data-changed-callback/index.md)`?`
+`var motionListener: `[`MovingStateChangedCallback`](-moving-state-changed-callback/index.md)`?`
+
+Trigger this listener when your sensor detects change in movement
+

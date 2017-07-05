@@ -3,9 +3,3 @@
 # paintStrokeColor
 
 `var paintStrokeColor: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
-
-This method is setter for stroke color.
-
-### Parameters
-
-`color` - 

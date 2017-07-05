@@ -6,3 +6,5 @@
 
 Overrides [BaseSensor.getName](../../hwp.basketball.mobility.device.sensor/-base-sensor/get-name.md)
 
+Return name of BLE node(address).
+

@@ -16,6 +16,11 @@ hwp.basketball.mobility.device.sensor
 hwp.basketball.mobility.device.sensor.android
 hwp.basketball.mobility.device.sensor.sensortile
 hwp.basketball.mobility.device.sensor.test
+hwp.basketball.mobility.device.sensor.wicedsense
+hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker
+hwp.basketball.mobility.device.sensor.wicedsense.util
+hwp.basketball.mobility.device.sensor.wicedsense.wicedsmart.ota
+hwp.basketball.mobility.device.sensor.wicedsense.ws_bs
 hwp.basketball.mobility.drill.create
 hwp.basketball.mobility.drill.display
 hwp.basketball.mobility.drill.display.dummy
@@ -33,7 +38,6 @@ hwp.basketball.mobility.login
 hwp.basketball.mobility.login.google.signin
 hwp.basketball.mobility.pathrecorder
 hwp.basketball.mobility.pathrecorder.sketchview
-hwp.basketball.mobility.pathrecorder.toolbar
 hwp.basketball.mobility.sensortilescan
 hwp.basketball.mobility.util
 hwp.basketball.mobility.view

@@ -3,3 +3,9 @@
 # getAngle
 
 `fun getAngle(target: `[`PointF`](index.md)`): `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+
+Returns angle betwen current point and target point
+
+### Parameters
+
+`target` - Point to calculate angle between.

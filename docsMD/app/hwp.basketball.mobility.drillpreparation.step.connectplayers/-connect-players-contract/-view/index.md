@@ -10,6 +10,7 @@
 | [showConnectDialog](show-connect-dialog.md) | `abstract fun showConnectDialog(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [showSensorTypeChooser](show-sensor-type-chooser.md) | `abstract fun showSensorTypeChooser(firstName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [startScanActivity](start-scan-activity.md) | `abstract fun startScanActivity(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [startWicedActivityScan](start-wiced-activity-scan.md) | `abstract fun startWicedActivityScan(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Inheritors
 

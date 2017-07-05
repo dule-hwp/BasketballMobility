@@ -3,3 +3,6 @@
 # angleListener
 
 `var angleListener: `[`AngleDataChangedCallback`](-angle-data-changed-callback/index.md)`?`
+
+Trigger this listener when your sensor detects change in angle
+

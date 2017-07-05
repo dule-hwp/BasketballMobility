@@ -3,9 +3,3 @@
 # mode
 
 `var mode: `[`Mode`](-mode/index.md)
-
-This method is setter for mode.
-
-### Parameters
-
-`mode` - 

@@ -3,6 +3,3 @@
 # onAndroidSensorSelected
 
 `fun onAndroidSensorSelected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
-
-Overrides [SensorChooserCallback.onAndroidSensorSelected](../../hwp.basketball.mobility.sensortilescan/-sensors-dialog/-sensor-chooser-callback/on-android-sensor-selected.md)
-

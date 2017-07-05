@@ -23,6 +23,7 @@ Created by dusan_cvetkovic on 4/4/17.
 | [onNothingSelected](on-nothing-selected.md) | `fun onNothingSelected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onScanSuccessfulReturnTag](on-scan-successful-return-tag.md) | `fun onScanSuccessfulReturnTag(nodeTag: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onSensorTileSelected](on-sensor-tile-selected.md) | `fun onSensorTileSelected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onSensorTypeSelected](on-sensor-type-selected.md) | `fun onSensorTypeSelected(sensorType: `[`Type`](../../hwp.basketball.mobility.device.sensor/-base-sensor/-type/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [refreshData](refresh-data.md) | `fun refreshData(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [setConnectPlayersAdapterView](set-connect-players-adapter-view.md) | `fun setConnectPlayersAdapterView(view: `[`AdapterView`](../-connect-players-contract/-adapter-view/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [verifyStep](verify-step.md) | `fun verifyStep(): VerificationError?` |

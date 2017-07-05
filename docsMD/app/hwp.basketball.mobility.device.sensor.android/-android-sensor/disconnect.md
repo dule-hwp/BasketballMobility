@@ -6,3 +6,5 @@
 
 Overrides [BaseSensor.disconnect](../../hwp.basketball.mobility.device.sensor/-base-sensor/disconnect.md)
 
+Unregister listeners to prevent wasting resources, and disconnect if needed (BLE).
+

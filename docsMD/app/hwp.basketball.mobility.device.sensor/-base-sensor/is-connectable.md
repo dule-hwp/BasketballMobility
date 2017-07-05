@@ -2,4 +2,7 @@
 
 # isConnectable
 
-`abstract fun isConnectable(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+`abstract val isConnectable: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+
+Ble devices return true, others false
+

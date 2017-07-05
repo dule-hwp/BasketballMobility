@@ -12,6 +12,7 @@
 | [getDesiredPathLength](get-desired-path-length.md) | `abstract fun getDesiredPathLength(): `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |
 | [invalidate](invalidate.md) | `abstract fun invalidate(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [invalidateView](invalidate-view.md) | `abstract fun invalidateView(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onRecordingModeChange](on-recording-mode-change.md) | `abstract fun onRecordingModeChange(inRecordingMode: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onSensorConnected](on-sensor-connected.md) | `abstract fun onSensorConnected(bmSensorManager: `[`IBMSensorManager`](../../../hwp.basketball.mobility.device.sensor/-i-b-m-sensor-manager/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onSensorDisconnected](on-sensor-disconnected.md) | `abstract fun onSensorDisconnected(bmSensorManager: `[`IBMSensorManager`](../../../hwp.basketball.mobility.device.sensor/-i-b-m-sensor-manager/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [resetDrill](reset-drill.md) | `abstract fun resetDrill(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |

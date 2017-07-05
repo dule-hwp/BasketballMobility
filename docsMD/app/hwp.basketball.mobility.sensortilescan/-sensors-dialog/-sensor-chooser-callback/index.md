@@ -6,9 +6,8 @@
 
 ### Functions
 
-| [onAndroidSensorSelected](on-android-sensor-selected.md) | `abstract fun onAndroidSensorSelected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onNothingSelected](on-nothing-selected.md) | `abstract fun onNothingSelected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [onSensorTileSelected](on-sensor-tile-selected.md) | `abstract fun onSensorTileSelected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onSensorTypeSelected](on-sensor-type-selected.md) | `abstract fun onSensorTypeSelected(sensorType: `[`Type`](../../../hwp.basketball.mobility.device.sensor/-base-sensor/-type/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Inheritors
 

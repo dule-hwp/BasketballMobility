@@ -3,9 +3,3 @@
 # fontFamily
 
 `var fontFamily: `[`Typeface`](https://developer.android.com/reference/android/graphics/Typeface.html)
-
-This method is setter for font-family.
-
-### Parameters
-
-`face` - 

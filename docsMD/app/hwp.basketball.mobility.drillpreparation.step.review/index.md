@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.drillpreparation.step.review
 
+MVP pattern fragment implementation of the review step.
+
 ### Types
 
 | Name | Summary |

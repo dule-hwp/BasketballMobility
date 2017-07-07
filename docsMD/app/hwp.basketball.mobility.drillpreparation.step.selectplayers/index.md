@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.drillpreparation.step.selectplayers
 
+MVP fragment implementation of the select player. In this step it is also possible to create/edit/delete player, so thats why it makses sense to introduce MVP pattern.
+
 ### Types
 
 | Name | Summary |

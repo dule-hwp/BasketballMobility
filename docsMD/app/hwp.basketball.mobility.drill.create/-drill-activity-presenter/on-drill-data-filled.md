@@ -6,3 +6,8 @@
 
 Overrides [Presenter.onDrillDataFilled](../-drill-activity-contract/-presenter/on-drill-data-filled.md)
 
+Method in charge of adding drill to the database.
+
+Converts points to percent point to take care of different views display.
+Communicates to drills repository interface.
+

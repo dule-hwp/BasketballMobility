@@ -2,4 +2,4 @@
 
 # &lt;init&gt;
 
-`SensorConnectionData(type: `[`Type`](../../../hwp.basketball.mobility.device.sensor/-base-sensor/-type/index.md)`, name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = "")`
+`SensorConnectionData(type: `[`Type`](../../../hwp.basketball.mobility.device.sensor/-sensor-factory/-type/index.md)`, name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = "")`

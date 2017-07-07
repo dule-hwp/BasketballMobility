@@ -4,5 +4,5 @@
 
 `MockedSensor(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`)`
 
-Created by dusan_cvetkovic on 5/21/17.
+Sensor implementation intended to be used in instrumented tests.
 

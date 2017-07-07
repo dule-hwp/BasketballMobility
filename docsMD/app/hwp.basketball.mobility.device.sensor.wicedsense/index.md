@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.device.sensor.wicedsense
 
+Wicedsense sensor implementation of the BaseSensor.
+
 ### Types
 
 | Name | Summary |

@@ -12,5 +12,5 @@ Created by dusan_cvetkovic on 3/28/17.
 |---|---|
 | [AdapterView](-adapter-view/index.md) | `interface AdapterView` |
 | [AdapterViewCallback](-adapter-view-callback/index.md) | `interface AdapterViewCallback` |
-| [Presenter](-presenter/index.md) | `interface Presenter : `[`BasePresenter`](../../hwp.basketball.mobility/-base-presenter/index.md)`, `[`SensorChooserCallback`](../../hwp.basketball.mobility.sensortilescan/-sensors-dialog/-sensor-chooser-callback/index.md) |
+| [Presenter](-presenter/index.md) | `interface Presenter : `[`BasePresenter`](../../hwp.basketball.mobility/-base-presenter/index.md)`, `[`SensorChooserCallback`](../../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-sensors-dialog/-sensor-chooser-callback/index.md) |
 | [View](-view/index.md) | `interface View` |

@@ -1,0 +1,5 @@
+[app](../../index.md) / [hwp.basketball.mobility.view](../index.md) / [CanvasView](index.md) / [text](.)
+
+# text
+
+`var text: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)

@@ -2,7 +2,7 @@
 
 # onSensorTypeSelected
 
-`fun onSensorTypeSelected(sensorType: `[`Type`](../../hwp.basketball.mobility.device.sensor/-base-sensor/-type/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`fun onSensorTypeSelected(sensorType: `[`Type`](../../hwp.basketball.mobility.device.sensor/-sensor-factory/-type/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
 
-Overrides [SensorChooserCallback.onSensorTypeSelected](../../hwp.basketball.mobility.sensortilescan/-sensors-dialog/-sensor-chooser-callback/on-sensor-type-selected.md)
+Overrides [SensorChooserCallback.onSensorTypeSelected](../../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-sensors-dialog/-sensor-chooser-callback/on-sensor-type-selected.md)
 

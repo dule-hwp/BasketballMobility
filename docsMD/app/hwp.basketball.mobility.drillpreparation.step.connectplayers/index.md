@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.drillpreparation.step.connectplayers
 
+MVP pattern fragment implementation of the connect players step.
+
 ### Types
 
 | Name | Summary |

@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.entitiy.user
 
+User/coach implemetation of repository pattern with FireBase specific implementation, and view model.
+
 ### Types
 
 | Name | Summary |

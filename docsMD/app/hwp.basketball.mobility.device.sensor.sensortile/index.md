@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.device.sensor.sensortile
 
+SensorTile implementation of the BaseSensor.
+
 ### Types
 
 | Name | Summary |

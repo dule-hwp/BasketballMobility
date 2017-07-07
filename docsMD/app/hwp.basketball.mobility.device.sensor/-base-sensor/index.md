@@ -7,7 +7,7 @@
 Each of the sensors needs to extend this class and implement required methods.
 
 After sensor is connected during drill preparation phase, connecting to sensor should be done
-via uuid which is argument passed to @see connectTo method.
+via uuid which is argument passed to [connectTo](connect-to.md) method.
 
 Implementation of this class should trigger each of the listeners to inform sensor user what data has changed.
 
@@ -15,6 +15,8 @@ Note that connection to sensor should be done separatelly, because each of the B
 has its own SDK and connecting/searching for devices is done differently for each wearable sensor.
 
 **See Also**
+
+[connectTo](connect-to.md)
 
 [angleListener](angle-listener.md)
 
@@ -29,13 +31,12 @@ has its own SDK and connecting/searching for devices is done differently for eac
 | [MagnetometerDataChangedCallback](-magnetometer-data-changed-callback/index.md) | `interface MagnetometerDataChangedCallback` |
 | [MovingStateChangedCallback](-moving-state-changed-callback/index.md) | `interface MovingStateChangedCallback` |
 | [SensorStateChangedCallback](-sensor-state-changed-callback/index.md) | `interface SensorStateChangedCallback` |
-| [Type](-type/index.md) | `enum class Type` |
 
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `BaseSensor(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`)`<br>Each of the sensors needs to extend this class and implement required methods. |
+| [&lt;init&gt;](-init-.md) | `BaseSensor()`<br>Each of the sensors needs to extend this class and implement required methods. |
 
 ### Properties
 
@@ -43,7 +44,6 @@ has its own SDK and connecting/searching for devices is done differently for eac
 |---|---|
 | [accelerometerListener](accelerometer-listener.md) | `var accelerometerListener: `[`AccelerometerDataChangedCallback`](-accelerometer-data-changed-callback/index.md)`?`<br>Trigger this listener when your sensor detects change in accelerometer  |
 | [angleListener](angle-listener.md) | `var angleListener: `[`AngleDataChangedCallback`](-angle-data-changed-callback/index.md)`?`<br>Trigger this listener when your sensor detects change in angle  |
-| [context](context.md) | `val context: `[`Context`](https://developer.android.com/reference/android/content/Context.html) |
 | [isConnectable](is-connectable.md) | `abstract val isConnectable: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Ble devices return true, others false |
 | [mAccelerometerReading](m-accelerometer-reading.md) | `val mAccelerometerReading: `[`FloatArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html) |
 | [mGyroReading](m-gyro-reading.md) | `val mGyroReading: `[`FloatArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html) |
@@ -67,6 +67,6 @@ has its own SDK and connecting/searching for devices is done differently for eac
 | Name | Summary |
 |---|---|
 | [AndroidSensor](../../hwp.basketball.mobility.device.sensor.android/-android-sensor/index.md) | `class AndroidSensor : BaseSensor, `[`SensorEventListener`](https://developer.android.com/reference/android/hardware/SensorEventListener.html)<br>Created by dusan_cvetkovic on 3/4/17. |
-| [MockedSensor](../../hwp.basketball.mobility.device.sensor.test/-mocked-sensor/index.md) | `class MockedSensor : BaseSensor`<br>Created by dusan_cvetkovic on 5/21/17. |
+| [MockedSensor](../../hwp.basketball.mobility.device.sensor.test/-mocked-sensor/index.md) | `class MockedSensor : BaseSensor`<br>Sensor implementation intended to be used in instrumented tests. |
 | [SensorTileSensor](../../hwp.basketball.mobility.device.sensor.sensortile/-sensor-tile-sensor/index.md) | `open class SensorTileSensor : BaseSensor, FeatureListener, NodeStateListener`<br>Created by dusan_cvetkovic on 3/4/17. |
 | [WicedSenseSensor](../../hwp.basketball.mobility.device.sensor.wicedsense/-wiced-sense-sensor/index.md) | `class WicedSenseSensor : BaseSensor, `[`Callback`](../../hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker/-device-picker/-callback/index.md)`, `[`Callback`](https://developer.android.com/reference/android/os/Handler/Callback.html)<br>Created by dusan_cvetkovic on 7/4/17. |

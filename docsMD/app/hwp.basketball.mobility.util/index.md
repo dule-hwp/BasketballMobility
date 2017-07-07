@@ -2,12 +2,13 @@
 
 ## Package hwp.basketball.mobility.util
 
+All of the various utility files are stored in this package. Probably the most interesting one is Extensions.kt file where all of the kotlin extension methods are defined.
+
 ### Types
 
 | Name | Summary |
 |---|---|
 | [Binder](-binder/index.md) | `class Binder<out T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> : `[`ReadOnlyProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-read-only-property/index.html)`<`[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?, T>` |
-| [CanvasView](-canvas-view/index.md) | `class CanvasView : `[`View`](https://developer.android.com/reference/android/view/View.html)<br>This class defines fields and methods for drawing. |
 | [FirebaseStorageUtils](-firebase-storage-utils/index.md) | `object FirebaseStorageUtils` |
 | [Geometry2D](-geometry2-d/index.md) | `object Geometry2D`<br>Created by dusan_cvetkovic on 6/8/17. |
 | [MovingAverage](-moving-average/index.md) | `class MovingAverage` |
@@ -23,7 +24,6 @@
 
 | Name | Summary |
 |---|---|
-| [android.graphics.Bitmap](android.graphics.-bitmap/index.md) |  |
 | [android.graphics.Canvas](android.graphics.-canvas/index.md) |  |
 | [android.graphics.Path](android.graphics.-path/index.md) |  |
 | [android.graphics.PathMeasure](android.graphics.-path-measure/index.md) |  |

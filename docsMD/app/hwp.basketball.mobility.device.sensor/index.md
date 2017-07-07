@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.device.sensor
 
+All of the sensors supported by the application should be inside this package and have their own sub packege. In this packege root we can find BaseSensor that each of the sensors need to implement and we have sensor factory (factory pattern) to build specific sensor implementation based on type.
+
 ### Types
 
 | Name | Summary |

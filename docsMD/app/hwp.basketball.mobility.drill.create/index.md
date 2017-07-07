@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.drill.create
 
+MVP implementation of create drill activity.
+
 ### Types
 
 | Name | Summary |

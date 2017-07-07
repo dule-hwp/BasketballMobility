@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.drillpreparation.step
 
+Each of the 4 steps in this process contains MVP implementation. If we need to remove or add steps it would be very easy to go to main activity and simple add or remove one fragment. MVP implementation of the step fragments can be found in sub packages.
+
 ### Types
 
 | Name | Summary |

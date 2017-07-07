@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.device.sensor.android
 
+Android implementation of the Base Sensor.
+
 ### Types
 
 | Name | Summary |

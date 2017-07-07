@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.drill.display
 
+MVP implementation fo display drills acttivity.
+
 ### Types
 
 | Name | Summary |

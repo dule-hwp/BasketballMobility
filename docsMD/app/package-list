@@ -5,16 +5,19 @@ $dokka.location:hwp.basketball.mobility.util$bindView(android.view.View, kotlin.
 $dokka.location:hwp.basketball.mobility.util$drawCircle(android.graphics.Canvas, hwp.basketball.mobility.util.PointF, kotlin.Float, android.graphics.Paint)hwp.basketball.mobility.util/android.graphics.-canvas/draw-circle.md
 $dokka.location:hwp.basketball.mobility.util$drawLine(android.graphics.Canvas, hwp.basketball.mobility.util.Point, hwp.basketball.mobility.util.Point, android.graphics.Paint)hwp.basketball.mobility.util/android.graphics.-canvas/draw-line.md
 $dokka.location:hwp.basketball.mobility.util$getFireBaseDBEmail(com.google.firebase.auth.FirebaseUser)hwp.basketball.mobility.util/com.google.firebase.auth.-firebase-user/get-fire-base-d-b-email.md
-$dokka.location:hwp.basketball.mobility.util$getPixel(android.graphics.Bitmap, hwp.basketball.mobility.util.Point)hwp.basketball.mobility.util/android.graphics.-bitmap/get-pixel.md
 $dokka.location:hwp.basketball.mobility.util$getPointAtDistance(android.graphics.PathMeasure, kotlin.Float, hwp.basketball.mobility.util.PointF)hwp.basketball.mobility.util/android.graphics.-path-measure/get-point-at-distance.md
 $dokka.location:hwp.basketball.mobility.util$lineTo(android.graphics.Path, hwp.basketball.mobility.util.PointF)hwp.basketball.mobility.util/android.graphics.-path/line-to.md
 $dokka.location:hwp.basketball.mobility.util$moveTo(android.graphics.Path, hwp.basketball.mobility.util.PointF)hwp.basketball.mobility.util/android.graphics.-path/move-to.md
 $dokka.location:hwp.basketball.mobility.util$toast(android.support.v4.app.Fragment, kotlin.String)hwp.basketball.mobility.util/android.support.v4.app.-fragment/toast.md
 $dokka.location:hwp.basketball.mobility.util$toast(android.support.v7.app.AppCompatActivity, kotlin.String)hwp.basketball.mobility.util/android.support.v7.app.-app-compat-activity/toast.md
 hwp.basketball.mobility
+hwp.basketball.mobility.account.create
+hwp.basketball.mobility.account.login
+hwp.basketball.mobility.account.login.google.signin
 hwp.basketball.mobility.device.sensor
 hwp.basketball.mobility.device.sensor.android
 hwp.basketball.mobility.device.sensor.sensortile
+hwp.basketball.mobility.device.sensor.sensortile.sensortilescan
 hwp.basketball.mobility.device.sensor.test
 hwp.basketball.mobility.device.sensor.wicedsense
 hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker
@@ -24,6 +27,8 @@ hwp.basketball.mobility.device.sensor.wicedsense.ws_bs
 hwp.basketball.mobility.drill.create
 hwp.basketball.mobility.drill.display
 hwp.basketball.mobility.drill.display.dummy
+hwp.basketball.mobility.drill.perform
+hwp.basketball.mobility.drill.perform.sketchview
 hwp.basketball.mobility.drillpreparation
 hwp.basketball.mobility.drillpreparation.step
 hwp.basketball.mobility.drillpreparation.step.connectplayers
@@ -34,10 +39,5 @@ hwp.basketball.mobility.entitiy.drills
 hwp.basketball.mobility.entitiy.drills.outcomes
 hwp.basketball.mobility.entitiy.player
 hwp.basketball.mobility.entitiy.user
-hwp.basketball.mobility.login
-hwp.basketball.mobility.login.google.signin
-hwp.basketball.mobility.pathrecorder
-hwp.basketball.mobility.pathrecorder.sketchview
-hwp.basketball.mobility.sensortilescan
 hwp.basketball.mobility.util
 hwp.basketball.mobility.view

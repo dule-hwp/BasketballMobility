@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.drillpreparation.step.selectdrill
 
+MVP fragment implementation of the select step. In this step it is also possible to create/delete drill, so thats why it makses sense to introduce MVP pattern.
+
 ### Types
 
 | Name | Summary |

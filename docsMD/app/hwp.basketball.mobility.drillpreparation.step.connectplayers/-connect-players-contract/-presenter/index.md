@@ -2,7 +2,7 @@
 
 # Presenter
 
-`interface Presenter : `[`BasePresenter`](../../../hwp.basketball.mobility/-base-presenter/index.md)`, `[`SensorChooserCallback`](../../../hwp.basketball.mobility.sensortilescan/-sensors-dialog/-sensor-chooser-callback/index.md)
+`interface Presenter : `[`BasePresenter`](../../../hwp.basketball.mobility/-base-presenter/index.md)`, `[`SensorChooserCallback`](../../../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-sensors-dialog/-sensor-chooser-callback/index.md)
 
 ### Functions
 
@@ -19,8 +19,8 @@
 |---|---|
 | [attach](../../../hwp.basketball.mobility/-base-presenter/attach.md) | `abstract fun attach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [detach](../../../hwp.basketball.mobility/-base-presenter/detach.md) | `abstract fun detach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [onNothingSelected](../../../hwp.basketball.mobility.sensortilescan/-sensors-dialog/-sensor-chooser-callback/on-nothing-selected.md) | `abstract fun onNothingSelected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [onSensorTypeSelected](../../../hwp.basketball.mobility.sensortilescan/-sensors-dialog/-sensor-chooser-callback/on-sensor-type-selected.md) | `abstract fun onSensorTypeSelected(sensorType: `[`Type`](../../../hwp.basketball.mobility.device.sensor/-base-sensor/-type/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onNothingSelected](../../../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-sensors-dialog/-sensor-chooser-callback/on-nothing-selected.md) | `abstract fun onNothingSelected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onSensorTypeSelected](../../../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-sensors-dialog/-sensor-chooser-callback/on-sensor-type-selected.md) | `abstract fun onSensorTypeSelected(sensorType: `[`Type`](../../../hwp.basketball.mobility.device.sensor/-sensor-factory/-type/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Inheritors
 

@@ -2,4 +2,4 @@
 
 # type
 
-`val type: `[`Type`](../../../hwp.basketball.mobility.device.sensor/-base-sensor/-type/index.md)
+`val type: `[`Type`](../../../hwp.basketball.mobility.device.sensor/-sensor-factory/-type/index.md)

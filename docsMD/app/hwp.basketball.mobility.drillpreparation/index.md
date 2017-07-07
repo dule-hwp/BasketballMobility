@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.drillpreparation
 
+Drill preparation is using stepper activity. I wanted to use 3rd party library and make this process look nice so i used [Android  Material Stepper](https://github.com/stepstone-tech/android-material-stepper) and applied the general application theme to it.
+
 ### Types
 
 | Name | Summary |

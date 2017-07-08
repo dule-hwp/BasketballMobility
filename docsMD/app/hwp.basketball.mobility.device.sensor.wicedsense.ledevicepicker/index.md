@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker
 
+WICED Sense "SDK". This should be in separate module, or imported as library (cypress should do better job in providing sdk).
+
 ### Types
 
 | Name | Summary |

@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.account.login
 
+MVP implementation fo Login with hiding google sign in behind interface for ease of change and testability.
+
 ### Types
 
 | Name | Summary |

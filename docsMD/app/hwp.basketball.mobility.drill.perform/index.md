@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.drill.perform
 
+MVP implementation fo the perform drill activity. We have presenter talking to both custom SensorDrawing view and activity view.
+
 ### Types
 
 | Name | Summary |

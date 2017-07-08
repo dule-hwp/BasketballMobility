@@ -2,6 +2,8 @@
 
 ## Package hwp.basketball.mobility.account.create
 
+This package is in charge of registering coach, but it is simple enough so no need to use MVP.
+
 ### Types
 
 | Name | Summary |

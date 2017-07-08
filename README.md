@@ -1,0 +1,9 @@
+# BasketballMobility
+SFSU Master thesis project
+
+Considering advances in quality and affordability of the wearable sensors, this project aims to build sensor based Android application to test how well the wearable sensors work in specific application. Chosen application is a basketball coaching application where coach would be able to define drill and then test how each one of the players performs the drill by collecting signals from player’s wearable senor. The “drill score” is measured by how closely player followed the predefined path. To be able to track the player movement we evaluated several wearable sensors and decided to use Inertial Measurement Unit (IMU) sensor – SensorTile. Our implementation is using dead reckoning approach, where we use accelerometer values and orientation of the player to calculate the displacement from previously known position.  Mobile client and server drill management application (drill creation and review, player enrollment, drill run and data collection, data upload) was developed using modern SW Engineering approach, starting from use cases, and using User Centered Design to develop user interface. For implementation we used the latest Android technology named Kotlin language; now official on Android, statically typed programming language; RxJava, a library for composing asynchronous and event-based programs by using observable sequences; and Firebase, real time database and storage proven to be very useful and easy to use in the project.  The architecture of the system is designed to allow easy integration of various sensors by abstracting the sensor class. The application has been developed, tested and is operational.
+
+
+Keywords: wearable sensors, Android, basketball, BLE, MVP architecture, Firebase, RxJava 
+
+## [Documentation](https://github.com/dule-hwp/BasketballMobility/blob/master/docsMD/app/index.md)

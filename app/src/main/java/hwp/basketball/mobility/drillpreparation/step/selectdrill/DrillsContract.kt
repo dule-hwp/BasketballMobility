@@ -11,7 +11,7 @@ import hwp.basketball.mobility.util.PointF
  */
 interface DrillsContract {
     interface View {
-        fun displayError(s: String)
+        fun displayError(errorMessage: String)
         fun showProgressDialog(message: String)
         fun hideProgressDialog()
     }

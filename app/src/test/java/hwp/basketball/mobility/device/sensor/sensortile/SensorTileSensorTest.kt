@@ -4,7 +4,7 @@ import com.google.common.base.Charsets
 import com.google.common.io.Files
 import com.google.gson.Gson
 import com.st.BlueSTSDK.Features.FeaturePedometer
-import hwp.basketball.mobility.TestData
+import hwp.basketball.mobility.device.sensor.test.TestData
 import org.junit.Before
 import org.junit.Test
 

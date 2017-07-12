@@ -6,3 +6,8 @@
 
 Overrides [AdapterView.swapData](../-players-contract/-adapter-view/swap-data.md)
 
+Replace the data displayed with new data.
+
+### Parameters
+
+`data` - new List of players to be displayed

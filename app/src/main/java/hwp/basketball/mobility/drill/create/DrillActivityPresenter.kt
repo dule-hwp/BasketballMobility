@@ -29,9 +29,15 @@ class DrillActivityPresenter(val view: DrillActivityContract.View) :
 
     val compositeDisposable = CompositeDisposable()
 
+    /**
+     * Method in charge of adding drill to the database.
+     *
+     * Converts points to percent point to take care of different views display.
+     * Communicates to drills repository interface.
+     * */
     override fun onDrillDataFilled(pathPoints: List<PointF>, drillName: String, numOfPlayers: Int, bitmap: Bitmap, viewDimens: ViewDimens) {
-        //convert points to percent point to take care of different views display
-        val lstPoints = pathPoints.stream()
+
+        val lstPoints = pathPoints
                 .map { PercentPoint.fromViewPoint(it, viewDimens) }
                 .toList()
         val drill = DrillViewModel(drillName, numberOfPlayers = numOfPlayers, pathPoints = lstPoints)

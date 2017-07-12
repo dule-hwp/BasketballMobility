@@ -5,12 +5,25 @@ package hwp.basketball.mobility.util
  */
 data class PointF(var x: Float = 0f, var y: Float = 0f) {
     fun toFloatArray() = floatArrayOf(x, y)
+    /** Returns angle betwen current point and target point
+     *
+     * @param target Point to calculate angle between.
+     * @return angle in degrees 0-360 degrees
+     * */
     fun getAngle(target: PointF): Double {
-        return Math.toDegrees(Math.atan2((target.y - y).toDouble(), (target.x - x).toDouble()))
+        return Math.toDegrees(getAngleRad(target))
+//        if (angleDeg < 0) {
+//            angleDeg += 360
+//        }
+//        return 360-angleDeg
     }
 
     fun getAngleRad(target: PointF): Double {
         return Math.atan2((target.y - y).toDouble(), (target.x - x).toDouble())
+    }
+
+    fun distanceTo(endPoint: PointF): Float {
+        return Vector2D.distance(this, endPoint)
     }
 }
 

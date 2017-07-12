@@ -1,7 +1,8 @@
 package hwp.basketball.mobility.entitiy.user
 
 import io.reactivex.Completable
-import io.reactivex.Single
+import io.reactivex.Maybe
+
 //import io.realm.Realm
 
 
@@ -10,12 +11,12 @@ import io.reactivex.Single
  */
 
 class UserRealmUserDataStore : UserDataStore<CoachViewModel> {
-    override fun add(item: CoachViewModel): Completable {
-        return Completable.error(Exception("addDrillToDatabase CoachModel not implemented"))
+    override fun add(coach: CoachViewModel): Completable {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun findByEmail(email: String): Single<CoachViewModel>? {
-        return Single.just(CoachViewModel())
+    override fun findByEmail(email: String): Maybe<CoachViewModel> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 //    override fun addDrillToDatabase(item: CoachViewModel) : Completable {

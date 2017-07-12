@@ -4,5 +4,6 @@
 
 `DrillsFragment()`
 
-Created by dusan_cvetkovic on 3/23/17.
+Drill select step.
+View being shown in preparation drill process when coach selects drill.
 

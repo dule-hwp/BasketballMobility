@@ -29,7 +29,7 @@ import timber.log.Timber
 class DrillOutcomeFirebaseRepo : DrillOutcomeStore {
 
     companion object {
-        val DATE_FORMAT = "MM-dd-YYYY_HH:mm"
+        val DATE_FORMAT = "MM-dd-YYYY_HH:mm:ss"
     }
 
     private val PERFORMED_DRILLS_CHILD: String = "outcomes"
@@ -131,7 +131,7 @@ class DrillOutcomeFirebaseRepo : DrillOutcomeStore {
                 .child(drillOutcome.coachEmail ?: "unknown_coach")
                 .child(drillName ?: "unknown_drill_name")
                 .child(playerName)
-                .child(drillOutcome.id)
+                .child(drillOutcome.getDateWithoutZone())
     }
 
     private fun getOutcomeDBReference(drillOutcome: DrillOutcome) =

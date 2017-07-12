@@ -3,9 +3,12 @@ package hwp.basketball.mobility.view
 import android.content.Context
 import android.graphics.*
 import hwp.basketball.mobility.R
-import hwp.basketball.mobility.pathrecorder.sketchview.SensorDrawingView
+import hwp.basketball.mobility.drill.perform.sketchview.SensorDrawingView
 import hwp.basketball.mobility.util.MovingAverage
 import hwp.basketball.mobility.util.Vector2D
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
+import kotlin.properties.Delegates
 
 /**
  * Created by dusan_cvetkovic on 6/20/17.
@@ -31,9 +34,11 @@ class CompassView(context: Context) {
 
     internal var degreesToNorth = -1000f
 
-    private var correction: Float = 0F
+//    var correction: Float = 0F
 
+    /**@suppress*/
     internal var screenAspectRatio = -1.0f
+    /**@suppress*/
     internal val bitmapArrow: Bitmap by lazy {
         BitmapFactory.decodeResource(context.resources, R.drawable.arrow)
     }
@@ -124,19 +129,23 @@ class CompassView(context: Context) {
                 center[0] - compassRadius, center[1] - compassRadius - paint.textSize / 2, paint)
     }
 
-    fun updateAngle(degreesToTrueNorth: Float) {
-        if (correction == null && degreesToNorth == -1000f) {
-            correction = 0f - degreesToTrueNorth
-            degreesToNorth = degreesToTrueNorth + correction
+
+    val isRotatingObservable = PublishSubject.create<Boolean>()
+
+    var isRotating: Boolean by Delegates.observable(false, { _, old, new ->
+        if (old != new){
+            isRotatingObservable.onNext(new)
         }
+    })
 
-        val degreesToNorth = degreesToTrueNorth + correction
-        movingAverageAngleDiff.next((degreesToNorth - this.degreesToNorth).toInt())
-        this.degreesToNorth = degreesToNorth
-
-
+    fun subscribeToRotatingChange() : Observable<Boolean> {
+        return isRotatingObservable
     }
 
-    fun isRotating() = Math.abs(movingAverageAngleDiff.avg) > SensorDrawingView.ANGLE_DIFF_CUTOFF
+    fun updateAngle(degreesToTrueNorth: Float) {
+        movingAverageAngleDiff.next((degreesToTrueNorth - this.degreesToNorth).toInt())
+        this.degreesToNorth = degreesToTrueNorth
+        isRotating = Math.abs(movingAverageAngleDiff.avg) > SensorDrawingView.ANGLE_DIFF_CUTOFF
+    }
 
 }

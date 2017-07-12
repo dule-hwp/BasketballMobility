@@ -4,7 +4,7 @@
 
 `interface PlayersContract`
 
-Created by dusan_cvetkovic on 3/28/17.
+Contract that needs to be fulfilled for players step to work properly.
 
 ### Types
 

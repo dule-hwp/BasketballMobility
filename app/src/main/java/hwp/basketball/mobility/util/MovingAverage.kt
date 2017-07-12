@@ -15,11 +15,7 @@ class MovingAverage
             return 0.0
         if (queue.size < this.size) {
             queue.offer(value)
-            var sum = 0
-            for (i in queue) {
-                sum += i
-            }
-            avg = sum.toDouble() / queue.size
+            avg = queue.sum().toDouble() / queue.size
         } else {
             val head = queue.poll()
             val minus = head.toDouble() / this.size

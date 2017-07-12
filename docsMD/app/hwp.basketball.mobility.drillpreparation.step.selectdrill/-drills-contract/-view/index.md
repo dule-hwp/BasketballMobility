@@ -16,4 +16,4 @@
 
 | Name | Summary |
 |---|---|
-| [DrillsFragment](../../-drills-fragment/index.md) | `class DrillsFragment : `[`BaseStepFragment`](../../../hwp.basketball.mobility.drillpreparation.step/-base-step-fragment/index.md)`, View`<br>Created by dusan_cvetkovic on 3/23/17. |
+| [DrillsFragment](../../-drills-fragment/index.md) | `class DrillsFragment : `[`BaseStepFragment`](../../../hwp.basketball.mobility.drillpreparation.step/-base-step-fragment/index.md)`, View`<br>Drill select step. View being shown in preparation drill process when coach selects drill. |

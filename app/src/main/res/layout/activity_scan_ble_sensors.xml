@@ -6,7 +6,7 @@
     android:layout_marginRight="10dp"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context=".sensortilescan.ScanActivity">
+    tools:context=".device.sensor.sensortile.sensortilescan.SensorTileScanActivity">
 
     <TextView
         android:layout_width="match_parent"

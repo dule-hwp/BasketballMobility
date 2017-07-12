@@ -17,12 +17,13 @@ Created by dusan_cvetkovic on 6/26/17.
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `DrillsAdapter(drills: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<ExpandableGroup<`[`DrillOutcome`](../../hwp.basketball.mobility.entitiy.drills.outcomes/-drill-outcome/index.md)`>>)`<br>Created by dusan_cvetkovic on 6/26/17. |
+| [&lt;init&gt;](-init-.md) | `DrillsAdapter(drills: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<ExpandableGroup<`[`DrillOutcome`](../../hwp.basketball.mobility.entitiy.drills.outcomes/-drill-outcome/index.md)`>>, drillOutcomeListener: `[`DrillOutcomeCallback`](../-drill-list-activity-contract/-drill-outcome-callback/index.md)`)`<br>Created by dusan_cvetkovic on 6/26/17. |
 
 ### Properties
 
 | Name | Summary |
 |---|---|
+| [drillOutcomeListener](drill-outcome-listener.md) | `val drillOutcomeListener: `[`DrillOutcomeCallback`](../-drill-list-activity-contract/-drill-outcome-callback/index.md) |
 | [drills](drills.md) | `val drills: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<ExpandableGroup<`[`DrillOutcome`](../../hwp.basketball.mobility.entitiy.drills.outcomes/-drill-outcome/index.md)`>>` |
 
 ### Functions

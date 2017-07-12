@@ -4,5 +4,6 @@
 
 `ConnectPlayersFragment()`
 
-Created by dusan_cvetkovic on 3/23/17.
+Player connect step.
+View being shown in preparation drill process when coach connects all the selected players.
 

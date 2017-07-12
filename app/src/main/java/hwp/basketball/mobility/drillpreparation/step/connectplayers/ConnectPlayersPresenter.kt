@@ -1,7 +1,7 @@
 package hwp.basketball.mobility.drillpreparation.step.connectplayers
 
 import com.stepstone.stepper.VerificationError
-import hwp.basketball.mobility.device.sensor.BaseSensor
+import hwp.basketball.mobility.device.sensor.SensorFactory.Type
 import hwp.basketball.mobility.drillpreparation.step.DrillSetupOutput
 import hwp.basketball.mobility.entitiy.player.PlayerViewModel
 import io.reactivex.disposables.CompositeDisposable
@@ -50,14 +50,34 @@ class ConnectPlayersPresenter constructor(val view: ConnectPlayersContract.View)
         }
     }
 
-    override fun onSensorTileSelected() {
-        view.startScanActivity()
+    override fun onSensorTypeSelected(sensorType: Type) {
+        when (sensorType){
+            Type.SENSOR_TILE -> onSensorTileSelected()
+            Type.ANDROID_DEVICE -> onAndroidSensorSelected()
+            Type.WICED_SENSE_SENSOR -> onWicedSenseSelected()
+        }
     }
 
-    override fun onAndroidSensorSelected() {
+    private fun onWicedSenseSelected() {
         connectingPlayerViewModel?.let {
             DrillSetupOutput.connectMap.put(it,
-                    DrillSetupOutput.SensorConnectionData(BaseSensor.Type.ANDROID_DEVICE))
+                    DrillSetupOutput.SensorConnectionData(Type.WICED_SENSE_SENSOR))
+            connectPlayersAdapterView?.setConnected(connectingPlayerViewModelPosition, true)
+            removeCurrentConnectorValues()
+        }
+
+        view.startWicedActivityScan()
+
+    }
+
+    fun onSensorTileSelected() {
+        view.startSensorTileScanActivity()
+    }
+
+    fun onAndroidSensorSelected() {
+        connectingPlayerViewModel?.let {
+            DrillSetupOutput.connectMap.put(it,
+                    DrillSetupOutput.SensorConnectionData(Type.ANDROID_DEVICE))
             connectPlayersAdapterView?.setConnected(connectingPlayerViewModelPosition, true)
             removeCurrentConnectorValues()
         }
@@ -71,10 +91,11 @@ class ConnectPlayersPresenter constructor(val view: ConnectPlayersContract.View)
     override fun onScanSuccessfulReturnTag(nodeTag: String?) {
         if (connectingPlayerViewModel != null && nodeTag != null) {
             DrillSetupOutput.connectMap.put(connectingPlayerViewModel!!,
-                    DrillSetupOutput.SensorConnectionData(BaseSensor.Type.SENSOR_TILE, nodeTag))
+                    DrillSetupOutput.SensorConnectionData(Type.SENSOR_TILE, nodeTag))
             connectPlayersAdapterView?.setConnected(connectingPlayerViewModelPosition, true)
-        } else
+        } else {
             connectPlayersAdapterView?.setConnected(connectingPlayerViewModelPosition, false)
+        }
         removeCurrentConnectorValues()
     }
 

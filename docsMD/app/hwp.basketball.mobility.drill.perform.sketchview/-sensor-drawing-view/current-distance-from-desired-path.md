@@ -7,3 +7,13 @@
 Distance of the current location from the desired path.
 Used for detecting when user is off the path
 
+**Getter**
+
+Distance of the current location from the desired path.
+Used for detecting when user is off the path
+
+**Setter**
+
+Distance of the current location from the desired path.
+Used for detecting when user is off the path
+

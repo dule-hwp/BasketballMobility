@@ -6,3 +6,8 @@
 
 Overrides [AdapterView.notifyPlayerDeleted](../-players-contract/-adapter-view/notify-player-deleted.md)
 
+Update UI after player has been deleted from list.
+
+### Parameters
+
+`playerPosition` - Position of the player in the list.

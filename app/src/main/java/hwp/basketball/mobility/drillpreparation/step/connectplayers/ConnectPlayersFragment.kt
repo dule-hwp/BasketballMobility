@@ -1,6 +1,7 @@
 package hwp.basketball.mobility.drillpreparation.step.connectplayers
 
 import android.app.Activity
+import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -10,16 +11,24 @@ import android.view.View
 import android.view.ViewGroup
 import com.stepstone.stepper.VerificationError
 import hwp.basketball.mobility.R
+import hwp.basketball.mobility.device.sensor.SensorFactory
+import hwp.basketball.mobility.device.sensor.wicedsense.WicedSenseSensor
+import hwp.basketball.mobility.device.sensor.wicedsense.ws_bs.BluetoothEnabler
 import hwp.basketball.mobility.drillpreparation.step.BaseStepFragment
-import hwp.basketball.mobility.sensortilescan.ScanActivity
-import hwp.basketball.mobility.sensortilescan.SensorsDialog
+import hwp.basketball.mobility.device.sensor.sensortile.sensortilescan.SensorTileScanActivity
+import hwp.basketball.mobility.device.sensor.sensortile.sensortilescan.SensorsDialog
 import timber.log.Timber
 
 
 /**
- * Created by dusan_cvetkovic on 3/23/17.
+ * Player connect step.
+ * View being shown in preparation drill process when coach connects all the selected players.
  */
 class ConnectPlayersFragment : BaseStepFragment(), ConnectPlayersContract.View {
+    override fun startWicedActivityScan() {
+        val sensor = SensorFactory.getSensor(SensorFactory.Type.WICED_SENSE_SENSOR, this.activity) as WicedSenseSensor
+        sensor.connectTo("")
+    }
 
     lateinit var connectPlayersPresenter: ConnectPlayersContract.Presenter
     lateinit var playersAdapter: ConnectPlayersAdapter
@@ -47,13 +56,6 @@ class ConnectPlayersFragment : BaseStepFragment(), ConnectPlayersContract.View {
         setupRecyclerView()
     }
 
-    override fun showConnectDialog() {
-//        drillsDialog.showAddDrillDialog()
-//        val snack = Snackbar.make(btnAdd, "opening addDrillToDatabase drill view", Snackbar.LENGTH_INDEFINITE)
-//        snack.setAction("Dismiss") { snack.dismiss() }
-//        snack.show()
-    }
-
     override fun stepTitle(): String {
         return "Connect player"
     }
@@ -62,8 +64,8 @@ class ConnectPlayersFragment : BaseStepFragment(), ConnectPlayersContract.View {
         return connectPlayersPresenter.verifyStep()
     }
 
-    override fun displayError(s: String) {
-        Timber.d("error " + s)
+    override fun displayError(errorMessage: String) {
+        Timber.d("error " + errorMessage)
     }
 
     fun setupRecyclerView() {
@@ -87,19 +89,19 @@ class ConnectPlayersFragment : BaseStepFragment(), ConnectPlayersContract.View {
         }
     }
 
-    override fun startScanActivity() {
-        val connect = Intent(activity, ScanActivity::class.java)
-        startActivityForResult(connect, ScanActivity.REQUEST_SCAN)
+    override fun startSensorTileScanActivity() {
+        val connect = Intent(activity, SensorTileScanActivity::class.java)
+        startActivityForResult(connect, SensorTileScanActivity.REQUEST_SCAN)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == ScanActivity.REQUEST_SCAN) {
+        if (requestCode == SensorTileScanActivity.REQUEST_SCAN) {
             if (resultCode == Activity.RESULT_OK) {
                 Timber.d("onActivityResult() called with: requestCode = [$requestCode], resultCode = [$resultCode], data = [$data]")
                 data?.let {
-                    if (data.hasExtra(ScanActivity.NODE_TAG)) {
-                        val nodeTag = data.getStringExtra(ScanActivity.NODE_TAG)
+                    if (data.hasExtra(SensorTileScanActivity.NODE_TAG)) {
+                        val nodeTag = data.getStringExtra(SensorTileScanActivity.NODE_TAG)
                         connectPlayersPresenter.onScanSuccessfulReturnTag(nodeTag)
                     } else {
                         connectPlayersPresenter.onScanSuccessfulReturnTag(null)
@@ -109,6 +111,12 @@ class ConnectPlayersFragment : BaseStepFragment(), ConnectPlayersContract.View {
                 Timber.d("onActivityResult: result from scan context not OK")
                 connectPlayersPresenter.onScanSuccessfulReturnTag(null)
             }
+        } else if (requestCode == BluetoothEnabler.REQUEST_ENABLE_BT) {
+            if (!BluetoothAdapter.getDefaultAdapter().isEnabled) {
+                Timber.e("exitApp()")
+                return;
+            }
+//            initResourcesAndResume();
         }
     }
 

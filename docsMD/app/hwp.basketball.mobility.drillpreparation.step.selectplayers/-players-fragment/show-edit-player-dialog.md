@@ -6,3 +6,9 @@
 
 Overrides [View.showEditPlayerDialog](../-players-contract/-view/show-edit-player-dialog.md)
 
+This method is triggered when edit player was clicked.
+View responsibility is to show edit dialog.
+
+### Parameters
+
+`player` - Player object to edit

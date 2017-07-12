@@ -3,3 +3,9 @@
 # playerUnChecked
 
 `abstract fun playerUnChecked(player: `[`PlayerViewModel`](../../../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Player checkbox unchecked
+
+### Parameters
+
+`player` - Player unchecked

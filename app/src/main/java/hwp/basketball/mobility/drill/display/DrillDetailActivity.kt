@@ -6,12 +6,13 @@ import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.Toolbar
-import android.view.View
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.app.ActionBar
 import android.view.MenuItem
+import com.squareup.picasso.Picasso
 
 import hwp.basketball.mobility.R
+import hwp.basketball.mobility.entitiy.drills.outcomes.DrillOutcome
+import kotlinx.android.synthetic.main.activity_drill_detail.*
 
 /**
  * An activity representing a single Drill detail screen. This
@@ -22,48 +23,44 @@ import hwp.basketball.mobility.R
 class DrillDetailActivity : AppCompatActivity() {
 
     companion object {
-        fun getStartIntent(context: Context): Intent {
-            return Intent(context, DrillDetailActivity::class.java)
+        fun getStartIntent(context: Context, drillOutcome: DrillOutcome): Intent {
+            val intent = Intent(context, DrillDetailActivity::class.java)
+            intent.putExtra(DRILL_EXTRA, drillOutcome)
+            return intent
         }
+
+        val DRILL_EXTRA = "drill"
     }
+
+    private var drillOutcome: DrillOutcome? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drill_detail)
-        val toolbar = findViewById(R.id.detail_toolbar) as Toolbar
-        setSupportActionBar(toolbar)
+        drillOutcome = intent.getParcelableExtra<DrillOutcome>(DRILL_EXTRA)
+        initViews()
 
-        val fab = findViewById(R.id.fab) as FloatingActionButton
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+    }
+
+    private fun initViews() {
+        drillOutcome?.let { drillOutcome ->
+            tv_area.text = drillOutcome.pathArea.toString()
+            tv_date_value.text = drillOutcome.getDateWithoutZone()
+            tv_length.text = drillOutcome.pathLength.toString()
+            tv_name_value.text = drillOutcome.playerName
+            tv_score_value.text = drillOutcome.score.toString()
+
+            title = "Drill: ${drillOutcome.drillName}"
+
+            Picasso.with(this).load(drillOutcome.drillOutcomeImage).into(iv_drill_outcome)
+            Picasso.with(this).load(drillOutcome.drillOutcomeImageArea).into(iv_drill_outcome_error)
         }
 
-        // Show the Up button in the action bar.
-        val actionBar = supportActionBar
-        actionBar?.setDisplayHomeAsUpEnabled(true)
+    }
 
-        // savedInstanceState is non-null when there is fragment state
-        // saved from previous configurations of this activity
-        // (e.g. when rotating the screen from portrait to landscape).
-        // In this case, the fragment will automatically be re-added
-        // to its container so we don't need to manually add it.
-        // For more information, see the Fragments API guide at:
-        //
-        // http://developer.android.com/guide/components/fragments.html
-        //
-        if (savedInstanceState == null) {
-            // Create the detail fragment and add it to the activity
-            // using a fragment transaction.
-            val arguments = Bundle()
-            arguments.putString(DrillDetailFragment.ARG_ITEM_ID,
-                    intent.getStringExtra(DrillDetailFragment.ARG_ITEM_ID))
-            val fragment = DrillDetailFragment()
-            fragment.arguments = arguments
-            supportFragmentManager.beginTransaction()
-                    .add(R.id.drill_detail_container, fragment)
-                    .commit()
-        }
+    override fun onResume() {
+        super.onResume()
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

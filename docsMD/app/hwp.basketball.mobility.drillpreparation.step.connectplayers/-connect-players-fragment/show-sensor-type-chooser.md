@@ -6,3 +6,8 @@
 
 Overrides [View.showSensorTypeChooser](../-connect-players-contract/-view/show-sensor-type-chooser.md)
 
+Show dialog for chosing sensor type player with 'firstName' is using.
+
+### Parameters
+
+`firstName` - name of the player being connected

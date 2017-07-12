@@ -16,8 +16,8 @@ import timber.log.Timber
 
 
 /**
- *
- * Created by dusan_cvetkovic on 3/23/17.
+ * Player select step.
+ * View being shown in preparation drill process when coach selects player.
  */
 class PlayersFragment : BaseStepFragment(), PlayersContract.View {
 
@@ -76,8 +76,8 @@ class PlayersFragment : BaseStepFragment(), PlayersContract.View {
                 "more player(s)")
     }
 
-    override fun displayError(s: String) {
-        Timber.d("error " + s)
+    override fun displayError(errorMessage: String) {
+        Timber.d("error " + errorMessage)
     }
 
     private fun onAddButtonClicked() {

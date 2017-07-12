@@ -5,24 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
+import android.support.v7.widget.Toolbar
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup
-
 import hwp.basketball.mobility.R
-
-import hwp.basketball.mobility.drill.display.dummy.DummyContent
 import hwp.basketball.mobility.entitiy.drills.DrillViewModel
 import hwp.basketball.mobility.entitiy.drills.outcomes.DrillOutcome
 import hwp.basketball.mobility.util.toast
-import kotlinx.android.synthetic.main.activity_drill_list.*
 import kotlinx.android.synthetic.main.drill_list.*
 
 /**
@@ -59,13 +49,11 @@ class DrillListActivity : AppCompatActivity(), DrillListActivityContract.View {
         setSupportActionBar(toolbar)
         toolbar.title = title
 
-        val fab = findViewById(R.id.fab) as FloatingActionButton
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
-
         expendable_drill_list.layoutManager = LinearLayoutManager(this)
+
+        val dividerItemDecoration = DividerItemDecoration(expendable_drill_list.context,
+                DividerItemDecoration.VERTICAL)
+        expendable_drill_list.addItemDecoration(dividerItemDecoration)
         presenter.fetchDrills()
 
         if (findViewById(R.id.drill_detail_container) != null) {
@@ -81,10 +69,16 @@ class DrillListActivity : AppCompatActivity(), DrillListActivityContract.View {
         val toMutableList = drills
                 .map {
                     it.populateItems()
-                    it as ExpandableGroup<DrillOutcome> }
+                    it as ExpandableGroup<DrillOutcome>
+                }
                 .toMutableList()
-        val adapter = DrillsAdapter(toMutableList)
+        val adapter = DrillsAdapter(toMutableList, presenter)
         expendable_drill_list.adapter = adapter
+    }
+
+    override fun showDrillDetailedView(drillOutcome: DrillOutcome) {
+        val startIntent = DrillDetailActivity.getStartIntent(this, drillOutcome)
+        startActivity(startIntent)
     }
 
     private var progressDialog: ProgressDialog? = null
@@ -102,55 +96,4 @@ class DrillListActivity : AppCompatActivity(), DrillListActivityContract.View {
         toast(message)
     }
 
-    inner class SimpleItemRecyclerViewAdapter(private val mValues: List<DummyContent.DummyItem>) : RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.drill_list_content, parent, false)
-            return ViewHolder(view)
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.mItem = mValues[position]
-            holder.mIdView.text = mValues[position].id
-            holder.mContentView.text = mValues[position].content
-
-            holder.mView.setOnClickListener { v ->
-                if (mTwoPane) {
-                    val arguments = Bundle()
-                    arguments.putString(DrillDetailFragment.ARG_ITEM_ID, holder.mItem?.id)
-                    val fragment = DrillDetailFragment()
-                    fragment.arguments = arguments
-                    supportFragmentManager.beginTransaction()
-                            .replace(R.id.drill_detail_container, fragment)
-                            .commit()
-                } else {
-                    val context = v.context
-                    val intent = Intent(context, DrillDetailActivity::class.java)
-                    intent.putExtra(DrillDetailFragment.ARG_ITEM_ID, holder.mItem?.id)
-
-                    context.startActivity(intent)
-                }
-            }
-        }
-
-        override fun getItemCount(): Int {
-            return mValues.size
-        }
-
-        inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-            val mIdView: TextView
-            val mContentView: TextView
-            var mItem: DummyContent.DummyItem? = null
-
-            init {
-                mIdView = mView.findViewById(R.id.id) as TextView
-                mContentView = mView.findViewById(R.id.content) as TextView
-            }
-
-            override fun toString(): String {
-                return super.toString() + " '" + mContentView.text + "'"
-            }
-        }
-    }
 }

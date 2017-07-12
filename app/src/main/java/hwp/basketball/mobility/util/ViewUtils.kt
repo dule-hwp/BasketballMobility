@@ -9,15 +9,15 @@ import android.content.res.Resources
  */
 class ViewUtils {
     companion object {
-        fun getDeviceSize(): Pair<Int, Int> {
+        val deviceSize: Pair<Int, Int> by lazy {
             val displayMetrics = Resources.getSystem().displayMetrics
             val height = displayMetrics.heightPixels
             val width = displayMetrics.widthPixels
-            return Pair(height, width)
+            Pair(height, width)
         }
 
         fun convertMetersToPixels(strideLengthInMeters: Float): Float {
-            return (strideLengthInMeters / 15.0f) * getDeviceSize().second
+            return (strideLengthInMeters / 15.0f) * deviceSize.second
         }
 
         var isInDebugMode: Boolean = false

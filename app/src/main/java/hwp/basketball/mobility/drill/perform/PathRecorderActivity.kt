@@ -1,4 +1,4 @@
-package hwp.basketball.mobility.pathrecorder
+package hwp.basketball.mobility.drill.perform
 
 import android.app.ProgressDialog
 import android.app.ProgressDialog.STYLE_HORIZONTAL
@@ -18,9 +18,9 @@ import hwp.basketball.mobility.R
 import hwp.basketball.mobility.device.sensor.SensorFactory
 import hwp.basketball.mobility.drillpreparation.step.DrillSetupOutput
 import hwp.basketball.mobility.entitiy.drills.outcomes.DrillOutcome
-import hwp.basketball.mobility.pathrecorder.sketchview.SensorDrawingView
-import hwp.basketball.mobility.pathrecorder.sketchview.SensorDrawingViewPresenter
-import hwp.basketball.mobility.pathrecorder.sketchview.SensorDrawingViewViewContract
+import hwp.basketball.mobility.drill.perform.sketchview.SensorDrawingView
+import hwp.basketball.mobility.drill.perform.sketchview.SensorDrawingViewPresenter
+import hwp.basketball.mobility.drill.perform.sketchview.SensorDrawingViewViewContract
 import hwp.basketball.mobility.util.ViewUtils
 import hwp.basketball.mobility.util.bindView
 import hwp.basketball.mobility.util.toast
@@ -122,7 +122,7 @@ class PathRecorderActivity : AppCompatActivity(), PathRecorderActivityContract.V
     }
 
     private fun setupSketchView() {
-        val (height, width) = ViewUtils.getDeviceSize()
+        val (height, width) = ViewUtils.deviceSize
         val aspectRatio = height.toFloat() / width.toFloat()
 
         sketchView.setAspectRatio(aspectRatio)
@@ -201,8 +201,8 @@ class PathRecorderActivity : AppCompatActivity(), PathRecorderActivityContract.V
         progressDialog = ProgressDialog(this)
         progressDialog?.let { progress ->
             progress.max = 100
-            progress.setTitle("Calculating area")
-            progress.setMessage("Calculating area for performed drill!")
+            progress.setTitle(message)
+            progress.setMessage("$message for performed drill!")
             progress.setProgressStyle(STYLE_HORIZONTAL)
             progress.isIndeterminate = false
             progress.progress = 0

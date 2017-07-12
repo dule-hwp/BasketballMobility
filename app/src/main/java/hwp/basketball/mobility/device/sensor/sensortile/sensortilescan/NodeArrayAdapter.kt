@@ -24,7 +24,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
  */
-package hwp.basketball.mobility.sensortilescan
+package hwp.basketball.mobility.device.sensor.sensortile.sensortilescan
 
 import android.app.Activity
 import android.content.Context

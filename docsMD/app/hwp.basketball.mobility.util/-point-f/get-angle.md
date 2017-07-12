@@ -9,3 +9,7 @@ Returns angle betwen current point and target point
 ### Parameters
 
 `target` - Point to calculate angle between.
+
+**Return**
+angle in degrees 0-360 degrees
+

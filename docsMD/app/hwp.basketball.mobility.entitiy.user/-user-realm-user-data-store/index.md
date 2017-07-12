@@ -16,5 +16,5 @@ Created by dusan_cvetkovic on 3/26/17.
 
 | Name | Summary |
 |---|---|
-| [add](add.md) | `fun add(item: `[`CoachViewModel`](../-coach-view-model/index.md)`): Completable` |
-| [findByEmail](find-by-email.md) | `fun findByEmail(email: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): Single<`[`CoachViewModel`](../-coach-view-model/index.md)`>?` |
+| [add](add.md) | `fun add(coach: `[`CoachViewModel`](../-coach-view-model/index.md)`): Completable` |
+| [findByEmail](find-by-email.md) | `fun findByEmail(email: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): Maybe<`[`CoachViewModel`](../-coach-view-model/index.md)`>` |

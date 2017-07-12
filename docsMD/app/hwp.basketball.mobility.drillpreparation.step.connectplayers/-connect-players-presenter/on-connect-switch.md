@@ -6,3 +6,8 @@
 
 Overrides [AdapterViewCallback.onConnectSwitch](../-connect-players-contract/-adapter-view-callback/on-connect-switch.md)
 
+On switch player connection clicked.
+
+### Parameters
+
+`position` - index of the player whose connection is being toggled.

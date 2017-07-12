@@ -3,3 +3,6 @@
 # startVec
 
 `val startVec: `[`FloatArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html)
+
+Y Coordinates on android canvas are positive in - direction
+

@@ -16,7 +16,7 @@ import io.reactivex.functions.Function3
 import timber.log.Timber
 
 /**
- * Created by dusan_cvetkovic on 4/2/17.
+ * Class in charge of displaying show/edit dialog.
  */
 class PlayerDialog(val context: Context, val playersPresenter: PlayersContract.Presenter) {
     private lateinit var etFirst: EditText
@@ -49,7 +49,7 @@ class PlayerDialog(val context: Context, val playersPresenter: PlayersContract.P
                 .setMessage(context.getString(R.string.edit_player_dialog_message))
                 .setPositiveButton(android.R.string.ok,
                         { _, _ ->
-                            playersPresenter.onEditPlayerButtonClicked(
+                            playersPresenter.onEditPlayerButtonClicked( player.name,
                                     first = etFirst.text.toString(),
                                     last = etLast.text.toString(),
                                     position = spinPosition.selectedItem?.toString() ?: "Unknown",

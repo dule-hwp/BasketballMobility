@@ -6,3 +6,8 @@
 
 Overrides [AdapterView.addListener](../-connect-players-contract/-adapter-view/add-listener.md)
 
+Set listener for tap events on the list items.
+
+### Parameters
+
+`listener` - Object to receive update events.

@@ -11,14 +11,10 @@ via uuid which is argument passed to [connectTo](connect-to.md) method.
 
 Implementation of this class should trigger each of the listeners to inform sensor user what data has changed.
 
-Note that connection to sensor should be done separatelly, because each of the BLE sensors
+Note that connection to sensor should be done separately, because each of the BLE sensors
 has its own SDK and connecting/searching for devices is done differently for each wearable sensor.
 
 **See Also**
 
 [connectTo](connect-to.md)
-
-[angleListener](angle-listener.md)
-
-[accelerometerListener](accelerometer-listener.md)
 

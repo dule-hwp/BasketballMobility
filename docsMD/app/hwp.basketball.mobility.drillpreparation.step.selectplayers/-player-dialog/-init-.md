@@ -4,5 +4,5 @@
 
 `PlayerDialog(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`, playersPresenter: `[`Presenter`](../-players-contract/-presenter/index.md)`)`
 
-Created by dusan_cvetkovic on 4/2/17.
+Class in charge of displaying show/edit dialog.
 

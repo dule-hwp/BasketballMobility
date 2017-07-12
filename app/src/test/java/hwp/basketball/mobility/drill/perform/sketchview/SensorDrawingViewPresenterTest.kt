@@ -1,9 +1,7 @@
-package hwp.basketball.mobility.pathrecorder.sketchview
+package hwp.basketball.mobility.drill.perform.sketchview
 
 import org.junit.Before
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Created by dusan_cvetkovic on 3/11/17.

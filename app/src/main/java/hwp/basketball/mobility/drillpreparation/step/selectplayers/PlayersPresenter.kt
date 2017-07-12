@@ -32,7 +32,7 @@ class PlayersPresenter constructor(val view: PlayersContract.View) : PlayersCont
         return checkedPlayers.size
     }
 
-    override fun showEditPlayerDialog(position: Int) {
+    override fun onEditPlayerClicked(position: Int) {
         val playerRealmModel = playersAdapterView?.getItem(position)
         playerRealmModel?.let {
             view.showEditPlayerDialog(playerRealmModel)
@@ -82,14 +82,14 @@ class PlayersPresenter constructor(val view: PlayersContract.View) : PlayersCont
         compositeDisposable.clear()
     }
 
-    override fun onEditPlayerButtonClicked(first: String, last: String, position: String, height: String) {
+    override fun onEditPlayerButtonClicked(playerFullName: String, first: String, last: String, position: String, height: String) {
         val player = playersAdapterView?.getCurrentEditingItem()
         player?.let {
             player.height = height
             player.firstName = first
             player.lastName = last
             player.position = position
-            playersDataStore.update(player)
+            playersDataStore.update(player, playerFullName)
                     .subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
@@ -99,7 +99,6 @@ class PlayersPresenter constructor(val view: PlayersContract.View) : PlayersCont
                         Timber.e("failed to update player $player")
                         Timber.e(it)
                     })
-
         }
     }
 

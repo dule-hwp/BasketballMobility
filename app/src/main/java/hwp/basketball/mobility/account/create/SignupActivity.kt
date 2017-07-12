@@ -1,17 +1,18 @@
-package hwp.basketball.mobility
+package hwp.basketball.mobility.account.create
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.jakewharton.rxbinding2.widget.RxTextView
 import durdinapps.rxfirebase2.RxFirebaseAuth
-import hwp.basketball.mobility.entitiy.player.PlayerViewModel
+import hwp.basketball.mobility.HomeActivity
+import hwp.basketball.mobility.R
+import hwp.basketball.mobility.account.login.LoginActivity
 import hwp.basketball.mobility.entitiy.user.CoachViewModel
-import hwp.basketball.mobility.login.LoginActivity
 import hwp.basketball.mobility.util.toast
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -57,30 +58,39 @@ class SignupActivity : AppCompatActivity() {
         registerFormChangeObservers()
     }
 
+    private var progress: ProgressDialog? = null
+
+    fun hideProgressDialog() {
+        progress?.dismiss()
+    }
+
+    fun showProgressDialog(message: String) {
+        progress?.dismiss()
+        progress = ProgressDialog.show(this, "Loading...", message, true)
+    }
+
     private fun doTheSignUp() {
         //Firebase sign up
         Timber.d("creating user in firebase")
         val email = input_email.text.toString()
         val pass = input_password.text.toString()
+        showProgressDialog("Adding coach to database.")
         RxFirebaseAuth.createUserWithEmailAndPassword(FirebaseAuth.getInstance(), email, pass)
                 .subscribe({ result ->
-                    // Write a message to the database
                     val database = FirebaseDatabase.getInstance()
-                    if (chkIsCoach.isChecked) {
-                        val user = CoachViewModel(input_name.text.toString(), email)
-                        database.reference.child("coaches").child(result.user.uid)
-                                .setValue(user)
-                    }
-                    else{
-                        val playerViewModel = PlayerViewModel()
-                        database.reference.child("players").child(result.user.uid)
-                                .setValue(playerViewModel)
-                    }
+                    val user = CoachViewModel(input_name.text.toString(), email)
+
+                    database.reference
+                            .child("coaches")
+                            .child(result.user.uid)
+                            .setValue(user)
+                    hideProgressDialog()
                     startActivity(HomeActivity.getStartIntent(this))
                     finish()
-                }, {error->
+                }, { error ->
                     Timber.e(error)
-                    toast(error.message+"")
+                    hideProgressDialog()
+                    toast(error.message + "")
                 })
     }
 
@@ -118,8 +128,6 @@ class SignupActivity : AppCompatActivity() {
 
         compositeDisposable.add(disposable)
         compositeDisposable.add(disposable2)
-
-
     }
 
     override fun onStop() {

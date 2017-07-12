@@ -1,4 +1,4 @@
-package hwp.basketball.mobility.pathrecorder.sketchview
+package hwp.basketball.mobility.drill.perform.sketchview
 
 import com.google.common.base.Joiner
 import com.google.firebase.auth.FirebaseAuth
@@ -9,7 +9,7 @@ import hwp.basketball.mobility.drillpreparation.step.DrillSetupOutput
 import hwp.basketball.mobility.entitiy.drills.outcomes.DrillOutcome
 import hwp.basketball.mobility.entitiy.drills.outcomes.DrillOutcomeFirebaseRepo
 import hwp.basketball.mobility.entitiy.drills.outcomes.DrillOutcomeStore
-import hwp.basketball.mobility.pathrecorder.PathRecorderActivityContract
+import hwp.basketball.mobility.drill.perform.PathRecorderActivityContract
 import hwp.basketball.mobility.util.Geometry2D
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -22,7 +22,8 @@ import kotlin.properties.Delegates
 /**
  * Created by dusan_cvetkovic on 3/7/17.
  */
-class SensorDrawingViewPresenter(val sensorDrawingViewView: SensorDrawingViewViewContract.View, val sensor: BaseSensor,
+class SensorDrawingViewPresenter(val sensorDrawingViewView: SensorDrawingViewViewContract.View,
+                                 val sensor: BaseSensor,
                                  val pathRecorderActivityView: PathRecorderActivityContract.View) :
         SensorDrawingViewViewContract.Presenter {
 
@@ -80,7 +81,6 @@ class SensorDrawingViewPresenter(val sensorDrawingViewView: SensorDrawingViewVie
         val disposable = Observable.combineLatest(observeAngleChanged, observeMotionChanged, observeAccSensorChanged,
                 Function3<Float, Boolean, BMSensorManager.AccData, BMSensorManager.AccData>
                 { angle, isMoving, accData ->
-                    //                    Timber.d("$motionIntensity")
                     sensorDrawingViewView.setDegreesToNorth(angle)
                     sensorDrawingViewView.setIsMoving(isMoving)
                     sensorDrawingViewView.invalidateView()
@@ -90,7 +90,6 @@ class SensorDrawingViewPresenter(val sensorDrawingViewView: SensorDrawingViewVie
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     sensorDrawingViewView.addAccData(it)
-//                    inRecordingMode = true
                 }, { error -> Timber.e(error.toString()) })
 
 
@@ -137,7 +136,7 @@ class SensorDrawingViewPresenter(val sensorDrawingViewView: SensorDrawingViewVie
         sensorDrawingViewView.showToastMessage("Drill completed!")
         pathRecorderActivityView.onDrillFinished()
 
-        pathRecorderActivityView.showScoreProgress("Calculating area")
+        pathRecorderActivityView.showScoreProgress("Calculating score")
         val disposable = Geometry2D.getAreaForBitmap(sensorDrawingViewView.getBitmapArea())
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())

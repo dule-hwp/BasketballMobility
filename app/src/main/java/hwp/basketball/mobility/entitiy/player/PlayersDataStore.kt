@@ -9,6 +9,6 @@ import io.reactivex.Maybe
 interface PlayersDataStore {
     fun add(player: PlayerViewModel): Completable
     fun remove(player: PlayerViewModel): Completable
-    fun update(player: PlayerViewModel): Completable
+    fun update(player: PlayerViewModel, key: String): Completable
     fun findAll(): Maybe<MutableList<PlayerViewModel>>
 }

@@ -30,7 +30,10 @@ class DrillsFirebaseRepository : DrillsDataStore {
     }
 
     private val mUserDrillsDBReference: DatabaseReference by lazy {
-        FirebaseDatabase.getInstance().reference.child(DRILLS_CHILD).child(mFirebaseUser.getFireBaseDBEmail())
+        FirebaseDatabase.getInstance()
+                .reference
+                .child(DRILLS_CHILD)
+                .child(mFirebaseUser.getFireBaseDBEmail())
     }
 
     private val mFirebaseAuth: FirebaseAuth by lazy {
@@ -117,7 +120,7 @@ class DrillsFirebaseRepository : DrillsDataStore {
     private fun getStorageRefForDrill(drillAddedToDatabase: DrillViewModel): StorageReference {
         val storageReference = FirebaseStorage.getInstance()
                 .getReference(DRILLS_CHILD)
-                .child(mFirebaseUser.getFireBaseDBEmail() ?: "unknown_email")
+                .child(mFirebaseUser.getFireBaseDBEmail())
                 .child("${drillAddedToDatabase.name}.png")
         return storageReference
     }

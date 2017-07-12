@@ -6,3 +6,8 @@
 
 Overrides [Presenter.setPlayerAdapterView](../-players-contract/-presenter/set-player-adapter-view.md)
 
+Passing adapterView reference to presenter so that presenter can handle logic for it
+
+### Parameters
+
+`playersAdapter` - Interface representing list adapter view

@@ -3,3 +3,9 @@
 # getCurrentEditingItem
 
 `abstract fun getCurrentEditingItem(): `[`PlayerViewModel`](../../../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md)`?`
+
+Return item currently being edited.
+
+**Return**
+Player object
+

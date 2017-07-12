@@ -21,18 +21,19 @@ import hwp.basketball.mobility.util.bindView
 /**
  * Created by dusan_cvetkovic on 6/26/17.
  */
-class DrillsAdapter(val drills: MutableList<ExpandableGroup<DrillOutcome>>)
+class DrillsAdapter(val drills: MutableList<ExpandableGroup<DrillOutcome>>,
+                    val drillOutcomeListener: DrillListActivityContract.DrillOutcomeCallback)
     : ExpandableRecyclerViewAdapter<DrillsAdapter.DrillViewHolder, DrillsAdapter.DrillOutcomeViewHolder>(drills) {
 
     override fun onCreateGroupViewHolder(parent: ViewGroup, viewType: Int): DrillViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.list_item_genre, parent, false)
+        val view = inflater.inflate(R.layout.list_item_drill_expandable, parent, false)
         return DrillViewHolder(view)
     }
 
     override fun onCreateChildViewHolder(parent: ViewGroup, viewType: Int): DrillOutcomeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.list_item_artist, parent, false)
+        val view = inflater.inflate(R.layout.list_item_drill_outcome, parent, false)
         return DrillOutcomeViewHolder(view)
     }
 
@@ -55,13 +56,16 @@ class DrillsAdapter(val drills: MutableList<ExpandableGroup<DrillOutcome>>)
         private val ivDrillImage by itemView.bindView<ImageView>(R.id.list_item_drill_icon)
 
         fun onBind(drill: DrillViewModel) {
-            drillTitle.text = drill.name;
+            drillTitle.text = drill.name
             Picasso.with(itemView.context)
                     .load(drill.drillImage)
                     .into(ivDrillImage)
-            drillCount.text = String.format(itemView.resources.getString(R.string.times_performed),
-                    drill.itemCount)
-            val entry = drill.outcomes.maxBy { it.value.score }
+            drillCount.text = String
+                    .format(itemView.resources.getQuantityString(R.plurals.times_performed,
+                            drill.itemCount,
+                            drill.itemCount))
+
+            val entry = drill.outcomes.minBy { it.value.score }
             drillHighScore.text = String.format(itemView.resources.getString(R.string.high_score),
                     entry?.value?.score, entry?.value?.playerName)
         }
@@ -104,6 +108,8 @@ class DrillsAdapter(val drills: MutableList<ExpandableGroup<DrillOutcome>>)
             Picasso.with(itemView.context)
                     .load(drillOutcome.drillOutcomeImage)
                     .into(ivSensorOutput)
+
+            itemView.setOnClickListener({ drillOutcomeListener.onClick(drillOutcome) })
         }
     }
 }

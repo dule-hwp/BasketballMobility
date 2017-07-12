@@ -1,11 +1,11 @@
-package hwp.basketball.mobility.login
+package hwp.basketball.mobility.account.login
 
 import com.google.firebase.auth.FirebaseAuth
 import durdinapps.rxfirebase2.RxFirebaseAuth
 import hwp.basketball.mobility.BasePresenter
 import hwp.basketball.mobility.entitiy.user.UserDataStore
 import hwp.basketball.mobility.entitiy.user.CoachViewModel
-import hwp.basketball.mobility.login.google.signin.SignInResultWrapper
+import hwp.basketball.mobility.account.login.google.signin.SignInResultWrapper
 import io.reactivex.disposables.CompositeDisposable
 
 /**
@@ -23,7 +23,7 @@ class LoginPresenter(private val view: LoginContract.View,
                 .subscribe({
                     loginCompleted()
                 }, {
-                    view.displayError("Auth error: "+ it.message)
+                    view.displayError("Auth error: " + it.message)
                 })
     }
 
@@ -40,29 +40,17 @@ class LoginPresenter(private val view: LoginContract.View,
 
     override fun loadBMUser(email: String) {
         val findByEmailObservable = coachDataStore.findByEmail(email)
-        if (findByEmailObservable == null)
-//            disposables.addDrillToDatabase(coachDataStore.addDrillToDatabase(email)
-//                    .subscribe({
-//                        Timber.d("added to user db")
-//                        loginCompleted(email)
-//                    },{ error ->
-//                        Timber.e(error)
-//                    })
-//            )
-            view.displayError("This account is not registered. Please Sign UP!!!")
-        else
-            disposables.add(findByEmailObservable
-                    .subscribe({
-                        userViewModel ->
-                        loginCompleted()
-                    }, {
-                        view.displayError(it.message ?: "error message not avail")
-                    })
-            )
+        disposables.add(findByEmailObservable
+                .subscribe({
+                    userViewModel ->
+                    loginCompleted()
+                }, {
+                    view.displayError(it.message ?: "error message not avail")
+                })
+        )
     }
 
     private fun loginCompleted() {
-//        view.onBMUserLoaded(coachViewModel)
         view.startHomeActivity("")
     }
 
@@ -72,8 +60,6 @@ class LoginPresenter(private val view: LoginContract.View,
 
     override fun logInSuccess(email: String) {
         view.displayLoggedUserName(email)
-//        firebaseAuthWithGoogle(coachViewModel)
-//        loadBMUser(email)
         loginCompleted()
     }
 

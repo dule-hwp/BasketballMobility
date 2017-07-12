@@ -6,13 +6,6 @@
 
 This class defines fields and methods for drawing.
 
-### Types
-
-| Name | Summary |
-|---|---|
-| [Drawer](-drawer/index.md) | `enum class Drawer` |
-| [Mode](-mode/index.md) | `enum class Mode` |
-
 ### Constructors
 
 | Name | Summary |
@@ -26,11 +19,8 @@ This class defines fields and methods for drawing.
 | [blur](blur.md) | `var blur: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |
 | [currentPath](current-path.md) | `val currentPath: `[`Path`](https://developer.android.com/reference/android/graphics/Path.html)<br>This method gets the instance of Path that pointer indicates. |
 | [drawPathEffect](draw-path-effect.md) | `var drawPathEffect: `[`PathEffect`](https://developer.android.com/reference/android/graphics/PathEffect.html)`?` |
-| [drawer](drawer.md) | `var drawer: `[`Drawer`](-drawer/index.md) |
-| [fontFamily](font-family.md) | `var fontFamily: `[`Typeface`](https://developer.android.com/reference/android/graphics/Typeface.html) |
 | [fontSize](font-size.md) | `var fontSize: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |
 | [lineCap](line-cap.md) | `var lineCap: `[`Cap`](https://developer.android.com/reference/android/graphics/Paint/Cap.html) |
-| [mode](mode.md) | `var mode: `[`Mode`](-mode/index.md) |
 | [opacity](opacity.md) | `var opacity: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [paintStrokeColor](paint-stroke-color.md) | `var paintStrokeColor: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [paintStrokeWidth](paint-stroke-width.md) | `var paintStrokeWidth: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |

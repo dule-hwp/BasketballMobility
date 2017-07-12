@@ -3,3 +3,6 @@
 # startWicedActivityScan
 
 `abstract fun startWicedActivityScan(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Show Wiced sense scan for BLE devices
+

@@ -6,3 +6,8 @@
 
 Overrides [Presenter.deletePlayer](../-players-contract/-presenter/delete-player.md)
 
+Player delete button clicked.
+
+### Parameters
+
+`position` - Index of the player in the list

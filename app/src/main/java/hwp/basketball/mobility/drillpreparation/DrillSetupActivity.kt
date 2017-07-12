@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Toast
 import com.stepstone.stepper.StepperLayout
 import com.stepstone.stepper.VerificationError
 import hwp.basketball.mobility.R
@@ -14,7 +13,7 @@ import hwp.basketball.mobility.drillpreparation.step.connectplayers.ConnectPlaye
 import hwp.basketball.mobility.drillpreparation.step.review.ReviewFragment
 import hwp.basketball.mobility.drillpreparation.step.selectdrill.DrillsFragment
 import hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayersFragment
-import hwp.basketball.mobility.pathrecorder.PathRecorderActivity
+import hwp.basketball.mobility.drill.perform.PathRecorderActivity
 import hwp.basketball.mobility.util.toast
 import kotlinx.android.synthetic.main.activity_drill_setup.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -81,8 +80,9 @@ open class DrillSetupActivity : AppCompatActivity(),
         }
     }
 
+    /**Used to handle BLE scan for devices and */
     override fun onCompleted(completeButton: View) {
-        toast("onCompleted!")
+//        toast("onCompleted!")
         val startIntent = PathRecorderActivity.getStartIntent(this, "test")
         startActivity(startIntent)
         finish()
@@ -93,7 +93,7 @@ open class DrillSetupActivity : AppCompatActivity(),
     }
 
     override fun onStepSelected(newStepPosition: Int) {
-        toast("onStepSelected! -> " + newStepPosition)
+//        toast("onStepSelected! -> " + newStepPosition)
     }
 
     override fun onReturn() {

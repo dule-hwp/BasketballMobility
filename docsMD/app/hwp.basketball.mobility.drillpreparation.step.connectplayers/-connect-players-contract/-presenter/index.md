@@ -17,8 +17,8 @@
 
 | Name | Summary |
 |---|---|
-| [attach](../../../hwp.basketball.mobility/-base-presenter/attach.md) | `abstract fun attach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [detach](../../../hwp.basketball.mobility/-base-presenter/detach.md) | `abstract fun detach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [attach](../../../hwp.basketball.mobility/-base-presenter/attach.md) | `abstract fun attach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>In this callback allocation of resources and initialization should happen. |
+| [detach](../../../hwp.basketball.mobility/-base-presenter/detach.md) | `abstract fun detach(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>In this callback cleanup should happen. |
 | [onNothingSelected](../../../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-sensors-dialog/-sensor-chooser-callback/on-nothing-selected.md) | `abstract fun onNothingSelected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onSensorTypeSelected](../../../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-sensors-dialog/-sensor-chooser-callback/on-sensor-type-selected.md) | `abstract fun onSensorTypeSelected(sensorType: `[`Type`](../../../hwp.basketball.mobility.device.sensor/-sensor-factory/-type/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 

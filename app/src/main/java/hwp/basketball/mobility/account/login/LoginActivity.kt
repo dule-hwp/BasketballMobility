@@ -1,4 +1,4 @@
-package hwp.basketball.mobility.login
+package hwp.basketball.mobility.account.login
 
 import android.app.Activity
 import android.content.Context
@@ -14,10 +14,10 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
 import hwp.basketball.mobility.HomeActivity
 import hwp.basketball.mobility.R
-import hwp.basketball.mobility.SignupActivity
-import hwp.basketball.mobility.entitiy.user.UserRealmUserDataStore
-import hwp.basketball.mobility.login.google.signin.SignInResultWrapper
-import hwp.basketball.mobility.device.sensor.sensortile.sensortilescan.ScanActivity
+import hwp.basketball.mobility.account.create.SignupActivity
+import hwp.basketball.mobility.account.login.google.signin.SignInResultWrapper
+import hwp.basketball.mobility.device.sensor.sensortile.sensortilescan.SensorTileScanActivity
+import hwp.basketball.mobility.entitiy.user.UserFirebaseDataStore
 import hwp.basketball.mobility.util.TestUtil
 import hwp.basketball.mobility.util.toast
 import kotlinx.android.synthetic.main.activity_login.*
@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
 
         }
 
-        val userRepository = UserRealmUserDataStore()
+        val userRepository = UserFirebaseDataStore()
         loginPresenter = LoginPresenter(this, userRepository)
 
         btn_google_login.setSize(SignInButton.SIZE_STANDARD)
@@ -107,11 +107,11 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
         if (requestCode == GOOGLE_SIGN_IN && resultCode == Activity.RESULT_OK) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
             loginPresenter?.handleGoogleSignInResult(SignInResultWrapper(result))
-        } else if (requestCode == ScanActivity.REQUEST_SCAN) {
+        } else if (requestCode == SensorTileScanActivity.REQUEST_SCAN) {
             if (resultCode == Activity.RESULT_OK) {
                 Timber.d("onActivityResult() called with: requestCode = [$requestCode], resultCode = [$resultCode], data = [$data]")
-                if (data != null && data.hasExtra(ScanActivity.NODE_TAG)) {
-                    val nodeTag = data.getStringExtra(ScanActivity.NODE_TAG)
+                if (data != null && data.hasExtra(SensorTileScanActivity.NODE_TAG)) {
+                    val nodeTag = data.getStringExtra(SensorTileScanActivity.NODE_TAG)
                     startDrillActivity(nodeTag)
                 } else {
                     Timber.e("unsuccessful return tag")
@@ -135,7 +135,7 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
 
     override fun displayLoggedUserName(name: String) {
         Timber.d("displayLoggedUserName: " + name)
-        toast(name)
+//        toast(name)
     }
 
     override fun displayError(error: String) {
@@ -157,7 +157,7 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
     override fun onStart() {
         super.onStart()
         val currentUser = mAuth?.currentUser
-        toast(currentUser.toString())
+//        toast(currentUser.toString())
         currentUser?.email?.let { startHomeActivity("") }
         mAuthListener?.let { mAuth?.addAuthStateListener(it) }
     }
@@ -177,8 +177,8 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
     }
 
     fun startScanActivity() {
-        val connect = Intent(this, ScanActivity::class.java)
-        startActivityForResult(connect, ScanActivity.REQUEST_SCAN)
+        val connect = Intent(this, SensorTileScanActivity::class.java)
+        startActivityForResult(connect, SensorTileScanActivity.REQUEST_SCAN)
     }
 }
 

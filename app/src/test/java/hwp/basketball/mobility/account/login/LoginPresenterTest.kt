@@ -1,9 +1,9 @@
-package hwp.basketball.mobility.login
+package hwp.basketball.mobility.account.login
 
-import hwp.basketball.mobility.entitiy.user.UserRealmUserDataStore
+import hwp.basketball.mobility.account.login.google.signin.SignInResultWrapper
 import hwp.basketball.mobility.entitiy.user.CoachViewModel
-import hwp.basketball.mobility.login.google.signin.SignInResultWrapper
-import io.reactivex.Single
+import hwp.basketball.mobility.entitiy.user.UserFirebaseDataStore
+import io.reactivex.Maybe
 import org.junit.Before
 import org.junit.Test
 import org.mockito.ArgumentMatchers
@@ -23,7 +23,7 @@ class LoginPresenterTest {
     @Mock
     private lateinit var mockGoogleSigninResult: SignInResultWrapper
     @Mock
-    private lateinit var userRepository: UserRealmUserDataStore
+    private lateinit var userRepository: UserFirebaseDataStore
 
     val userModel = CoachViewModel()
 
@@ -66,7 +66,7 @@ class LoginPresenterTest {
     fun handleSignInResultSuccess() {
 
         `when`(mockGoogleLoginInteractor.handleSignInResult(null, loginPresenter)).thenAnswer {
-            loginPresenter.logInSuccess(userModel.email)
+            loginPresenter.logInSuccess(userModel.email!!)
         }
 
         loginPresenter.handleGoogleSignInResult(null)
@@ -86,7 +86,7 @@ class LoginPresenterTest {
     @Test
     fun handleLoginSuccessNotNul() {
         val displayName = "username"
-        loginPresenter.logInSuccess(userModel.email)
+        loginPresenter.logInSuccess(userModel.email!!)
 
         verify(mockView)?.displayLoggedUserName(displayName)
     }
@@ -96,9 +96,9 @@ class LoginPresenterTest {
         val email = "test@test.com"
 
         `when`(userRepository.findByEmail(email))
-                .thenReturn(Single.just(userModel))
+                .thenReturn(Maybe.just(userModel))
 
-        loginPresenter.loadBMUser(userModel.email)
+        loginPresenter.loadBMUser(userModel.email!!)
 
 //        verify(mockView)?.onBMUserLoaded(userModel)
     }
@@ -108,9 +108,9 @@ class LoginPresenterTest {
         val email = "test@test.com"
 
         `when`(userRepository.findByEmail(email))
-                .thenReturn(Single.just(userModel))
+                .thenReturn(Maybe.just(userModel))
 
-        loginPresenter.loadBMUser(userModel.email)
+        loginPresenter.loadBMUser(userModel.email!!)
 
 //        verify(mockView, never())?.onBMUserLoaded(any())
         verify(mockView)?.displayError(ArgumentMatchers.anyString())
@@ -121,9 +121,9 @@ class LoginPresenterTest {
         val email = "test@test.com"
 
         `when`(userRepository.findByEmail(email))
-                .thenReturn(Single.error(IllegalArgumentException("illegal args")))
+                .thenReturn(Maybe.error(IllegalArgumentException("illegal args")))
 
-        loginPresenter.loadBMUser(userModel.email)
+        loginPresenter.loadBMUser(userModel.email!!)
 
 //        verify(mockView, never())?.onBMUserLoaded(any())
         verify(mockView)?.displayError(ArgumentMatchers.anyString())

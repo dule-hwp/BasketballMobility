@@ -11,7 +11,7 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [android.support.v7.app.AppCompatActivity](../hwp.basketball.mobility.util/android.support.v7.app.-app-compat-activity/index.md) (extensions in package hwp.basketball.mobility.util) |  |
 | [hwp.basketball.mobility.account.login.google.signin.AuthCallback](../hwp.basketball.mobility.account.login.google.signin/-auth-callback/index.md) |  |
 | [hwp.basketball.mobility.device.sensor.BMSensorManager](../hwp.basketball.mobility.device.sensor/-b-m-sensor-manager/index.md) | Created by dusan_cvetkovic on 4/7/17. |
-| [hwp.basketball.mobility.BasePresenter](../hwp.basketball.mobility/-base-presenter/index.md) | Created by dusan_cvetkovic on 3/28/17. |
+| [hwp.basketball.mobility.BasePresenter](../hwp.basketball.mobility/-base-presenter/index.md) | Each presenter interface should extend this interface. |
 | [hwp.basketball.mobility.device.sensor.BaseSensor](../hwp.basketball.mobility.device.sensor/-base-sensor/index.md) | Each of the sensors needs to extend this class and implement required methods. |
 | [hwp.basketball.mobility.drillpreparation.step.BaseStepFragment](../hwp.basketball.mobility.drillpreparation.step/-base-step-fragment/index.md) | Created by dusan_cvetkovic on 4/10/17. |
 | [hwp.basketball.mobility.BasketballMobilityApp](../hwp.basketball.mobility/-basketball-mobility-app/index.md) | Created by dusan_cvetkovic on 3/6/17. |
@@ -20,11 +20,11 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [hwp.basketball.mobility.device.sensor.wicedsense.util.ByteUtils](../hwp.basketball.mobility.device.sensor.wicedsense.util/-byte-utils/index.md) | Helper class to convert bytes to ints and ints to bytes |
 | [android.graphics.Canvas](../hwp.basketball.mobility.util/android.graphics.-canvas/index.md) (extensions in package hwp.basketball.mobility.util) |  |
 | [hwp.basketball.mobility.view.CanvasView](../hwp.basketball.mobility.view/-canvas-view/index.md) | This class defines fields and methods for drawing. |
-| [hwp.basketball.mobility.entitiy.user.CoachViewModel](../hwp.basketball.mobility.entitiy.user/-coach-view-model/index.md) | Created by dusan_cvetkovic on 3/26/17. |
+| [hwp.basketball.mobility.entitiy.user.CoachViewModel](../hwp.basketball.mobility.entitiy.user/-coach-view-model/index.md) | Coach view model used for displaying coach info. |
 | [hwp.basketball.mobility.view.CompassView](../hwp.basketball.mobility.view/-compass-view/index.md) | Created by dusan_cvetkovic on 6/20/17. |
 | [hwp.basketball.mobility.drillpreparation.step.connectplayers.ConnectPlayersAdapter](../hwp.basketball.mobility.drillpreparation.step.connectplayers/-connect-players-adapter/index.md) | Created by dusan_cvetkovic on 3/28/17. |
-| [hwp.basketball.mobility.drillpreparation.step.connectplayers.ConnectPlayersContract](../hwp.basketball.mobility.drillpreparation.step.connectplayers/-connect-players-contract/index.md) | Created by dusan_cvetkovic on 3/28/17. |
-| [hwp.basketball.mobility.drillpreparation.step.connectplayers.ConnectPlayersFragment](../hwp.basketball.mobility.drillpreparation.step.connectplayers/-connect-players-fragment/index.md) | Created by dusan_cvetkovic on 3/23/17. |
+| [hwp.basketball.mobility.drillpreparation.step.connectplayers.ConnectPlayersContract](../hwp.basketball.mobility.drillpreparation.step.connectplayers/-connect-players-contract/index.md) | Contract that needs to be fulfilled for connect players step to work properly. |
+| [hwp.basketball.mobility.drillpreparation.step.connectplayers.ConnectPlayersFragment](../hwp.basketball.mobility.drillpreparation.step.connectplayers/-connect-players-fragment/index.md) | Player connect step. View being shown in preparation drill process when coach connects all the selected players. |
 | [hwp.basketball.mobility.drillpreparation.step.connectplayers.ConnectPlayersPresenter](../hwp.basketball.mobility.drillpreparation.step.connectplayers/-connect-players-presenter/index.md) | Created by dusan_cvetkovic on 4/4/17. |
 | [hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker.DeviceListFragment](../hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker/-device-list-fragment/index.md) | Displays a list of Bluetooth GATT device |
 | [hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker.DevicePicker](../hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker/-device-picker/index.md) | Helper class to show a device picker dialog and obtain the device selected by the user. |
@@ -34,7 +34,6 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [hwp.basketball.mobility.drill.create.DrillActivityContract](../hwp.basketball.mobility.drill.create/-drill-activity-contract/index.md) | Created by dusan_cvetkovic on 4/19/17. |
 | [hwp.basketball.mobility.drill.create.DrillActivityPresenter](../hwp.basketball.mobility.drill.create/-drill-activity-presenter/index.md) | Created by dusan_cvetkovic on 4/19/17. |
 | [hwp.basketball.mobility.drill.display.DrillDetailActivity](../hwp.basketball.mobility.drill.display/-drill-detail-activity/index.md) | An activity representing a single Drill detail screen. This activity is only used on narrow width devices. On tablet-size devices, item details are presented side-by-side with a list of items in a [DrillListActivity](../hwp.basketball.mobility.drill.display/-drill-list-activity/index.md). |
-| [hwp.basketball.mobility.drill.display.DrillDetailFragment](../hwp.basketball.mobility.drill.display/-drill-detail-fragment/index.md) | Mandatory empty constructor for the fragment manager to instantiate the fragment (e.g. upon screen orientation changes). |
 | [hwp.basketball.mobility.drill.display.DrillListActivity](../hwp.basketball.mobility.drill.display/-drill-list-activity/index.md) | An activity representing a list of Drills. This activity has different presentations for handset and tablet-size devices. On handsets, the activity presents a list of items, which when touched, lead to a [DrillDetailActivity](../hwp.basketball.mobility.drill.display/-drill-detail-activity/index.md) representing item details. On tablets, the activity presents the list of items and item details side-by-side using two vertical panes. |
 | [hwp.basketball.mobility.drill.display.DrillListActivityContract](../hwp.basketball.mobility.drill.display/-drill-list-activity-contract/index.md) | Created by dusan_cvetkovic on 6/26/17. |
 | [hwp.basketball.mobility.drill.display.DrillListActivityPresenter](../hwp.basketball.mobility.drill.display/-drill-list-activity-presenter/index.md) | Created by dusan_cvetkovic on 6/26/17. |
@@ -51,7 +50,7 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [hwp.basketball.mobility.drillpreparation.step.selectdrill.DrillsContract](../hwp.basketball.mobility.drillpreparation.step.selectdrill/-drills-contract/index.md) | Created by dusan_cvetkovic on 3/28/17. |
 | [hwp.basketball.mobility.entitiy.drills.DrillsDataStore](../hwp.basketball.mobility.entitiy.drills/-drills-data-store/index.md) | Created by dusan_cvetkovic on 3/28/17. |
 | [hwp.basketball.mobility.entitiy.drills.DrillsFirebaseRepository](../hwp.basketball.mobility.entitiy.drills/-drills-firebase-repository/index.md) | Firebase DrillsDataStore implementation. |
-| [hwp.basketball.mobility.drillpreparation.step.selectdrill.DrillsFragment](../hwp.basketball.mobility.drillpreparation.step.selectdrill/-drills-fragment/index.md) | Created by dusan_cvetkovic on 3/23/17. |
+| [hwp.basketball.mobility.drillpreparation.step.selectdrill.DrillsFragment](../hwp.basketball.mobility.drillpreparation.step.selectdrill/-drills-fragment/index.md) | Drill select step. View being shown in preparation drill process when coach selects drill. |
 | [hwp.basketball.mobility.drillpreparation.step.selectdrill.DrillsPresenter](../hwp.basketball.mobility.drillpreparation.step.selectdrill/-drills-presenter/index.md) | Created by dusan_cvetkovic on 4/4/17. |
 | [hwp.basketball.mobility.drill.display.dummy.DummyContent](../hwp.basketball.mobility.drill.display.dummy/-dummy-content/index.md) | Helper class for providing sample content for user interfaces created by Android template wizards. |
 | [hwp.basketball.mobility.util.FirebaseStorageUtils](../hwp.basketball.mobility.util/-firebase-storage-utils/index.md) |  |
@@ -63,7 +62,7 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [hwp.basketball.mobility.HomeActivity](../hwp.basketball.mobility/-home-activity/index.md) | Created by dusan_cvetkovic on 3/27/17. |
 | [hwp.basketball.mobility.device.sensor.IBMSensorManager](../hwp.basketball.mobility.device.sensor/-i-b-m-sensor-manager/index.md) | Created by dusan_cvetkovic on 5/21/17. |
 | [hwp.basketball.mobility.account.login.LoginActivity](../hwp.basketball.mobility.account.login/-login-activity/index.md) |  |
-| [hwp.basketball.mobility.account.login.LoginContract](../hwp.basketball.mobility.account.login/-login-contract/index.md) | Created by dusan_cvetkovic on 3/23/17. |
+| [hwp.basketball.mobility.account.login.LoginContract](../hwp.basketball.mobility.account.login/-login-contract/index.md) | This onterface defines login contract. Presenter implementation is in charge of getting the data and dealing with events View implementation is in charge of simply passing the events to presenter and displaying data Interactor implementation handles sign in result and in forms Created by dusan_cvetkovic on 3/23/17. |
 | [hwp.basketball.mobility.account.login.LoginPresenter](../hwp.basketball.mobility.account.login/-login-presenter/index.md) | Created by dusan_cvetkovic on 3/23/17. |
 | [hwp.basketball.mobility.device.sensor.wicedsense.util.MathUtils](../hwp.basketball.mobility.device.sensor.wicedsense.util/-math-utils/index.md) | Helper math class |
 | [hwp.basketball.mobility.device.sensor.test.MockedSensor](../hwp.basketball.mobility.device.sensor.test/-mocked-sensor/index.md) | Sensor implementation intended to be used in instrumented tests. |
@@ -81,19 +80,18 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [hwp.basketball.mobility.drill.perform.PathRecorderActivityContract](../hwp.basketball.mobility.drill.perform/-path-recorder-activity-contract/index.md) | Created by dusan_cvetkovic on 3/5/17. |
 | [hwp.basketball.mobility.entitiy.drills.PercentPoint](../hwp.basketball.mobility.entitiy.drills/-percent-point/index.md) | Used to support different view sizes where path might ne drawn. |
 | [hwp.basketball.mobility.util.PhoneStorage](../hwp.basketball.mobility.util/-phone-storage/index.md) |  |
-| [hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayerDialog](../hwp.basketball.mobility.drillpreparation.step.selectplayers/-player-dialog/index.md) | Created by dusan_cvetkovic on 4/2/17. |
+| [hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayerDialog](../hwp.basketball.mobility.drillpreparation.step.selectplayers/-player-dialog/index.md) | Class in charge of displaying show/edit dialog. |
 | [hwp.basketball.mobility.entitiy.player.PlayerFirebaseRepository](../hwp.basketball.mobility.entitiy.player/-player-firebase-repository/index.md) | Created by dusan_cvetkovic on 3/26/17. |
 | [hwp.basketball.mobility.entitiy.player.PlayerViewModel](../hwp.basketball.mobility.entitiy.player/-player-view-model/index.md) | Created by dusan_cvetkovic on 3/26/17. |
 | [hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayersAdapter](../hwp.basketball.mobility.drillpreparation.step.selectplayers/-players-adapter/index.md) | Created by dusan_cvetkovic on 3/28/17. |
-| [hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayersContract](../hwp.basketball.mobility.drillpreparation.step.selectplayers/-players-contract/index.md) | Created by dusan_cvetkovic on 3/28/17. |
+| [hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayersContract](../hwp.basketball.mobility.drillpreparation.step.selectplayers/-players-contract/index.md) | Contract that needs to be fulfilled for players step to work properly. |
 | [hwp.basketball.mobility.entitiy.player.PlayersDataStore](../hwp.basketball.mobility.entitiy.player/-players-data-store/index.md) | Created by dusan_cvetkovic on 3/28/17. |
-| [hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayersFragment](../hwp.basketball.mobility.drillpreparation.step.selectplayers/-players-fragment/index.md) | Created by dusan_cvetkovic on 3/23/17. |
+| [hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayersFragment](../hwp.basketball.mobility.drillpreparation.step.selectplayers/-players-fragment/index.md) | Player select step. View being shown in preparation drill process when coach selects player. |
 | [hwp.basketball.mobility.drillpreparation.step.selectplayers.PlayersPresenter](../hwp.basketball.mobility.drillpreparation.step.selectplayers/-players-presenter/index.md) | Created by dusan_cvetkovic on 3/28/17. |
 | [hwp.basketball.mobility.util.Point](../hwp.basketball.mobility.util/-point/index.md) |  |
 | [hwp.basketball.mobility.util.PointF](../hwp.basketball.mobility.util/-point-f/index.md) | Created by dusan_cvetkovic on 6/8/17. |
 | [hwp.basketball.mobility.device.sensor.wicedsense.util.PreferenceUtils](../hwp.basketball.mobility.device.sensor.wicedsense.util/-preference-utils/index.md) |  |
-| [hwp.basketball.mobility.drillpreparation.step.review.ReviewFragment](../hwp.basketball.mobility.drillpreparation.step.review/-review-fragment/index.md) | Created by dusan_cvetkovic on 4/10/17. |
-| [hwp.basketball.mobility.device.sensor.sensortile.sensortilescan.ScanActivity](../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-scan-activity/index.md) | This context will show a list of device that are supported by the sdk |
+| [hwp.basketball.mobility.drillpreparation.step.review.ReviewFragment](../hwp.basketball.mobility.drillpreparation.step.review/-review-fragment/index.md) | Review step. View being shown in preparation drill process when coach reviews the data he selected in previous steps. |
 | [hwp.basketball.mobility.device.sensor.wicedsense.ws_bs.SenseDeviceState](../hwp.basketball.mobility.device.sensor.wicedsense.ws_bs/-sense-device-state/index.md) | Manages the connection and service/characteristics to a WICED Sense Device |
 | [hwp.basketball.mobility.device.sensor.wicedsense.ws_bs.SenseManager](../hwp.basketball.mobility.device.sensor.wicedsense.ws_bs/-sense-manager/index.md) | Manages WICED Sense devices. Currently, this application only manages one WICED Sense device at a time. But this can be expanded to support more than one device connection |
 | [hwp.basketball.mobility.device.sensor.wicedsense.ws_bs.SensorDataParser](../hwp.basketball.mobility.device.sensor.wicedsense.ws_bs/-sensor-data-parser/index.md) | Helper class to parse the sensor data packets |
@@ -101,6 +99,7 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [hwp.basketball.mobility.drill.perform.sketchview.SensorDrawingViewPresenter](../hwp.basketball.mobility.drill.perform.sketchview/-sensor-drawing-view-presenter/index.md) | Created by dusan_cvetkovic on 3/7/17. |
 | [hwp.basketball.mobility.drill.perform.sketchview.SensorDrawingViewViewContract](../hwp.basketball.mobility.drill.perform.sketchview/-sensor-drawing-view-view-contract/index.md) | Created by dusan_cvetkovic on 3/7/17. |
 | [hwp.basketball.mobility.device.sensor.SensorFactory](../hwp.basketball.mobility.device.sensor/-sensor-factory/index.md) | Created by dusan_cvetkovic on 5/28/17. |
+| [hwp.basketball.mobility.device.sensor.sensortile.sensortilescan.SensorTileScanActivity](../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-sensor-tile-scan-activity/index.md) | This context will show a list of device that are supported by the sdk |
 | [hwp.basketball.mobility.device.sensor.sensortile.SensorTileSensor](../hwp.basketball.mobility.device.sensor.sensortile/-sensor-tile-sensor/index.md) | Created by dusan_cvetkovic on 3/4/17. |
 | [hwp.basketball.mobility.device.sensor.sensortile.sensortilescan.SensorsDialog](../hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/-sensors-dialog/index.md) | Created by dusan_cvetkovic on 4/11/17. |
 | [hwp.basketball.mobility.device.sensor.wicedsense.ws_bs.Settings](../hwp.basketball.mobility.device.sensor.wicedsense.ws_bs/-settings/index.md) | Configurable settings for the WICED Sense Application |
@@ -110,6 +109,7 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [hwp.basketball.mobility.device.sensor.test.TestData](../hwp.basketball.mobility.device.sensor.test/-test-data/index.md) | Class intended to be used for representing test sensor data. |
 | [hwp.basketball.mobility.util.TestUtil](../hwp.basketball.mobility.util/-test-util/index.md) | Created by dusan_cvetkovic on 6/24/17. |
 | [hwp.basketball.mobility.entitiy.user.UserDataStore](../hwp.basketball.mobility.entitiy.user/-user-data-store/index.md) | Created by dusan_cvetkovic on 3/26/17. |
+| [hwp.basketball.mobility.entitiy.user.UserFirebaseDataStore](../hwp.basketball.mobility.entitiy.user/-user-firebase-data-store/index.md) | Created by dusan_cvetkovic on 3/26/17. |
 | [hwp.basketball.mobility.entitiy.user.UserRealmModel](../hwp.basketball.mobility.entitiy.user/-user-realm-model/index.md) | Created by dusan_cvetkovic on 3/26/17. |
 | [hwp.basketball.mobility.entitiy.user.UserRealmUserDataStore](../hwp.basketball.mobility.entitiy.user/-user-realm-user-data-store/index.md) | Created by dusan_cvetkovic on 3/26/17. |
 | [hwp.basketball.mobility.util.Vector2D](../hwp.basketball.mobility.util/-vector2-d/index.md) |  |
@@ -117,4 +117,4 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [hwp.basketball.mobility.util.ViewBinder](../hwp.basketball.mobility.util/-view-binder/index.md) |  |
 | [hwp.basketball.mobility.entitiy.drills.ViewDimens](../hwp.basketball.mobility.entitiy.drills/-view-dimens/index.md) |  |
 | [hwp.basketball.mobility.util.ViewUtils](../hwp.basketball.mobility.util/-view-utils/index.md) | Created by dusan_cvetkovic on 5/8/17. |
-| [hwp.basketball.mobility.device.sensor.wicedsense.WicedSenseSensor](../hwp.basketball.mobility.device.sensor.wicedsense/-wiced-sense-sensor/index.md) | Created by dusan_cvetkovic on 7/4/17. |
+| [hwp.basketball.mobility.device.sensor.wicedsense.WicedSenseSensor](../hwp.basketball.mobility.device.sensor.wicedsense/-wiced-sense-sensor/index.md) | Wiced Sense Base Sensor implementation. |

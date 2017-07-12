@@ -15,7 +15,7 @@ val start = pathViewPoints[i]
 val end = pathViewPoints[i + 1]
 path.moveTo(start)
 path.lineTo(end)
-val angle = end.getAngle(start)
+val angle = start.getAngle(end)
 return Pair(PathMeasure(path, false).length + previousLength, angle)
 ```
 

@@ -1,4 +1,4 @@
-package hwp.basketball.mobility.login;
+package hwp.basketball.mobility.account.login;
 
 
 import android.support.test.espresso.ViewInteraction;
@@ -21,7 +21,6 @@ import hwp.basketball.mobility.R;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;

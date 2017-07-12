@@ -2,4 +2,4 @@
 
 # update
 
-`abstract fun update(player: `[`PlayerViewModel`](../-player-view-model/index.md)`): Completable`
+`abstract fun update(player: `[`PlayerViewModel`](../-player-view-model/index.md)`, key: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): Completable`

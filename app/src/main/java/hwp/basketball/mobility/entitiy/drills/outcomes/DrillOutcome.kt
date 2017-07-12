@@ -4,6 +4,8 @@ import android.graphics.Bitmap
 import android.os.Parcel
 import android.os.Parcelable
 import org.joda.time.DateTime
+import org.joda.time.LocalDateTime
+import org.joda.time.format.DateTimeFormat
 
 /**
  * Created by dusan_cvetkovic on 6/24/17.
@@ -16,13 +18,19 @@ data class DrillOutcome(var id: String = "unknown_id",
                         var drillOutcomeImage: String? = null,
                         var drillOutcomeImageArea: String? = null,
                         var date: String = DateTime.now().toString(),
-                        var pathLength: Float = 0F) : Parcelable {
+                        var pathLength: Float = 0F,
+                        var pathArea: Int = 0
+) : Parcelable {
 
     companion object {
         @JvmField val CREATOR: Parcelable.Creator<DrillOutcome> = object : Parcelable.Creator<DrillOutcome> {
             override fun createFromParcel(source: Parcel): DrillOutcome = DrillOutcome(source)
             override fun newArray(size: Int): Array<DrillOutcome?> = arrayOfNulls(size)
         }
+    }
+
+    fun getDateWithoutZone(): String {
+        return DateTime(date).toString(DrillOutcomeFirebaseRepo.Companion.DATE_FORMAT)
     }
 
     constructor(source: Parcel) : this(
@@ -34,7 +42,8 @@ data class DrillOutcome(var id: String = "unknown_id",
             source.readString(),
             source.readString(),
             source.readString(),
-            source.readFloat()
+            source.readFloat(),
+            source.readInt()
     )
 
     override fun describeContents() = 0
@@ -49,6 +58,7 @@ data class DrillOutcome(var id: String = "unknown_id",
         dest.writeString(drillOutcomeImageArea)
         dest.writeString(date)
         dest.writeFloat(pathLength)
+        dest.writeInt(pathArea)
     }
 }
 

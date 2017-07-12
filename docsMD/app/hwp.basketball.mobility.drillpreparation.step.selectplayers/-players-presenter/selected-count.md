@@ -6,3 +6,8 @@
 
 Overrides [Presenter.selectedCount](../-players-contract/-presenter/selected-count.md)
 
+Get number of players selected to perform the drill
+
+**Return**
+Number of players selected to perform the drill
+

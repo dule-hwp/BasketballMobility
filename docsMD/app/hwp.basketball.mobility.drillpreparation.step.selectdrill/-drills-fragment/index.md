@@ -4,13 +4,14 @@
 
 `class DrillsFragment : `[`BaseStepFragment`](../../hwp.basketball.mobility.drillpreparation.step/-base-step-fragment/index.md)`, `[`View`](../-drills-contract/-view/index.md)
 
-Created by dusan_cvetkovic on 3/23/17.
+Drill select step.
+View being shown in preparation drill process when coach selects drill.
 
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `DrillsFragment()`<br>Created by dusan_cvetkovic on 3/23/17. |
+| [&lt;init&gt;](-init-.md) | `DrillsFragment()`<br>Drill select step. View being shown in preparation drill process when coach selects drill. |
 
 ### Properties
 

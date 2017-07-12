@@ -1,4 +1,4 @@
-package hwp.basketball.mobility.pathrecorder.sketchview
+package hwp.basketball.mobility.drill.perform.sketchview
 
 import android.graphics.Bitmap
 import hwp.basketball.mobility.BasePresenter
@@ -23,12 +23,15 @@ interface SensorDrawingViewViewContract {
         fun setIsMoving(isMoving: Boolean)
         fun resetDrill()
         fun getBitmap(): Bitmap
-        fun getDesiredPathLength() :Float
+        /**get Path length
+         * @return desired path length in pixels.*/
+        fun getDesiredPathLength(): Float
+
         fun getBitmapArea(): Bitmap
         fun onRecordingModeChange(inRecordingMode: Boolean)
     }
 
-    interface Presenter : BasePresenter{
+    interface Presenter : BasePresenter {
         fun startResumeMovement()
         fun stopMovement()
         fun disableSensorsUpdate()

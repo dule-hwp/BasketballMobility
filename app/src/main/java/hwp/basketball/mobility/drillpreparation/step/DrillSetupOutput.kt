@@ -1,6 +1,6 @@
 package hwp.basketball.mobility.drillpreparation.step
 
-import hwp.basketball.mobility.device.sensor.BaseSensor
+import hwp.basketball.mobility.device.sensor.SensorFactory
 import hwp.basketball.mobility.entitiy.drills.DrillViewModel
 import hwp.basketball.mobility.entitiy.player.PlayerViewModel
 
@@ -20,8 +20,9 @@ object DrillSetupOutput {
     override fun toString(): String {
 //        connectMap.put(players[0],"tile")
         var output = ""
-        for (player in players)
-            output += "${player.firstName} ${player.lastName} is connected via ${connectMap[player]}\n"
+        for (player in players) {
+            output += "${player.name} is connected via ${connectMap[player]?.type}\n"
+        }
         output+="Drill selected: ${drill?.name}"
         return output
     }
@@ -32,5 +33,5 @@ object DrillSetupOutput {
         connectMap.clear()
     }
 
-    data class SensorConnectionData(val type:BaseSensor.Type, val name:String = "")
+    data class SensorConnectionData(val type:SensorFactory.Type, val name:String = "")
 }

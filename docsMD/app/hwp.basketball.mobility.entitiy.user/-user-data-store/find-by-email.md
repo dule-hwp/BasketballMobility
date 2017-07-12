@@ -2,4 +2,4 @@
 
 # findByEmail
 
-`abstract fun findByEmail(email: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): Single<`[`CoachViewModel`](../-coach-view-model/index.md)`>?`
+`abstract fun findByEmail(email: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): Maybe<`[`CoachViewModel`](../-coach-view-model/index.md)`>`

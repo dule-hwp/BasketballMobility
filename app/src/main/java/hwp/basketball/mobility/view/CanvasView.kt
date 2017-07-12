@@ -1,45 +1,28 @@
 /**
  * Credit for this class goes to:
  * https://github.com/Korilakkuma/CanvasView
-
+ * I simply ported it to kotlin, and changed some things to suite my needs, but most
+ * of the stuff is reused.
  * CanvasView.java
- *
  *
  * Copyright (c) 2014 Tomohiro IKEDA (Korilakkuma)
  * Released under the MIT license
  */
 
-package hwp.basketball.mobility.util
+package hwp.basketball.mobility.view
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import hwp.basketball.mobility.util.PointF
 import java.util.*
 
 /**
  * This class defines fields and methods for drawing.
  */
 class CanvasView : View {
-
-    // Enumeration for Mode
-    enum class Mode {
-        DRAW,
-        TEXT,
-        ERASER
-    }
-
-    // Enumeration for Drawer
-    enum class Drawer {
-        PEN,
-        LINE,
-        RECTANGLE,
-        CIRCLE,
-        ELLIPSE,
-        QUADRATIC_BEZIER,
-        QUBIC_BEZIER
-    }
 
     internal var bitmap: Bitmap? = null
 
@@ -51,9 +34,6 @@ class CanvasView : View {
     // for Undo, Redo
     private var historyPointer = 0
 
-    var mode = Mode.DRAW
-
-    var drawer = Drawer.PEN
     private var isDown = false
 
 
@@ -61,26 +41,11 @@ class CanvasView : View {
 
     var paintStrokeColor = Color.BLACK
 
-    var paintStrokeWidth = 3f
-        set(width) = if (width >= 0) {
-            field = width
-        } else {
-            field = 3f
-        }
+    var paintStrokeWidth = 7f
 
     var opacity = 255
-        set(opacity) = if (opacity in 0..255) {
-            field = opacity
-        } else {
-            field = 255
-        }
 
     var blur = 0f
-        set(blur) = if (blur >= 0) {
-            field = blur
-        } else {
-            field = 0f
-        }
 
     var lineCap: Paint.Cap = Paint.Cap.ROUND
 
@@ -89,8 +54,6 @@ class CanvasView : View {
 
     var text = ""
 
-    var fontFamily = Typeface.DEFAULT
-
     var fontSize = 32f
         set(size) = if (size >= 0f) {
             field = size
@@ -98,7 +61,6 @@ class CanvasView : View {
             field = 32f
         }
 
-    private val textAlign = Paint.Align.RIGHT  // fixed
     private var textPaint = Paint()
     private var textX = 0f
     private var textY = 0f
@@ -106,8 +68,6 @@ class CanvasView : View {
     // for Drawer
     private var startX = 0f
     private var startY = 0f
-    private var controlX = 0f
-    private var controlY = 0f
 
     /**
      * Copy Constructor
@@ -170,28 +130,10 @@ class CanvasView : View {
         paint.strokeCap = this.lineCap
         paint.strokeJoin = Paint.Join.MITER  // fixed
 
-        // for Text
-        if (this.mode == Mode.TEXT) {
-            paint.typeface = this.fontFamily
-            paint.textSize = this.fontSize
-            paint.textAlign = this.textAlign
-            paint.strokeWidth = 0f
-        }
-
-        if (this.mode == Mode.ERASER) {
-            // Eraser
-            paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
-            paint.setARGB(0, 0, 0, 0)
-
-            // paint.setColor(this.baseColor);
-            // paint.setShadowLayer(this.blur, 0F, 0F, this.baseColor);
-        } else {
-            // Otherwise
-            paint.color = this.paintStrokeColor
-            paint.setShadowLayer(this.blur, 0f, 0f, this.paintStrokeColor)
-            paint.alpha = this.opacity
-            paint.pathEffect = this.drawPathEffect
-        }
+        paint.color = this.paintStrokeColor
+        paint.setShadowLayer(this.blur, 0f, 0f, this.paintStrokeColor)
+        paint.alpha = this.opacity
+        paint.pathEffect = this.drawPathEffect
 
         return paint
     }
@@ -269,13 +211,6 @@ class CanvasView : View {
             return
         }
 
-        if (this.mode == Mode.TEXT) {
-            this.textX = this.startX
-            this.textY = this.startY
-
-            this.textPaint = this.createPaint()
-        }
-
         val textX = this.textX
         val textY = this.textY
 
@@ -313,36 +248,12 @@ class CanvasView : View {
      * @param event This is argument of onTouchEvent method
      */
     private fun onActionDown(event: MotionEvent) {
-        when (this.mode) {
-            CanvasView.Mode.DRAW, CanvasView.Mode.ERASER -> if (this.drawer != Drawer.QUADRATIC_BEZIER && this.drawer != Drawer.QUBIC_BEZIER) {
-                // Oherwise
-                this.updateHistory(this.createPath(event))
-                this.isDown = true
-            } else {
-                // Bezier
-                if (this.startX == 0f && this.startY == 0f) {
-                    // The 1st tap
-                    this.updateHistory(this.createPath(event))
-                } else {
-                    // The 2nd tap
-                    this.controlX = event.x
-                    this.controlY = event.y
-
-                    this.isDown = true
-                }
-            }
-            CanvasView.Mode.TEXT -> {
-                this.startX = event.x
-                this.startY = event.y
-            }
-            else -> {
-            }
-        }
+        this.updateHistory(this.createPath(event))
+        this.isDown = true
     }
 
     internal val pathPoints by lazy {
         mutableSetOf<PointF>()
-//        arrayListOf<PointF>()
     }
 
     /**
@@ -353,75 +264,14 @@ class CanvasView : View {
     private fun onActionMove(event: MotionEvent) {
         val x = event.x
         val y = event.y
-
-        when (this.mode) {
-            CanvasView.Mode.DRAW, CanvasView.Mode.ERASER ->
-
-                if (this.drawer != Drawer.QUADRATIC_BEZIER && this.drawer != Drawer.QUBIC_BEZIER) {
-                    if (!isDown) {
-                        return
-                    }
-
-                    val path = this.currentPath
-
-                    when (this.drawer) {
-                        CanvasView.Drawer.PEN -> {
-                            path.lineTo(x, y)
-//                            pathPoints.addDrillToDatabase(PointF(x, y))
-                        }
-                        CanvasView.Drawer.LINE -> {
-                            path.reset()
-                            path.moveTo(this.startX, this.startY)
-                            path.lineTo(x, y)
-//                            pathPoints.addDrillToDatabase(PointF(x, y))
-                        }
-                        CanvasView.Drawer.RECTANGLE -> {
-                            path.reset()
-
-                            val left = Math.min(this.startX, x)
-                            val right = Math.max(this.startX, x)
-                            val top = Math.min(this.startY, y)
-                            val bottom = Math.max(this.startY, y)
-
-                            path.addRect(left, top, right, bottom, Path.Direction.CCW)
-                        }
-                        CanvasView.Drawer.CIRCLE -> {
-                            val distanceX = Math.abs((this.startX - x).toDouble())
-                            val distanceY = Math.abs((this.startX - y).toDouble())
-                            val radius = Math.sqrt(Math.pow(distanceX, 2.0) + Math.pow(distanceY, 2.0))
-
-                            path.reset()
-                            path.addCircle(this.startX, this.startY, radius.toFloat(), Path.Direction.CCW)
-                        }
-                        CanvasView.Drawer.ELLIPSE -> {
-                            val rect = RectF(this.startX, this.startY, x, y)
-
-                            path.reset()
-                            path.addOval(rect, Path.Direction.CCW)
-                        }
-                        else -> {
-                        }
-                    }
-                } else {
-                    if (!isDown) {
-                        return
-                    }
-
-                    val path = this.currentPath
-
-                    path.reset()
-                    path.moveTo(this.startX, this.startY)
-                    path.quadTo(this.controlX, this.controlY, x, y)
-//                    pathPoints.clear()
-//                    pathPoints.addDrillToDatabase(PointF(this.startX, this.startY))
-                }
-            CanvasView.Mode.TEXT -> {
-                this.startX = x
-                this.startY = y
-            }
-            else -> {
-            }
+        if (!isDown) {
+            return
         }
+
+        val path = this.currentPath
+        path.reset()
+        path.moveTo(this.startX, this.startY)
+        path.lineTo(x, y)
     }
 
     /**
@@ -488,7 +338,6 @@ class CanvasView : View {
 
     /**
      * This method checks if Undo is available
-
      * @return If Undo is available, this is returned as true. Otherwise, this is returned as false.
      */
     fun canUndo(): Boolean {
@@ -497,22 +346,26 @@ class CanvasView : View {
 
     /**
      * This method checks if Redo is available
-
      * @return If Redo is available, this is returned as true. Otherwise, this is returned as false.
      */
     fun canRedo(): Boolean {
         return this.historyPointer < this.pathList.size
     }
 
+    private val removedElements = Stack<PointF>()
+
     /**
      * This method draws canvas again for Undo.
-
      * @return If Undo is enabled, this is returned as true. Otherwise, this is returned as false.
      */
     fun undo(): Boolean {
         if (canUndo()) {
             this.historyPointer--
             this.invalidate()
+
+            val elementToRemove = pathPoints.last()
+            pathPoints.remove(elementToRemove)
+            removedElements.push(elementToRemove)
 
             return true
         } else {
@@ -522,13 +375,16 @@ class CanvasView : View {
 
     /**
      * This method draws canvas again for Redo.
-
      * @return If Redo is enabled, this is returned as true. Otherwise, this is returned as false.
      */
     fun redo(): Boolean {
         if (canRedo()) {
             this.historyPointer++
             this.invalidate()
+
+            if (removedElements.isNotEmpty()) {
+                pathPoints.add(removedElements.pop())
+            }
 
             return true
         } else {
@@ -538,7 +394,6 @@ class CanvasView : View {
 
     /**
      * This method initializes canvas.
-
      * @return
      */
     fun clear() {
@@ -549,7 +404,6 @@ class CanvasView : View {
 
     /**
      * This method gets current canvas as bitmap.
-
      * @return This is returned as bitmap.
      */
     fun getBitmap(): Bitmap {

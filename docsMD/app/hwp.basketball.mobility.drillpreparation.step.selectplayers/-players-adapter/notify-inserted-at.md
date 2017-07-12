@@ -6,3 +6,8 @@
 
 Overrides [AdapterView.notifyInsertedAt](../-players-contract/-adapter-view/notify-inserted-at.md)
 
+Notify that the player has be inserted at position.
+
+### Parameters
+
+`position` - Position of insertion

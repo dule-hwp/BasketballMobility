@@ -68,8 +68,21 @@
     <string name="min_speed_s">Min speed: %s</string>
     <string name="title_drill_list">Drills</string>
     <string name="title_drill_detail">Drill Detail</string>
-    <string name="times_performed">%1$s times performed</string>
+    <plurals name="times_performed">
+        <item quantity="one">%d time performed</item>
+        <item quantity="other">%d times performed</item>
+    </plurals>
     <string name="high_score">Best score: %1$s by %2$s</string>
     <string name="outcome_score">Score: %1$s</string>
+    <string name="error_unsupported_device">device not supported</string>
+    <string name="notifier_bluetooth_unsupported">notifier_bluetooth_unsupported</string>
+    <string name="title_devicepicker">pick a device</string>
+    <string name="unknown_device">unknown_device</string>
+    <string name="default_title">pick device</string>
+    <string name="menu_stop">stop</string>
+    <string name="menu_scan">scan</string>
+    <string name="error_internal">internal error</string>
+    <string name="devicepicker_pick">device picker pick</string>
+    <string name="name">Name</string>
 
 </resources>

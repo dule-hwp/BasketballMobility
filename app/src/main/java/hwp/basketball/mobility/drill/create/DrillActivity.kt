@@ -16,7 +16,7 @@ import android.widget.ImageView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import hwp.basketball.mobility.R
 import hwp.basketball.mobility.entitiy.drills.ViewDimens
-import hwp.basketball.mobility.util.CanvasView
+import hwp.basketball.mobility.view.CanvasView
 import hwp.basketball.mobility.util.toast
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
@@ -118,7 +118,7 @@ class DrillActivity : AppCompatActivity(), DrillActivityContract.View, DialogInt
         drillActivityPresenter = DrillActivityPresenter(this)
 
         btn_done.setOnClickListener { drillActivityPresenter.onDoneTap() }
-        canvas_view.drawer = CanvasView.Drawer.LINE
+//        canvas_view.drawer = CanvasView.Drawer.LINE
         canvas_view.currentPath
     }
 

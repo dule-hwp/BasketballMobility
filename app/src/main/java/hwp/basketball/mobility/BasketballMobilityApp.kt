@@ -1,3 +1,6 @@
+/**
+ * This package contains class that extends main application class.
+ * */
 package hwp.basketball.mobility
 
 import android.app.Application
@@ -25,7 +28,7 @@ class BasketballMobilityApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        JodaTimeAndroid.init(this);
+        JodaTimeAndroid.init(this)
 
         if (BuildConfig.DEBUG) {
             Timber.plant(object : DebugTree() {

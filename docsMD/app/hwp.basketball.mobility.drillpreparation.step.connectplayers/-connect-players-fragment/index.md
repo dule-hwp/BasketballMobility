@@ -4,13 +4,14 @@
 
 `class ConnectPlayersFragment : `[`BaseStepFragment`](../../hwp.basketball.mobility.drillpreparation.step/-base-step-fragment/index.md)`, `[`View`](../-connect-players-contract/-view/index.md)
 
-Created by dusan_cvetkovic on 3/23/17.
+Player connect step.
+View being shown in preparation drill process when coach connects all the selected players.
 
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `ConnectPlayersFragment()`<br>Created by dusan_cvetkovic on 3/23/17. |
+| [&lt;init&gt;](-init-.md) | `ConnectPlayersFragment()`<br>Player connect step. View being shown in preparation drill process when coach connects all the selected players. |
 
 ### Properties
 
@@ -23,7 +24,7 @@ Created by dusan_cvetkovic on 3/23/17.
 
 | Name | Summary |
 |---|---|
-| [displayError](display-error.md) | `fun displayError(s: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [displayError](display-error.md) | `fun displayError(errorMessage: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>When some error has happened this method is triggered. View should display the error message. |
 | [onActivityResult](on-activity-result.md) | `fun onActivityResult(requestCode: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, resultCode: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, data: `[`Intent`](https://developer.android.com/reference/android/content/Intent.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onCreate](on-create.md) | `fun onCreate(savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onCreateView](on-create-view.md) | `fun onCreateView(inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.html)`?, container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.html)`?, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`View`](https://developer.android.com/reference/android/view/View.html)`?` |
@@ -31,10 +32,9 @@ Created by dusan_cvetkovic on 3/23/17.
 | [onStepVisible](on-step-visible.md) | `fun onStepVisible(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onViewCreated](on-view-created.md) | `fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`?, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [setupRecyclerView](setup-recycler-view.md) | `fun setupRecyclerView(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [showConnectDialog](show-connect-dialog.md) | `fun showConnectDialog(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [showSensorTypeChooser](show-sensor-type-chooser.md) | `fun showSensorTypeChooser(firstName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [startScanActivity](start-scan-activity.md) | `fun startScanActivity(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [startWicedActivityScan](start-wiced-activity-scan.md) | `fun startWicedActivityScan(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [showSensorTypeChooser](show-sensor-type-chooser.md) | `fun showSensorTypeChooser(firstName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Show dialog for chosing sensor type player with 'firstName' is using. |
+| [startSensorTileScanActivity](start-sensor-tile-scan-activity.md) | `fun startSensorTileScanActivity(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Show SensorTile scan for BLE devices |
+| [startWicedActivityScan](start-wiced-activity-scan.md) | `fun startWicedActivityScan(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Show Wiced sense scan for BLE devices |
 | [stepTitle](step-title.md) | `fun stepTitle(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 | [verifyStep](verify-step.md) | `fun verifyStep(): VerificationError?` |
 

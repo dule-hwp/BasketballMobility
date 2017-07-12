@@ -7,12 +7,13 @@
 
     <TextView
         android:id="@+id/tvReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin"
         android:layout_gravity="center"
-        android:textSize="18sp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         tools:text="Text to be displayed dasdbasjdkhas \n asdjnasodaksdo \n\n\n oais\n\n\ndjasidojasd aosdijas"
-        android:gravity="center"
+        android:gravity="left"
         />
 
 </FrameLayout>

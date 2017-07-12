@@ -6,3 +6,5 @@
 
 Overrides [View.startWicedActivityScan](../-connect-players-contract/-view/start-wiced-activity-scan.md)
 
+Show Wiced sense scan for BLE devices
+

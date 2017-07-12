@@ -2,7 +2,7 @@
 
 # &lt;init&gt;
 
-`CoachViewModel(realmModel: `[`UserRealmModel`](../-user-realm-model/index.md)`)``CoachViewModel(username: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = "def", email: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = "def", imageUrl: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = "def")`
+`CoachViewModel(username: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = "def", email: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = "def", imageUrl: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null)`
 
-Created by dusan_cvetkovic on 3/26/17.
+Coach view model used for displaying coach info.
 

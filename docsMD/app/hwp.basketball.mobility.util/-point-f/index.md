@@ -23,6 +23,7 @@ Created by dusan_cvetkovic on 6/8/17.
 
 | Name | Summary |
 |---|---|
+| [distanceTo](distance-to.md) | `fun distanceTo(endPoint: PointF): `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |
 | [getAngle](get-angle.md) | `fun getAngle(target: PointF): `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)<br>Returns angle betwen current point and target point |
 | [getAngleRad](get-angle-rad.md) | `fun getAngleRad(target: PointF): `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html) |
 | [toFloatArray](to-float-array.md) | `fun toFloatArray(): `[`FloatArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html) |

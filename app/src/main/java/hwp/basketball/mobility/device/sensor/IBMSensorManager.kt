@@ -1,5 +1,6 @@
 package hwp.basketball.mobility.device.sensor
 
+import android.content.Context
 import io.reactivex.Observable
 
 /**
@@ -8,14 +9,11 @@ import io.reactivex.Observable
  */
 interface IBMSensorManager {
     fun observeAccSensorChanged(): Observable<BMSensorManager.AccData>
-    fun observeStepsChanged(): Observable<BaseSensor.StepData>
     fun observeAngleChanged(): Observable<Float>
-    fun observeMotionIntensityChanged(): Observable<Int>
+    fun observeIsMoving(): Observable<Boolean>
     fun connectTo(nodeTag: String)
     fun startSensorUpdates()
     fun stopSensorUpdates()
-    fun saveTestData(suffix: String): String?
-//    fun setSensor(type: BaseSensor)
 
     interface Callback{
         fun onSensorConnected(name: IBMSensorManager)

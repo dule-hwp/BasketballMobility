@@ -6,3 +6,12 @@
 
 Overrides [AdapterView.getItem](../-players-contract/-adapter-view/get-item.md)
 
+Return player sitting on index.
+
+### Parameters
+
+`index` - Index of the player in the list
+
+**Return**
+Player object
+

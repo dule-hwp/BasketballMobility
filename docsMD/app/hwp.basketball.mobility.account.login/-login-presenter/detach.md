@@ -8,3 +8,5 @@ Overrides [Presenter.detach](../-login-contract/-presenter/detach.md)
 
 Overrides [BasePresenter.detach](../../hwp.basketball.mobility/-base-presenter/detach.md)
 
+In this callback cleanup should happen.
+

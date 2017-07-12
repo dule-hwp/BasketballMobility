@@ -4,13 +4,15 @@
 
 `class ReviewFragment : `[`BaseStepFragment`](../../hwp.basketball.mobility.drillpreparation.step/-base-step-fragment/index.md)
 
-Created by dusan_cvetkovic on 4/10/17.
+Review step.
+View being shown in preparation drill process when coach reviews the data he selected
+in previous steps.
 
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `ReviewFragment()`<br>Created by dusan_cvetkovic on 4/10/17. |
+| [&lt;init&gt;](-init-.md) | `ReviewFragment()`<br>Review step. View being shown in preparation drill process when coach reviews the data he selected in previous steps. |
 
 ### Functions
 

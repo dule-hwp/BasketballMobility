@@ -11,7 +11,9 @@ import hwp.basketball.mobility.drillpreparation.step.DrillSetupOutput
 import kotlinx.android.synthetic.main.fragment_review.*
 
 /**
- * Created by dusan_cvetkovic on 4/10/17.
+ * Review step.
+ * View being shown in preparation drill process when coach reviews the data he selected
+ * in previous steps.
  */
 class ReviewFragment :BaseStepFragment() {
 

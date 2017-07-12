@@ -81,7 +81,7 @@ public class NodeScanActivity extends AppCompatActivity {
     /**
      * !=0 if we have a start scanning request pending
      */
-    private int mLastTimeOut=0;
+    private int mLastTimeOut = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +98,15 @@ public class NodeScanActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mLastTimeOut=savedInstanceState.getInt(SCAN_TIMEOUT, 0);
+        mLastTimeOut = savedInstanceState.getInt(SCAN_TIMEOUT, 0);
     }
 
     /**
      * check that the bluetooth is enabled
+     *
      * @return true if the bluetooth is enable false if we ask to the user to enable it
      */
-    private boolean enableBluetoothAdapter(){
+    private boolean enableBluetoothAdapter() {
         final BluetoothManager bluetoothManager =
                 (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         //the adapter is !=null since we request in the manifest to have the bt capability
@@ -117,19 +118,20 @@ public class NodeScanActivity extends AppCompatActivity {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
             return false;
-        }else
+        } else
             return true;
     }//enableBluetoothAdapter
 
     /**
      * check that the location service is enabled
+     *
      * @return true if the location service is enabled, false if we ask to the user to do it
      */
-    private boolean enableLocationService(){
+    private boolean enableLocationService() {
         LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         boolean providerEnabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER) |
                 lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        if(!providerEnabled) {
+        if (!providerEnabled) {
             Resources res = getResources();
             // notify user
             final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
@@ -166,9 +168,10 @@ public class NodeScanActivity extends AppCompatActivity {
 
     /**
      * check to have the permission needed for start a bluetooth scanning
+     *
      * @return true if we have ti false if we ask for it
      */
-    private boolean checkBlePermission(){
+    private boolean checkBlePermission() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -185,7 +188,7 @@ public class NodeScanActivity extends AppCompatActivity {
                             public void onClick(View view) {
                                 ActivityCompat.requestPermissions(NodeScanActivity.this,
                                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-                                    REQUEST_LOCATION_ACCESS);
+                                        REQUEST_LOCATION_ACCESS);
                             }//onClick
                         }).show();
             } else {
@@ -195,22 +198,23 @@ public class NodeScanActivity extends AppCompatActivity {
                         REQUEST_LOCATION_ACCESS);
             }//if-else
             return false;
-        }else
-            return  true;
+        } else
+            return true;
     }//checkBlePermission
 
 
     /**
      * check to have the permission and the service enabled needed for stat a bluetooth scanning
+     *
      * @return true if we have all the requirements, false if we ask for something
      */
-    private boolean checkAdapterAndPermission(){
-        if(enableBluetoothAdapter()) {
+    private boolean checkAdapterAndPermission() {
+        if (enableBluetoothAdapter()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if(enableLocationService())
-                    if(checkBlePermission())
+                if (enableLocationService())
+                    if (checkBlePermission())
                         return true;
-            }else
+            } else
                 return true;
         }//if
         return false;
@@ -218,13 +222,14 @@ public class NodeScanActivity extends AppCompatActivity {
 
     /**
      * method start a discovery and update the gui for the new state
+     *
      * @param timeoutMs time to wait before stop the discovery
      */
     public void startNodeDiscovery(int timeoutMs) {
-        mLastTimeOut=timeoutMs;
-        if(checkAdapterAndPermission()) {
+        mLastTimeOut = timeoutMs;
+        if (checkAdapterAndPermission()) {
             mManager.startDiscovery(timeoutMs);
-            mLastTimeOut=0;
+            mLastTimeOut = 0;
         }
     }
 
@@ -246,9 +251,9 @@ public class NodeScanActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // User chose not to enable Bluetooth -> close all
-        if (requestCode == REQUEST_ENABLE_BT){
-            if(resultCode == Activity.RESULT_CANCELED) {
-                Toast.makeText(this,R.string.bluetoothNotEnabled,Toast.LENGTH_SHORT).show();
+        if (requestCode == REQUEST_ENABLE_BT) {
+            if (resultCode == Activity.RESULT_CANCELED) {
+                Toast.makeText(this, R.string.bluetoothNotEnabled, Toast.LENGTH_SHORT).show();
                 finish();
             } else {
                 //bluetooth enable -> try to start scanning
@@ -262,7 +267,7 @@ public class NodeScanActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String permissions[],
                                            @NonNull int[] grantResults) {
-        if (grantResults.length == 0 )
+        if (grantResults.length == 0)
             return;
 
         switch (requestCode) {
@@ -275,10 +280,10 @@ public class NodeScanActivity extends AppCompatActivity {
                 } else {
                     final View viewRoot = ((ViewGroup) this
                             .findViewById(android.R.id.content)).getChildAt(0);
-                    if (viewRoot !=null)
-                        Snackbar.make(viewRoot,  R.string.LocationNotGranted, Snackbar.LENGTH_SHORT).show();
-                    else{
-                        Toast.makeText(this,R.string.LocationNotGranted,Toast.LENGTH_SHORT).show();
+                    if (viewRoot != null)
+                        Snackbar.make(viewRoot, R.string.LocationNotGranted, Snackbar.LENGTH_SHORT).show();
+                    else {
+                        Toast.makeText(this, R.string.LocationNotGranted, Toast.LENGTH_SHORT).show();
                     }
                 }//if-else
                 break;

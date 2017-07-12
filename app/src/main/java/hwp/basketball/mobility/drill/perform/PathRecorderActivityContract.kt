@@ -1,8 +1,7 @@
-package hwp.basketball.mobility.pathrecorder
+package hwp.basketball.mobility.drill.perform
 
 import hwp.basketball.mobility.BasePresenter
 import hwp.basketball.mobility.entitiy.drills.outcomes.DrillOutcome
-import hwp.basketball.mobility.entitiy.drills.outcomes.DrillTempOutcome
 
 /**
  * Created by dusan_cvetkovic on 3/5/17.
@@ -20,7 +19,6 @@ interface PathRecorderActivityContract {
         fun showProgress(message: String)
         fun showMessage(message: String)
         fun onRecordingModeChange(isInRecordingMode: Boolean)
-
     }
 
     interface Presenter: BasePresenter {

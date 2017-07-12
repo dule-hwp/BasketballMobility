@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <hwp.basketball.mobility.pathrecorder.sketchview.SensorDrawingView
+    <hwp.basketball.mobility.drill.perform.sketchview.SensorDrawingView
         android:id="@+id/sketchView"
         android:layout_width="0dp"
         android:layout_height="0dp"

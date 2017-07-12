@@ -1,14 +1,8 @@
 package hwp.basketball.mobility.entitiy.user
 
 /**
- * Created by dusan_cvetkovic on 3/26/17.
+ * Coach view model used for displaying coach info.
  */
 data class CoachViewModel(var username: String = "def",
-                          var email: String = "def",
-                          var imageUrl: String = "def") {
-
-    constructor(realmModel: UserRealmModel) : this(
-            username = realmModel.username,
-            email = realmModel.email,
-            imageUrl = realmModel.imageUrl)
-}
+                          var email: String? = "def",
+                          var imageUrl: String? = null)

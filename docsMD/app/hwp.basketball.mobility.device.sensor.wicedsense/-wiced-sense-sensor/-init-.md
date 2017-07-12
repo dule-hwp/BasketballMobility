@@ -4,5 +4,5 @@
 
 `WicedSenseSensor(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`)`
 
-Created by dusan_cvetkovic on 7/4/17.
+Wiced Sense Base Sensor implementation.
 

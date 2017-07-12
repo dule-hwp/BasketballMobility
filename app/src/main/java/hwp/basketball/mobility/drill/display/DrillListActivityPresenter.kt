@@ -3,6 +3,7 @@ package hwp.basketball.mobility.drill.display
 import durdinapps.rxfirebase2.RxFirebaseDatabase
 import hwp.basketball.mobility.entitiy.drills.DrillsDataStore
 import hwp.basketball.mobility.entitiy.drills.DrillsFirebaseRepository
+import hwp.basketball.mobility.entitiy.drills.outcomes.DrillOutcome
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
@@ -15,6 +16,10 @@ class DrillListActivityPresenter(val view: DrillListActivityContract.View) : Dri
         DrillsFirebaseRepository()
     }
 
+    override fun onClick(drillOutcome: DrillOutcome) {
+        view.showDrillDetailedView(drillOutcome)
+    }
+
     override fun fetchDrills() {
         view.showProgressDialog("Fetching drills")
         drillsDataStore.findAll()
@@ -23,7 +28,7 @@ class DrillListActivityPresenter(val view: DrillListActivityContract.View) : Dri
                 .doAfterTerminate { view.hideProgressDialog() }
                 .map({ listDrills ->
                     listDrills.filter {
-                        it.outcomes.size > 0
+                        it.outcomes.size > 0 && it.drillImage != null
                     }.toMutableList()
                 })
                 .subscribe({

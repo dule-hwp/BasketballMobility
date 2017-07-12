@@ -2,4 +2,4 @@
 
 # add
 
-`abstract fun add(item: T): Completable`
+`abstract fun add(coach: T): Completable`

@@ -2,7 +2,7 @@
 
 # findByEmail
 
-`fun findByEmail(email: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): Single<`[`CoachViewModel`](../-coach-view-model/index.md)`>?`
+`fun findByEmail(email: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): Maybe<`[`CoachViewModel`](../-coach-view-model/index.md)`>`
 
 Overrides [UserDataStore.findByEmail](../-user-data-store/find-by-email.md)
 

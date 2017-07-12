@@ -1,9 +1,16 @@
 package hwp.basketball.mobility
 
 /**
- * Created by dusan_cvetkovic on 3/28/17.
+ * Each presenter interface should extend this interface.
  */
 interface BasePresenter {
+    /**
+     * In this callback allocation of resources and initialization should happen.
+     * */
     fun attach()
+
+    /**
+     * In this callback cleanup should happen.
+     * */
     fun detach()
 }

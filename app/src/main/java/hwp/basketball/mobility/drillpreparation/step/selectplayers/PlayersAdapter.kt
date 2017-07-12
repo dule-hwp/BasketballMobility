@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.list_item_player.view.*
 /**
  * Created by dusan_cvetkovic on 3/28/17.
  */
-class PlayersAdapter :
-        RecyclerView.Adapter<PlayersAdapter.PlayerViewHolder>(), PlayersContract.AdapterView {
+class PlayersAdapter : RecyclerView.Adapter<PlayersAdapter.PlayerViewHolder>(),
+        PlayersContract.AdapterView {
 
     lateinit var listener: PlayersContract.Presenter
     private var currentItem: PlayerViewModel? = null
@@ -56,7 +56,7 @@ class PlayersAdapter :
         player?.let {
             holder?.bind(player)
             holder?.itemView?.btnEdit?.setOnClickListener {
-                listener.showEditPlayerDialog(position)
+                listener.onEditPlayerClicked(position)
                 currentItem = player
                 currentItemPosition = position
             }

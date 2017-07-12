@@ -3,3 +3,7 @@
 # showAddPlayerDialog
 
 `abstract fun showAddPlayerDialog(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+This method is triggered when add player button is clicked.
+View responsibility is to show add dialog.
+

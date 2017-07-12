@@ -1,8 +1,8 @@
-package hwp.basketball.mobility.login
+package hwp.basketball.mobility.account.login
 
-import hwp.basketball.mobility.login.google.signin.AuthCallback
-import hwp.basketball.mobility.login.google.signin.SignInAccountWrapper
-import hwp.basketball.mobility.login.google.signin.SignInResultWrapper
+import hwp.basketball.mobility.account.login.google.signin.AuthCallback
+import hwp.basketball.mobility.account.login.google.signin.SignInAccountWrapper
+import hwp.basketball.mobility.account.login.google.signin.SignInResultWrapper
 
 
 /**
@@ -24,11 +24,6 @@ open class GoogleLoginInteractor : LoginContract.Interactor {
                 }
 
                 override fun onSuccess(signInAccount: SignInAccountWrapper) {
-                    // Signed in successfully, show authenticated UI.
-//                    val acct = signInAccount
-//                    val userViewModel = CoachViewModel(signInAccount.displayName,
-//                            signInAccount.email,
-//                            signInAccount.photoUrl)
                     callbackListener.logInSuccess(signInAccount.email)
                 }
             })

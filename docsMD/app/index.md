@@ -13,7 +13,7 @@ In each od the leaf (bottom) level packages of the app module we tried to apply 
 | [hwp.basketball.mobility.device.sensor](hwp.basketball.mobility.device.sensor/index.md) | All of the sensors supported by the application should be inside this package and have their own sub packege. In this packege root we can find BaseSensor that each of the sensors need to implement and we have sensor factory (factory pattern) to build specific sensor implementation based on type. |
 | [hwp.basketball.mobility.device.sensor.android](hwp.basketball.mobility.device.sensor.android/index.md) | Android implementation of the Base Sensor. |
 | [hwp.basketball.mobility.device.sensor.sensortile](hwp.basketball.mobility.device.sensor.sensortile/index.md) | SensorTile implementation of the BaseSensor. |
-| [hwp.basketball.mobility.device.sensor.sensortile.sensortilescan](hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/index.md) |  |
+| [hwp.basketball.mobility.device.sensor.sensortile.sensortilescan](hwp.basketball.mobility.device.sensor.sensortile.sensortilescan/index.md) | Implementation of scan activity using SensorTile SDK. |
 | [hwp.basketball.mobility.device.sensor.test](hwp.basketball.mobility.device.sensor.test/index.md) | Test sensor implementation of the BaseSensor. |
 | [hwp.basketball.mobility.device.sensor.wicedsense](hwp.basketball.mobility.device.sensor.wicedsense/index.md) | Wicedsense sensor implementation of the BaseSensor. |
 | [hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker](hwp.basketball.mobility.device.sensor.wicedsense.ledevicepicker/index.md) | WICED Sense "SDK". This should be in separate module, or imported as library (cypress should do better job in providing sdk).  |

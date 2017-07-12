@@ -3,3 +3,9 @@
 # notifyInsertedAt
 
 `abstract fun notifyInsertedAt(position: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Notify that the player has be inserted at position.
+
+### Parameters
+
+`position` - Position of insertion

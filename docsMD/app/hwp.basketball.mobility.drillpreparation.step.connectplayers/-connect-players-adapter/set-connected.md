@@ -6,3 +6,10 @@
 
 Overrides [AdapterView.setConnected](../-connect-players-contract/-adapter-view/set-connected.md)
 
+Update switch UI for given position and state.
+
+### Parameters
+
+`position` - index of the list item to be updated
+
+`checked` - true for connected, false for disconnected player

@@ -3,9 +3,8 @@ package hwp.basketball.mobility
 //import de.jodamob.kotlin.testrunner.KotlinTestRunner
 //import de.jodamob.kotlin.testrunner.OpenedPackages
 import hwp.basketball.mobility.device.sensor.BaseSensor
-import hwp.basketball.mobility.pathrecorder.PathRecorderActivityContract
-import hwp.basketball.mobility.pathrecorder.sketchview.SensorDrawingView
-import hwp.basketball.mobility.pathrecorder.sketchview.SensorDrawingViewPresenter
+import hwp.basketball.mobility.drill.perform.PathRecorderActivityContract
+import hwp.basketball.mobility.drill.perform.sketchview.SensorDrawingView
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.mockito.Mockito.mock

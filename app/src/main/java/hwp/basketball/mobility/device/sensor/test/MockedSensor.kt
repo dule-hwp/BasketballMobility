@@ -1,26 +1,29 @@
 package hwp.basketball.mobility.device.sensor.test
 
 import android.content.Context
-import android.hardware.SensorManager
 import android.os.Environment
 import com.google.common.base.Charsets
 import com.google.common.io.Files
 import com.google.gson.Gson
-import com.st.BlueSTSDK.Features.*
-import hwp.basketball.mobility.TestData
 import hwp.basketball.mobility.device.sensor.BaseSensor
 import java.io.File
 import java.io.IOException
 import java.util.*
 
 /**
- * Created by dusan_cvetkovic on 5/21/17.
+ * Sensor implementation intended to be used in instrumented tests.
+ *
  */
 class MockedSensor(context: Context)
-    : BaseSensor(context) {
-    override fun subscribeToMotionChange() {
+    : BaseSensor() {
+    override fun subscribeForUpdates() {
 
     }
+
+    override fun disconnect() {
+
+    }
+
 
     fun getFile(clazz: Class<*>, filename: String): File {
         return File(Environment.getExternalStorageDirectory(), filename)
@@ -59,47 +62,17 @@ class MockedSensor(context: Context)
 
     }
 
-    override fun disconnect() {
-        
-    }
 
     override fun connectTo(deviceID: String) {
-        
+
     }
 
     override fun getName(): String {
         return "TestSensor"
     }
 
-    override fun isConnectable(): Boolean {
-        return false
-    }
-
-    override fun subscribeToMagnetometerChange() {
-        
-    }
-
-    override fun subscribeToAccChange() {
-        
-    }
-
-    override fun subscribeToGyroChange() {
-        
-    }
-
-    override fun subscribeToAngleChangeChange() {
-        
-    }
-
-    override fun subscribeToSpeedChange() {
-        
-    }
-
-    override fun unSubscribe() {
-        
-    }
-
-    override fun saveSensorData(suffix: String): String {
-        return ""
-    }
+    override val isConnectable: Boolean
+        get() {
+            return false
+        }
 }

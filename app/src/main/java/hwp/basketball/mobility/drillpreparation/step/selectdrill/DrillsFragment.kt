@@ -19,8 +19,8 @@ import kotlinx.android.synthetic.main.fragment_drills.*
 import timber.log.Timber
 
 /**
- *
- * Created by dusan_cvetkovic on 3/23/17.
+ * Drill select step.
+ * View being shown in preparation drill process when coach selects drill.
  */
 class DrillsFragment : BaseStepFragment(), DrillsContract.View {
 
@@ -69,9 +69,9 @@ class DrillsFragment : BaseStepFragment(), DrillsContract.View {
         return drillsPresenter.verifyStep()
     }
 
-    override fun displayError(s: String) {
-        Timber.e("error " + s)
-        toast(s)
+    override fun displayError(errorMessage: String) {
+        Timber.e("error " + errorMessage)
+        toast(errorMessage)
     }
 
     override fun onStepVisible() {

@@ -6,3 +6,8 @@
 
 Overrides [AdapterView.addPlayer](../-players-contract/-adapter-view/add-player.md)
 
+Update UI after player was added to the list of players
+
+### Parameters
+
+`player` - new Player's data

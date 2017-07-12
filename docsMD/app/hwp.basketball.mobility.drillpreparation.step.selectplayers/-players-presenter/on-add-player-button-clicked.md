@@ -6,3 +6,14 @@
 
 Overrides [Presenter.onAddPlayerButtonClicked](../-players-contract/-presenter/on-add-player-button-clicked.md)
 
+Data needed for player creation.
+
+### Parameters
+
+`first` - player's first name
+
+`last` - player's last name
+
+`position` - player's playing position name
+
+`height` - player's height

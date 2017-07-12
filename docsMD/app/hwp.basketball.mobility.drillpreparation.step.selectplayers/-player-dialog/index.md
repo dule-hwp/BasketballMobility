@@ -4,13 +4,13 @@
 
 `class PlayerDialog`
 
-Created by dusan_cvetkovic on 4/2/17.
+Class in charge of displaying show/edit dialog.
 
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `PlayerDialog(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`, playersPresenter: `[`Presenter`](../-players-contract/-presenter/index.md)`)`<br>Created by dusan_cvetkovic on 4/2/17. |
+| [&lt;init&gt;](-init-.md) | `PlayerDialog(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`, playersPresenter: `[`Presenter`](../-players-contract/-presenter/index.md)`)`<br>Class in charge of displaying show/edit dialog. |
 
 ### Properties
 

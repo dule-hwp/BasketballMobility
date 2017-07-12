@@ -27,7 +27,7 @@
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
         tools:context="hwp.basketball.mobility.drill.display.DrillListActivity"
-        tools:listitem="@layout/drill_list_content" />
+        tools:listitem="@layout/list_item_drill_expandable" />
 
     <FrameLayout
         android:id="@+id/drill_detail_container"

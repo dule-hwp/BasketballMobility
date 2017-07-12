@@ -6,3 +6,9 @@
 
 Overrides [AdapterView.notifyPlayerUpdated](../-players-contract/-adapter-view/notify-player-updated.md)
 
+Update UI after player data has been changed. This will be triggered
+after user has updated the player data.
+
+### Parameters
+
+`player` - updated Player data

@@ -16,6 +16,7 @@ Created by dusan_cvetkovic on 5/8/17.
 
 | Name | Summary |
 |---|---|
+| [deviceSize](device-size.md) | `val deviceSize: `[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>` |
 | [isInDebugMode](is-in-debug-mode.md) | `var isInDebugMode: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
 
 ### Companion Object Functions
@@ -23,4 +24,3 @@ Created by dusan_cvetkovic on 5/8/17.
 | Name | Summary |
 |---|---|
 | [convertMetersToPixels](convert-meters-to-pixels.md) | `fun convertMetersToPixels(strideLengthInMeters: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)`): `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html) |
-| [getDeviceSize](get-device-size.md) | `fun getDeviceSize(): `[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>` |

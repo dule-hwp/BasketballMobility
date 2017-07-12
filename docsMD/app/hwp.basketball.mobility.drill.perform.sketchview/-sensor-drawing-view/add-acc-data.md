@@ -6,3 +6,9 @@
 
 Overrides [View.addAccData](../-sensor-drawing-view-view-contract/-view/add-acc-data.md)
 
+This metho is in cahrage of adding current acceleration data to the already
+accumulated ones.
+
+### Parameters
+
+`accData` - Acceleration data being read from sensor in last reading.

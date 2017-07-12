@@ -6,3 +6,8 @@
 
 Overrides [Presenter.playerChecked](../-players-contract/-presenter/player-checked.md)
 
+Player checkbox checked
+
+### Parameters
+
+`player` - Player checked

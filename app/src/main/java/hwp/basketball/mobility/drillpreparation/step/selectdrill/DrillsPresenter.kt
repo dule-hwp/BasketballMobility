@@ -36,6 +36,11 @@ class DrillsPresenter constructor(val view: DrillsContract.View) : DrillsContrac
         val disposable = drills
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
+                .map { listDrills ->
+                    listDrills.filter {
+                        it.drillImage != null
+                    }
+                }
                 .subscribe({
                     drillsAdapter?.swapData(it)
                     Timber.d("data swap:" + it.size)

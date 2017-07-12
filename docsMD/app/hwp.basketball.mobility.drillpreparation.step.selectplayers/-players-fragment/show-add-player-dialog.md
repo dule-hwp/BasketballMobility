@@ -6,3 +6,6 @@
 
 Overrides [View.showAddPlayerDialog](../-players-contract/-view/show-add-player-dialog.md)
 
+This method is triggered when add player button is clicked.
+View responsibility is to show add dialog.
+

@@ -6,3 +6,8 @@
 
 Overrides [AdapterView.getCurrentEditingItem](../-players-contract/-adapter-view/get-current-editing-item.md)
 
+Return item currently being edited.
+
+**Return**
+Player object
+

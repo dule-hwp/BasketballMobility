@@ -2,4 +2,4 @@
 
 # add
 
-`fun add(item: `[`CoachViewModel`](../-coach-view-model/index.md)`): Completable`
+`fun add(coach: `[`CoachViewModel`](../-coach-view-model/index.md)`): Completable`

@@ -6,3 +6,8 @@
 
 Overrides [AdapterView.getCount](../-players-contract/-adapter-view/get-count.md)
 
+Return number of players in the list.
+
+**Return**
+number of players
+

@@ -11,12 +11,6 @@ lead to a [DrillDetailActivity](../-drill-detail-activity/index.md) representing
 item details. On tablets, the activity presents the list of items and
 item details side-by-side using two vertical panes.
 
-### Types
-
-| Name | Summary |
-|---|---|
-| [SimpleItemRecyclerViewAdapter](-simple-item-recycler-view-adapter/index.md) | `inner class SimpleItemRecyclerViewAdapter : `[`Adapter`](https://developer.android.com/reference/android/support/v7/widget/RecyclerView/Adapter.html)`<`[`ViewHolder`](-simple-item-recycler-view-adapter/-view-holder/index.md)`>` |
-
 ### Constructors
 
 | Name | Summary |
@@ -30,6 +24,7 @@ item details side-by-side using two vertical panes.
 | [hideProgressDialog](hide-progress-dialog.md) | `fun hideProgressDialog(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onCreate](on-create.md) | `fun onCreate(savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onDrillsFetched](on-drills-fetched.md) | `fun onDrillsFetched(drills: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`DrillViewModel`](../../hwp.basketball.mobility.entitiy.drills/-drill-view-model/index.md)`>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [showDrillDetailedView](show-drill-detailed-view.md) | `fun showDrillDetailedView(drillOutcome: `[`DrillOutcome`](../../hwp.basketball.mobility.entitiy.drills.outcomes/-drill-outcome/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [showErrorMessage](show-error-message.md) | `fun showErrorMessage(message: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [showProgressDialog](show-progress-dialog.md) | `fun showProgressDialog(message: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 

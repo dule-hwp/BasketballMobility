@@ -24,3 +24,4 @@ Created by dusan_cvetkovic on 6/26/17.
 | Name | Summary |
 |---|---|
 | [fetchDrills](fetch-drills.md) | `fun fetchDrills(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onClick](on-click.md) | `fun onClick(drillOutcome: `[`DrillOutcome`](../../hwp.basketball.mobility.entitiy.drills.outcomes/-drill-outcome/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |

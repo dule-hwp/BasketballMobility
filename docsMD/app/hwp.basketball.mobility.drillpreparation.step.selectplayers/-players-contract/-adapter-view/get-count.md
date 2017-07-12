@@ -3,3 +3,9 @@
 # getCount
 
 `abstract fun getCount(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+
+Return number of players in the list.
+
+**Return**
+number of players
+

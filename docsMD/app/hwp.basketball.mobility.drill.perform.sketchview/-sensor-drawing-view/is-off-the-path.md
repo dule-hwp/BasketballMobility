@@ -6,3 +6,11 @@
 
 Property for keeping track of when user leaves the desired path.
 
+**Getter**
+
+Property for keeping track of when user leaves the desired path.
+
+**Setter**
+
+Property for keeping track of when user leaves the desired path.
+

@@ -33,7 +33,6 @@ Created by dusan_cvetkovic on 4/7/17.
 | [observeAccSensorChanged](observe-acc-sensor-changed.md) | `fun observeAccSensorChanged(): Observable<`[`AccData`](-acc-data/index.md)`>` |
 | [observeAngleChanged](observe-angle-changed.md) | `fun observeAngleChanged(): Observable<`[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)`>` |
 | [observeIsMoving](observe-is-moving.md) | `fun observeIsMoving(): Observable<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>` |
-| [observeMagSensorChanged](observe-mag-sensor-changed.md) | `fun observeMagSensorChanged(): Observable<`[`FloatArray`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html)`>` |
 | [onStateConnected](on-state-connected.md) | `fun onStateConnected(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [onStateDisconnected](on-state-disconnected.md) | `fun onStateDisconnected(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [startSensorUpdates](start-sensor-updates.md) | `fun startSensorUpdates(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |

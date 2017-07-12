@@ -1,4 +1,4 @@
-package hwp.basketball.mobility.login.google.signin
+package hwp.basketball.mobility.account.login.google.signin
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInResult

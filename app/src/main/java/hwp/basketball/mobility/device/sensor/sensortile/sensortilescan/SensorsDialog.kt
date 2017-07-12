@@ -1,9 +1,10 @@
-package hwp.basketball.mobility.sensortilescan
+package hwp.basketball.mobility.device.sensor.sensortile.sensortilescan
 
 import android.app.Activity
 import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import hwp.basketball.mobility.device.sensor.BaseSensor
+import hwp.basketball.mobility.device.sensor.SensorFactory
 
 /**
  * Created by dusan_cvetkovic on 4/11/17.
@@ -14,7 +15,7 @@ class SensorsDialog(activity: Activity, private val listener: SensorChooserCallb
     private var alertDialog: AlertDialog?
 
     init {
-        val sensors = BaseSensor.Type
+        val sensors = SensorFactory.Type
                 .values()
                 .map { it.name}
                 .filter { it != "MOCKED_SENSOR" }
@@ -33,11 +34,11 @@ class SensorsDialog(activity: Activity, private val listener: SensorChooserCallb
     }
 
     override fun onClick(dialog: DialogInterface?, which: Int) {
-        listener.onSensorTypeSelected(BaseSensor.Type.values()[which+1])
+        listener.onSensorTypeSelected(SensorFactory.Type.values()[which+1])
     }
 
     interface SensorChooserCallback {
         fun onNothingSelected()
-        fun onSensorTypeSelected(sensorType: BaseSensor.Type)
+        fun onSensorTypeSelected(sensorType: SensorFactory.Type)
     }
 }

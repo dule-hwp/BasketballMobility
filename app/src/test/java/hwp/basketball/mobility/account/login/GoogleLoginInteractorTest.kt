@@ -1,8 +1,8 @@
-package hwp.basketball.mobility.login
+package hwp.basketball.mobility.account.login
 
 import hwp.basketball.mobility.entitiy.user.CoachViewModel
-import hwp.basketball.mobility.login.google.signin.SignInAccountWrapper
-import hwp.basketball.mobility.login.google.signin.SignInResultWrapper
+import hwp.basketball.mobility.account.login.google.signin.SignInAccountWrapper
+import hwp.basketball.mobility.account.login.google.signin.SignInResultWrapper
 import org.junit.Before
 import org.junit.Test
 import org.mockito.ArgumentMatchers
@@ -49,7 +49,7 @@ class GoogleLoginInteractorTest {
 
         val mock = CoachViewModel()
         verify(mockListener, never()).logInFail(anyString())
-        verify(mockListener, never()).logInSuccess(mock.email)
+        verify(mockListener, never()).logInSuccess(mock.email!!)
     }
 
     @Test
